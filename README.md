@@ -27,7 +27,10 @@ I am acting like this is a real software development repo, but that's how I lear
 <p>You can also feel free to go through the code on here and let me know if you think I am doing something in an inefficiant manner, or in a stupid way that will
 cause me issues down the line. Smoochies!</p>
 <hr>
-<small><strong>current website version: <em>a.0.0</em></strong></small>
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+<small><strong>current website version: <em>a.0.0</em></strong></small><br />
+
+<a href="https://www.python.org/" target="_blank"><img src="http://ForTheBadge.com/images/badges/made-with-python.svg"></a>
 <br />
-[![ForTheBadge uses-html](http://ForTheBadge.com/images/badges/uses-html.svg)](http://ForTheBadge.com) [![ForTheBadge uses-css](http://ForTheBadge.com/images/badges/uses-css.svg)](http://ForTheBadge.com) [![ForTheBadge uses-js](http://ForTheBadge.com/images/badges/uses-js.svg)](http://ForTheBadge.com)
+<a href="http://ForTheBadge.com"><img src="http://ForTheBadge.com/images/badges/uses-html.svg">
+<img src="http://ForTheBadge.com/images/badges/uses-css.svg">
+<img src="http://ForTheBadge.com/images/badges/uses-js.svg"></a>
