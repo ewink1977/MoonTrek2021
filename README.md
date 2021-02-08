@@ -19,7 +19,7 @@ replace it with my early 2020's bad writing. It's pretty much the same bad writi
 <h2>How Are You Going To Do It?</h2>
 <p>The plan right now is to use Django for the backend, creating at least two apps, once that contains the stories, and one that contains the database.</p>
 <p>The basic wireframe can be viewed <a href="https://drive.google.com/file/d/1o-2x3ulULSogPf0Zfhd6dcabhv_4SSl-/view?usp=sharing" target="_blank">here</a>. The 
-waire frame is not complete at this point, but gives a basic idea of what I am going for. I am hoping to set up an Amazon S3 Bucket to serve the files, and 
+wire frame is not complete at this point, but gives a basic idea of what I am going for. I am hoping to set up an Amazon S3 Bucket to serve the files, and 
 host the site on an Amazon EC2 instance.</p>
 <h2>Need Any Help?</h2>
 <p>Once I get the basics done and enough coded to get something online, I will update with the public URL for 'alpha' and 'beta' versions of the site. Yeah, I know
