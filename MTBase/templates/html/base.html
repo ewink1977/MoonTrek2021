@@ -22,49 +22,49 @@
     <link rel="stylesheet" href="{% static 'css/override.css' %}">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><img src="{% static 'img/moontrek_logo.png' %}" alt="The Moon Trek Logo" style="width: 50px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Story Quick Access</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Moon Trek : The Wrath Of Kuno</a>
+                        <a class="dropdown-item" href="#">Moon Trek II : Section 31</a>
+                        <a class="dropdown-item" href="#">Moon Trek Short : Intruder</a>
+                        <a class="dropdown-item" href="#">Moon Trek III : What Goes Around</a>
+                    <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Moon Trek NEO : Time</a>
+                        <a class="dropdown-item" href="#">Moon Trek NEO II : Agenda</a>
+                        <a class="dropdown-item" href="#">Moon Trek NEO Short : Lost</a>
+                        <a class="dropdown-item" href="#">Moon Trek NEO III : Prime Directive</a>
+                        <a class="dropdown-item" href="#">Moon Trek NEO IV : Salvation</a>
+                    <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Moon Trek Trinity : The Badlands</a>
+                        <a class="dropdown-item" href="#">Moon Trek Trinity II : The Office</a>
+                        <a class="dropdown-item" href="#">Moon Trek Trinity III : Timehole</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">LCARS Database</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'base:contactPage' %}">Contact</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#"><img src="{% static 'img/moontrek_logo.png' %}" alt="The Moon Trek Logo" style="width: 50px;"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Story Quick Access</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Moon Trek : The Wrath Of Kuno</a>
-                            <a class="dropdown-item" href="#">Moon Trek II : Section 31</a>
-                            <a class="dropdown-item" href="#">Moon Trek Short : Intruder</a>
-                            <a class="dropdown-item" href="#">Moon Trek III : What Goes Around</a>
-                        <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Moon Trek NEO : Time</a>
-                            <a class="dropdown-item" href="#">Moon Trek NEO II : Agenda</a>
-                            <a class="dropdown-item" href="#">Moon Trek NEO Short : Lost</a>
-                            <a class="dropdown-item" href="#">Moon Trek NEO III : Prime Directive</a>
-                            <a class="dropdown-item" href="#">Moon Trek NEO IV : Salvation</a>
-                        <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Moon Trek Trinity : The Badlands</a>
-                            <a class="dropdown-item" href="#">Moon Trek Trinity II : The Office</a>
-                            <a class="dropdown-item" href="#">Moon Trek Trinity III : Timehole</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">LCARS Database</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'base:contactPage' %}">Contact</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
         {% block content %}
 
         {% endblock content %}

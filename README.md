@@ -27,7 +27,7 @@ I am acting like this is a real software development repo, but that's how I lear
 <p>You can also feel free to go through the code on here and let me know if you think I am doing something in an inefficiant manner, or in a stupid way that will
 cause me issues down the line. Smoochies!</p>
 <hr>
-<small><strong>current website version: <em>a.0.0</em></strong></small><br />
+<small><strong>current website version: <em>1.0.0-alpha</em></strong></small><br />
 
 <a href="https://www.python.org/" target="_blank"><img src="http://ForTheBadge.com/images/badges/made-with-python.svg"></a>
 <br />

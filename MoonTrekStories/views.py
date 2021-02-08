@@ -1,4 +1,4 @@
 from django.shortcuts import render, redirect 
 
-def buffer(request):
-    return render(request, 'html/baseIndex.html')
+def storyHome(request):
+    return render(request, 'html/storyHome.html')

@@ -1,0 +1,183 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block content %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item active"><a href="#">Stories</a></li>
+</ol>
+<div class="container">
+    <h1 class="text-center stattliches">Welcome to the stories!</h1>
+    <div class="row">
+        <div class="col-md p-5">
+            <h2 class="special-elite">Blog Posts!</h2>
+            <hr class="my-4 border-primary">
+
+            <!-- Everything in this col is generated via Django. -->
+
+            <h3 class="bowlby">A Post Title!</h3>
+            <small class="text-primary">The Date Posted!</small>
+            <p>The first 50 words or so... Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, explicabo eius illum incidunt et laudantium labore voluptatibus! Nobis consectetur dignissimos sit praesentium non quia, eum facilis vitae doloribus. Cum, in?</p>
+            <p class="text-right bowlby"><a href="" class="text-info">Read More...</a></p>
+            <hr class="my-4 border-info">
+        </div>
+        <div class="col-md p-5">
+
+            <!-- Only URLs are dynamically created in this col. -->
+            
+            <h2 class="special-elite">Story List!</h2>
+            <small>Quick Jump: <a href="#mt" class="text-primary">Moon Trek</a> | <a href="#neo" class="text-primary">MT NEO</a> | <a href="#trinity" class="text-primary">MT Trinity</a></small>
+            <hr class="mx-5">
+
+            <h3 class="bowlby" id="mt">Moon Trek</h3>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Moon Trek : The Wrath of Kuno</p>
+                    <p class="ml-5">
+                        The first installment of the Nerima wrecking crew in space! Ranma Saotome is given command of Starfleet's newest and most powerful battleship, the USS Benjamin Sisko.
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Intruder</p>
+                    <p class="ml-5">
+                        A Moon Trek short story. The Sisko ends up being boarded and the only one who can save her is... Ryouga?
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Moon Trek II: Section 31</p>
+                    <p class="ml-5">
+                        The crew of the Sisko find themselves caught up in a web of lies and deceit that finally manifest into a confrontation with the most deadly force in all the Federation. Section 31.
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Moon Trek III: What Goes Around</p>
+                    <p class="ml-5">
+                        All is going well with the Sisko until a new and improved Kuno collective shows up. And they are out for revenge!
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="bowlby" id="neo">Moon Trek NEO</h3>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Moon Trek NEO: Time</p>
+                    <p class="ml-5">
+                        Having proved their worth in less than ordinary situations, Captain Ranma Saotome takes command of a new special operations task force known as NEO.
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Moon Trek NEO II: Agenda</p>
+                    <p class="ml-5">
+                        Ranma Saotome is forced to deal with many issues, including the consequences of his last mission, while the Sisko is sent on a rescue mission.
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Lost</p>
+                    <p class="ml-5">
+                        A Moon Trek NEO short story. A transporter accident causes the command staff of the U.S.S. Benjamin L. Sisko to go missing.
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Moon Trek NEO III: Prime Directive</p>
+                    <p class="ml-5">
+                        The Sisko crew finds themselves marooned on a warring, pre-warp planet eight weeks away from help. 
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Moon Trek NEO IV: Salvation</p>
+                    <p class="ml-5">
+                        Ranma and crew end up in a race against the clock to stop threats from the Vulcans, the Federation, and even themselves.
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="bowlby" id="trinity">Moon Trek Trinity</h3>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Moon Trek Trinity: The Badlands</p>
+                    <p class="ml-5">
+                        A sensor hit of a Jem'Hadar ship leads the Sisko in a race against time to stop a serious threat from reemerging right in the Federation's backyard.
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Moon Trek Trinity II: The Office</p>
+                    <p class="ml-5">
+                        Orion slavers, ship side drama, new crew members, the realization you're no longer young, and lecherous old Admirals. That's their office. 
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">Moon Trek Trinity III: Timehole</p>
+                    <p class="ml-5">
+                        An old enemy of the crew of the U.S.S. Benjamian L. Sisko joins forces with one of the most evil forces in the universe!
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
