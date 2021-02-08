@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +15,71 @@
         crossorigin="anonymous">
     <link rel="stylesheet" 
         href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+    <link rel="preconnect" 
+        href="https://fonts.gstatic.com">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Bowlby+One+SC&family=Special+Elite&family=Staatliches&display=swap">
+    <link rel="stylesheet" href="{% static 'css/override.css' %}">
 </head>
 <body>
-    {% block content %}
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img src="{% static 'img/moontrek_logo.png' %}" alt="The Moon Trek Logo" style="width: 50px;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Story Quick Access</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Moon Trek : The Wrath Of Kuno</a>
+                            <a class="dropdown-item" href="#">Moon Trek II : Section 31</a>
+                            <a class="dropdown-item" href="#">Moon Trek Short : Intruder</a>
+                            <a class="dropdown-item" href="#">Moon Trek III : What Goes Around</a>
+                        <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Moon Trek NEO : Time</a>
+                            <a class="dropdown-item" href="#">Moon Trek NEO II : Agenda</a>
+                            <a class="dropdown-item" href="#">Moon Trek NEO Short : Lost</a>
+                            <a class="dropdown-item" href="#">Moon Trek NEO III : Prime Directive</a>
+                            <a class="dropdown-item" href="#">Moon Trek NEO IV : Salvation</a>
+                        <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Moon Trek Trinity : The Badlands</a>
+                            <a class="dropdown-item" href="#">Moon Trek Trinity II : The Office</a>
+                            <a class="dropdown-item" href="#">Moon Trek Trinity III : Timehole</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">LCARS Database</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'base:contactPage' %}">Contact</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        {% block content %}
 
-    {% endblock content %}
+        {% endblock content %}
+        <footer class="text-muted border-top border-secondary">
+            <div class="container">
+                <div class="col text-center">
+                    <small>©1997-2021 <a href="https://www.douglasavenue.com" target="_blank" rel="noopener noreferrer">Erin M Winking</a> | Star Trek, Sailor Moon, Ranma ½, and all other used works are property of their respective owners and used under the 
+                        Fair Use guidelines of U.S. law.</small>
+                </div>
+                <div class="col text-center">
+                    <small>Cookies used on this site are for analytics and the function of the site only. No information is sold or used for any marketing purposes.</small>
+                </div>
+            </div>
+        </footer>
+    </div>
     <script 
         src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script 
