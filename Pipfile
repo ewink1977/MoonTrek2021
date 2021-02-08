@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "*"
 django-tinymce = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
