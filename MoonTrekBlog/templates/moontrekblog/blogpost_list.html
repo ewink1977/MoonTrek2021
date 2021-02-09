@@ -5,7 +5,7 @@
     <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
     <li class="breadcrumb-item active">Blog Main Page</li>
 </ol>
-    <div class="container">
+    <div class="container rounded border border-secondary shadow mb-5 p-3">
         {% for post_obj in object_list %}
         <div class="col p-4">
             <h1 class="bowlby">{{ post_obj.title }}</h1>

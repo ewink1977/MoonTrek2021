@@ -13,7 +13,7 @@
             <hr class="my-4 border-primary">
 
             <!-- Everything in this col is generated via Django. -->
-            {% for post_obj in posts %}
+            {% for post_obj in page_obj %}
 
             <h3 class="bowlby">{{ post_obj.title }}</h3>
             <h6 class="text-muted stattliches">Posted by <a href="{% url 'base:profilePage' post_obj.author.username %}" class="text-info">{{ post_obj.author }}</a></h6>
