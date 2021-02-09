@@ -22,4 +22,5 @@ urlpatterns = [
     path('blog/', include('MoonTrekBlog.urls')),
     path('LCARS/', include('MoonTrekLCARS.urls')),
     path('stories/', include('MoonTrekStories.urls')),
-]
+    path('tinymce/', include('tinymce.urls')),
+    ]
