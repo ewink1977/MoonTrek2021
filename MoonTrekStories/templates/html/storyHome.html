@@ -17,7 +17,7 @@
 
             <h3 class="bowlby">{{ post_obj.title }}</h3>
             <h6 class="text-muted stattliches">Posted by {{ post_obj.author }}</h6>
-            <small class="text-primary">{{ post_obj.date_posted }}</small>
+            <small class="text-primary">{{ post_obj.date_posted|date:'F j, Y' }}</small>
             <p>{{ post_obj.content }}</p>
             <p class="text-right bowlby"><a href="" class="text-info">Read More...</a></p>
             <hr class="my-4 border-info">
