@@ -1,0 +1,23 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block content %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Home</a></li>
+    <li class="breadcrumb-item active">{{ user.username }}'s Profile</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 p-5 align-self-start">
+            <img class="rounded shadow profile-pic" src="{{ user.profile.image.url }}" alt="{{ user.username }}'s profile picture!">
+        </div>
+        <div class="col-md p-5">
+            <h1 class="ml-3 special-elite">{{ user.username }}</h1>
+            <h4 class="ml-5">{{ user.first_name }} {{ user.last_name }}</h4>
+            <hr class="my-3 mx-2 border border-info">
+            <div class="col p-4 border border-primary rounded shadow">
+                <p>{{ user.profile.about }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

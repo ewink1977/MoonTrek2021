@@ -128,5 +128,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Media Handling
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # A redirect to redirect the only user of the site... ME!
 LOGIN_REDIRECT_URL = 'stories:storyHome'
+

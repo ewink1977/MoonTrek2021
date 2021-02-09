@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <ol class="breadcrumb">
-    <li class="breadcrumb-item active"><a href="#">Stories</a></li>
+    <li class="breadcrumb-item active"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
 </ol>
 <div class="container">
     <h1 class="text-center stattliches">Welcome to the stories!</h1>
@@ -16,7 +16,7 @@
             {% for post_obj in posts %}
 
             <h3 class="bowlby">{{ post_obj.title }}</h3>
-            <h6 class="text-muted stattliches">Posted by {{ post_obj.author }}</h6>
+            <h6 class="text-muted stattliches">Posted by <a href="{% url 'base:profilePage' post_obj.author.username %}" class="text-info">{{ post_obj.author }}</a></h6>
             <small class="text-primary">{{ post_obj.date_posted|date:'F j, Y' }}</small>
             <p>{{ post_obj.content|safe }}</p>
             <p class="text-right bowlby"><a href="" class="text-info">Read More...</a></p>

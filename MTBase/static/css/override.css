@@ -17,3 +17,8 @@
 .stattliches {
     font-family: 'Staatliches', cursive;
 }
+
+.profile-pic {
+    width: 300px;
+    height: 250px;
+}
