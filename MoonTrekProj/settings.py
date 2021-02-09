@@ -35,9 +35,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'MTBase',
-    'MoonTrekStories',
-    'MoonTrekProj',
+    'MTBase.apps.MtbaseConfig',
+    'MoonTrekStories.apps.MoontrekstoriesConfig',
+    'MoonTrekLCARS.apps.MoontreklcarsConfig',
+    'MoonTrekBlog.apps.MoontrekblogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

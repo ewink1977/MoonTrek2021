@@ -9,22 +9,27 @@
     <div class="row">
         <div class="col-md p-5">
             <h2 class="special-elite">Blog Posts!</h2>
+            <small>Quick Jump : <a href="" class="text-info">All Posts</a></small>
             <hr class="my-4 border-primary">
 
             <!-- Everything in this col is generated via Django. -->
+            {% for post_obj in posts %}
 
-            <h3 class="bowlby">A Post Title!</h3>
-            <small class="text-primary">The Date Posted!</small>
-            <p>The first 50 words or so... Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, explicabo eius illum incidunt et laudantium labore voluptatibus! Nobis consectetur dignissimos sit praesentium non quia, eum facilis vitae doloribus. Cum, in?</p>
+            <h3 class="bowlby">{{ post_obj.title }}</h3>
+            <h6 class="text-muted stattliches">Posted by {{ post_obj.author }}</h6>
+            <small class="text-primary">{{ post_obj.date_posted }}</small>
+            <p>{{ post_obj.content }}</p>
             <p class="text-right bowlby"><a href="" class="text-info">Read More...</a></p>
             <hr class="my-4 border-info">
+            {% endfor %}
         </div>
+
         <div class="col-md p-5">
 
             <!-- Only URLs are dynamically created in this col. -->
             
             <h2 class="special-elite">Story List!</h2>
-            <small>Quick Jump: <a href="#mt" class="text-primary">Moon Trek</a> | <a href="#neo" class="text-primary">MT NEO</a> | <a href="#trinity" class="text-primary">MT Trinity</a></small>
+            <small>Quick Jump: <a href="#mt" class="text-info">Moon Trek</a> | <a href="#neo" class="text-info">MT NEO</a> | <a href="#trinity" class="text-info">MT Trinity</a></small>
             <hr class="mx-5">
 
             <h3 class="bowlby" id="mt">Moon Trek</h3>
