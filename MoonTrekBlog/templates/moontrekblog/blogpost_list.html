@@ -1,0 +1,20 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block content %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
+    <li class="breadcrumb-item active">Blog Main Page</li>
+</ol>
+    <div class="container">
+        {% for post_obj in object_list %}
+        <div class="col p-4">
+            <h1 class="bowlby">{{ post_obj.title }}</h1>
+            <h3 class="text-muted stattliches">Posted by <a href="{% url 'base:profilePage' post_obj.author.username %}" class="text-info">{{ post_obj.author }}</a></h3>
+            <small class="text-primary">{{ post_obj.date_posted|date:'F j, Y' }}</small>
+            <p>{{ post_obj.content|safe }}</p>
+            <p class="text-right bowlby"><a href="{% url 'blog:blogPost' post_obj.slug %}" class="text-info">Read More...</a></p>
+            <hr class="my-4 border-info">
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
