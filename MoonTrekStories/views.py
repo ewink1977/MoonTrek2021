@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from MoonTrekBlog.models import BlogPost
 
 def storyHome(request):
-    blogPosts = BlogPost.objects.all()
+    blogPosts = BlogPost.objects.all().order_by('-date_posted')
     paginator = Paginator(blogPosts, 5)
 
     page_number = request.GET.get('page')

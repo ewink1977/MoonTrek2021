@@ -5,11 +5,15 @@
     <li class="breadcrumb-item active"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
 </ol>
 <div class="container">
-    <h1 class="text-center stattliches">Welcome to the stories!</h1>
+    <h1 class="text-center stattliches">Welcome to the Moon Trek Story Page!</h1>
     <div class="row">
         <div class="col-md p-5">
             <h2 class="special-elite">Blog Posts!</h2>
             <small>Quick Jump : <a href="{% url 'blog:blogHome' %}" class="text-info">All Posts</a></small>
+            <p class="border border-secondary shadow p-2 mx-3 my-2">
+                Are you interested in the thought process behind why I wrote something the way I did, or curious about some other things that might have happened 
+                outside of the main story? No? Well, in case you find someone who is, you can read blog posts here about the stories!
+            </p>
             <hr class="my-4 border-primary">
 
             <!-- Everything in this col is generated via Django. -->
@@ -19,9 +23,12 @@
             <h6 class="text-muted stattliches">Posted by <a href="{% url 'base:profilePage' post_obj.author.username %}" class="text-info">{{ post_obj.author }}</a></h6>
             <small class="text-primary">{{ post_obj.date_posted|date:'F j, Y' }}</small>
             <p>{{ post_obj.content|safe }}</p>
-            <p class="text-right bowlby"><a href="" class="text-info">Read More...</a></p>
+            <p class="text-right bowlby"><a href="{% url 'blog:blogPost' post_obj.slug %}" class="text-info">Read More...</a></p>
             <hr class="my-4 border-info">
             {% endfor %}
+            <div class="col-5">
+                <a href="{% url 'blog:blogHome' %}" class="text-info"><button type="button" class="btn btn-primary btn-lg bowlby">All Posts</button></a>
+            </div>
         </div>
 
         <div class="col-md p-5">
@@ -30,6 +37,10 @@
             
             <h2 class="special-elite">Story List!</h2>
             <small>Quick Jump: <a href="#mt" class="text-info">Moon Trek</a> | <a href="#neo" class="text-info">MT NEO</a> | <a href="#trinity" class="text-info">MT Trinity</a></small>
+            <p class="border border-secondary shadow p-2 mx-3 my-2">
+                Here you can find links to all of the Moon Trek main stories! There are 10 full length stories and 2 shorts! I hope you enjoy 
+                reading them as much as I enjoyed writing them!
+            </p>
             <hr class="mx-5">
 
             <h3 class="bowlby" id="mt">Moon Trek</h3>
