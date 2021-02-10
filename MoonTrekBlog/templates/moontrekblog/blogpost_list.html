@@ -11,10 +11,37 @@
             <h1 class="bowlby">{{ post_obj.title }}</h1>
             <h3 class="text-muted stattliches">Posted by <a href="{% url 'base:profilePage' post_obj.author.username %}" class="text-info">{{ post_obj.author }}</a></h3>
             <small class="text-primary">{{ post_obj.date_posted|date:'F j, Y' }}</small>
-            <p>{{ post_obj.content|safe }}</p>
+            <p>{{ post_obj.content|safe|truncatewords:50 }}</p>
             <p class="text-right bowlby"><a href="{% url 'blog:blogPost' post_obj.slug %}" class="text-info">Read More...</a></p>
             <hr class="my-4 border-info">
         </div>
         {% endfor %}
+        {% if is_paginated %}
+        <div class="row justify-content-end">
+            <div class="btn-toolbar mx-5" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="Pagination Group">
+                    {% if page_obj.has_previous %}
+                        {% if page_obj.number == 1 %}
+                        <button type="button" class="btn btn-ouline-primary disabled">&laquo;</button>
+                        {% else %}
+                        <a href="?page=1"><button type="button" class="btn btn-outline-primary">&laquo;</button></a>
+                        {% endif %}
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                        <a href="?page={{ num }}"><button type="button" class="btn btn-primary">{{ num }}</button></a>
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <a href="?page={{ num }}"><button type="button" class="btn btn-outline-primary">{{ num }}</button></a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.paginator.num_pages }}"><button type="button" class="btn btn-outline-primary">&raquo;</button></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
+    {% endif %}
 {% endblock content %}

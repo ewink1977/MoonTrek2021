@@ -6,7 +6,7 @@ from django.views.generic import (
 from .models import BlogPost
 
 class BlogPostAll(ListView):
-    paginate_by = 10
+    paginate_by = 3
     model = BlogPost
     ordering = ['-date_posted']
 

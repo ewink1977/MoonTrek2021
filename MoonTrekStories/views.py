@@ -1,5 +1,4 @@
-from django.core import paginator
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.core.paginator import Paginator
 from MoonTrekBlog.models import BlogPost
 
