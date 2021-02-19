@@ -3,4 +3,6 @@ __pycache__/
 .vscode/
 venv/
 db.sqlite3
+moontreksqllite.json
+# Remove MEDIA for deployment.
 media/*

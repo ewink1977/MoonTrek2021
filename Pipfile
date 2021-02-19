@@ -8,6 +8,7 @@ django = "*"
 django-tinymce = "*"
 python-dotenv = "*"
 pillow = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
