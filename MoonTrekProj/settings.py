@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tinymce',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,12 @@ MEDIA_URL = '/media/'
 # A redirect to redirect the only user of the site that can login... ME!
 LOGIN_REDIRECT_URL = 'stories:storyHome'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# EMAIL HANDLING
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')

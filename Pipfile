@@ -9,6 +9,7 @@ django-tinymce = "*"
 python-dotenv = "*"
 pillow = "*"
 psycopg2 = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 
