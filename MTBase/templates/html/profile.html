@@ -7,15 +7,15 @@
 </ol>
 <div class="container">
     <div class="row">
-        <div class="col-md-4 p-5 align-self-start">
-            <img class="rounded shadow profile-pic" src="{{ user.profile.image.url }}" alt="{{ user.username }}'s profile picture!">
+        <div class="col-md align-self-center text-center">
+            <h3 class="p-2 bowlby">{{ user.first_name }} {{ user.last_name }}</h3>
+            <img class="rounded shadow img-fluid mx-auto d-block" src="{{ user.profile.image.url }}" alt="{{ user.username }}'s profile picture!">
         </div>
-        <div class="col-md p-5">
+        <div class="col-md-7 p-3">
             <h1 class="ml-3 special-elite">{{ user.username }}</h1>
-            <h4 class="ml-5">{{ user.first_name }} {{ user.last_name }}</h4>
             <hr class="my-3 mx-2 border border-info">
             <div class="col p-4 border border-primary rounded shadow">
-                <p>{{ user.profile.about }}</p>
+                <p>{{ user.profile.about|safe }}</p>
             </div>
         </div>
     </div>
