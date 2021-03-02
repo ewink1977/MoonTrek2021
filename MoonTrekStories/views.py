@@ -13,3 +13,7 @@ def storyHome(request):
         'pagetitle': 'Moon Trek | Stories Home Page'
     }
     return render(request, 'html/storyHome.html', context)
+
+
+
+# <app>/<model>_<type>.html
