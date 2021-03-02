@@ -5,6 +5,6 @@ app_name = 'stories'
 
 urlpatterns = [
     path('', StoryViews.storyHome, name = 'storyHome'),
-    path('<slug:story_slug>/', StoryViews.storyPage, name = 'storyPage'),
-    path('<slug:story_slug>/<int:chap_num>/<slug:chap_slug>/', StoryViews.chapterPage, name = 'chapterPage'),
+    path('<slug:slug>/', StoryViews.StoryPage.as_view(), name = 'storyPage'),
+    path('<slug:story_slug>/<slug:chap_slug>/', StoryViews.chapterPage, name = 'chapterPage'),
 ]

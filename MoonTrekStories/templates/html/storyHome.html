@@ -45,6 +45,22 @@
 
             <h3 class="bowlby" id="mt">Moon Trek</h3>
 
+            {% for story in stories %}
+                {% if story.series == 1 %}
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">{{ story.title }}</p>
+                    <p class="ml-5">
+                        {{ story.summary|safe|truncatewords:35 }}
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href="{% url 'stories:storyPage' story.slug %}"><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+                {% endif %}
+            {% endfor %}
+
             <div class="row border border-primary shadow p-1 mb-2">
                 <div class="col">
                     <p class="lead anton">Moon Trek : The Wrath of Kuno</p>
