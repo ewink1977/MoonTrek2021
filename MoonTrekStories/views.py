@@ -14,6 +14,10 @@ def storyHome(request):
     }
     return render(request, 'html/storyHome.html', context)
 
+def storyPage(request):
+    pass
 
+def chapterPage(request):
+    pass
 
 # <app>/<model>_<type>.html
