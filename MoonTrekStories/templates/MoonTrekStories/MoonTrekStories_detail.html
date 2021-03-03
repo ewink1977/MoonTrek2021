@@ -24,7 +24,11 @@
                 <p>If you want to read the story in your browser, select from below.</p>
                 <ul>
                 {% for chapter in object.chapters.all %}
-                <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}" class="text-info"><li>Chapter {{ chapter.chapter_number }} - {{ chapter.title }}</li></a>
+                <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}" class="text-info"><li>
+                    {% if chapter.chapter_number != 0 %}
+                        Chapter {{ chapter.chapter_number }} - 
+                    {% endif %}
+                        {{ chapter.title }}</li></a>
                 {% endfor %}
                 </ul>
             </div>
@@ -33,6 +37,14 @@
                 <ul>
                     <li>Download Text</li>
                     <li>Download PDF</li>
+                </ul>
+            </div>
+            <h3 class="bowlby mt-3">Blog Posts</h3>
+            <div class="col py-3 px-3 border border-dark rounded shadow">
+                <p>Blog posts about this story.</p>
+                <ul>
+                    <li>Why Does It Suck?</li>
+                    <li>No, really, why does it suck?</li>
                 </ul>
             </div>
         </div>

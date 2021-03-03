@@ -6,7 +6,7 @@ class StoryAdmin(admin.ModelAdmin):
     list_display = ('title', 'series')
 
 class ChapterAdmin(admin.ModelAdmin):
-    list_display = ('title', 'chapter_number')
+    list_display = ('title', 'chapter_number', 'story')
 
 admin.site.register(MoonTrekStories, StoryAdmin)
 admin.site.register(MoonTrekChapters, ChapterAdmin)
