@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tinymce',
     'crispy_forms',
+    'fontawesome-free',
 ]
 
 MIDDLEWARE = [
@@ -184,4 +185,6 @@ TINYMCE_DEFAULT_CONFIG = {
     'contextmenu': 'formats | link image',
     'menubar': True,
     'statusbar': True,
+    'width': '100%',
+    'height': 600
 }

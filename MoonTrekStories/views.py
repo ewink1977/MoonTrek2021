@@ -29,11 +29,14 @@ class StoryPage(DetailView):
         context['seriesNames'] = seriesNames
         return context
 
-def chapterPage(request, story_slug, chap_slug):
-    chapter = MoonTrekChapters.objects.get(slug = chap_slug)
-    context = {
-        'chapter': chapter,
-    }
-    pass
+class ChapterPage(DetailView):
+    model = MoonTrekChapters
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['seriesNames'] = seriesNames
+        allChapters = self.get_queryset()
+        context['allChapters'] = allChapters
+        return context
 
 # <app>/<model>_<type>.html
