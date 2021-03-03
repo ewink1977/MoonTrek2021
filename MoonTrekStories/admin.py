@@ -3,12 +3,10 @@ from MoonTrekStories.models import MoonTrekStories, MoonTrekChapters
 
 
 class StoryAdmin(admin.ModelAdmin):
-    list_display = ('series', 'title')
-    prepopulated_fields = {'slug': ('title',)}
+    list_display = ('title', 'series')
 
 class ChapterAdmin(admin.ModelAdmin):
-    list_display = ('chapter_number', 'title')
-    prepopulated_fields = {'slug': ('title',)}
+    list_display = ('title', 'chapter_number')
 
 admin.site.register(MoonTrekStories, StoryAdmin)
 admin.site.register(MoonTrekChapters, ChapterAdmin)

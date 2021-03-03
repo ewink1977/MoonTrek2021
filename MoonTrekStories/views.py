@@ -24,11 +24,16 @@ def storyHome(request):
 class StoryPage(DetailView):
     model = MoonTrekStories
 
-def storyPage(request):
-    pass
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['seriesNames'] = seriesNames
+        return context
 
 def chapterPage(request, story_slug, chap_slug):
     chapter = MoonTrekChapters.objects.get(slug = chap_slug)
+    context = {
+        'chapter': chapter,
+    }
     pass
 
 # <app>/<model>_<type>.html

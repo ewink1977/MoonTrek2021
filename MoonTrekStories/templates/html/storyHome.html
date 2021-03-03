@@ -1,10 +1,10 @@
 {% extends 'html/base.html' %}
 {% load static %}
 {% block content %}
-<ol class="breadcrumb">
-    <li class="breadcrumb-item active"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
-</ol>
 <div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
+    </ol>
     <h1 class="text-center stattliches">Welcome to the Moon Trek Story Page!</h1>
     <div class="row">
         <div class="col-md p-5">
@@ -51,7 +51,7 @@
                 <div class="col">
                     <p class="lead anton">{{ story.title }}</p>
                     <p class="ml-5">
-                        {{ story.summary|safe|truncatewords:35 }}
+                        {{ story.description }}
                     </p>
                     <div class="text-right mx-5 mb-3">
                     <a href="{% url 'stories:storyPage' story.slug %}"><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
