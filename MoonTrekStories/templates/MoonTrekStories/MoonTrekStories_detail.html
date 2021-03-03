@@ -8,13 +8,7 @@
     </ol>
     <div class="row p-2 m-2">
         <div class="col text-center">
-            <h2 class="special-elite">
-                {% for key, value in seriesNames.items %}
-                    {% if key == object.series %}
-                        {{ value }} 
-                    {% endif %}
-                {% endfor %}
-                : {{ object.title }}</h2>
+            <h2 class="special-elite">{{ object.title }}</h2>
             <img src="{{ object.image.url }}" alt="{{ object.title }}'s Header Image!" class="img-fluid mx-auto d-block shadow">
         </div>
     </div>
@@ -26,17 +20,21 @@
     <div class="row m-3 p-4 border border-dark justify-content-start">
         <div class="col-md-6">
             <h3 class="bowlby">Chapter List</h3>
-            <p>If you want to read the story in your browser, select from below.</p>
-            <ul>
-            {% for chapter in object.chapters.all %}
-            <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}" class="text-info"><li>Chapter {{ chapter.chapter_number }} - {{ chapter.title }}</li></a>
-            {% endfor %}
-            </ul>
-            <h3 class="bowlby">Offline Options</h3>
-            <ul>
-                <li>Download Text</li>
-                <li>Download PDF</li>
-            </ul>
+            <div class="col py-3 px-3 border border-dark rounded shadow">
+                <p>If you want to read the story in your browser, select from below.</p>
+                <ul>
+                {% for chapter in object.chapters.all %}
+                <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}" class="text-info"><li>Chapter {{ chapter.chapter_number }} - {{ chapter.title }}</li></a>
+                {% endfor %}
+                </ul>
+            </div>
+            <h3 class="bowlby mt-3">Offline Options</h3>
+            <div class="col py-3 px-3 border border-dark rounded shadow">
+                <ul>
+                    <li>Download Text</li>
+                    <li>Download PDF</li>
+                </ul>
+            </div>
         </div>
         <div class="col-md-6">
             <h3 class="bowlby">More Stuff!</h3>
