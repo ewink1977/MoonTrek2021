@@ -1,12 +1,12 @@
 {% extends 'html/base.html' %}
 {% load static %}
 {% block content %}
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
-    <li class="breadcrumb-item active"><a href="{% url 'blog:blogHome' %}">Blog Main Page</a></li>
-    <li class="breadcrumb-item active">{{ object.title }}</li>
-</ol>
 <div class="container rounded border border-secondary shadow mb-5 p-3">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
+        <li class="breadcrumb-item active"><a href="{% url 'blog:blogHome' %}">Blog Main Page</a></li>
+        <li class="breadcrumb-item active">{{ object.title }}</li>
+    </ol>
     <div class="row">
         <div class="col-md text-center">
             <h1>{{ object.title }}</h1>

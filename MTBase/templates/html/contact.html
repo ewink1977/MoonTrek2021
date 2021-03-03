@@ -2,16 +2,18 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Home</a></li>
-    <li class="breadcrumb-item active">Contact</li>
-</ol>
-<div class="container p-5">
-    <h1 class="anton">Contact Erin!</h1>
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Home</a></li>
+        <li class="breadcrumb-item active">Contact</li>
+    </ol>
+    <div class="row my-2 mx-5">
+        <h1 class="anton">Contact Erin!</h1>
     <p>
         Feel free to contact me for whatever reason you want, but if you're going to use this form, it should probably be about Moon Trek!
     </p>
-    <div class="col-6">
+    </div>
+    <div class="col-6 m-5">
         <form action="{% url 'base:contactPage' %}" method="POST">
             <fieldset>
                 {% csrf_token %}
