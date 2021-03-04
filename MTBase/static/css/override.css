@@ -17,3 +17,7 @@
 .stattliches {
     font-family: 'Staatliches', cursive;
 }
+
+.chap-indent {
+    text-indent: 2rem;
+}
