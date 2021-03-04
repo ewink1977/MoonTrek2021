@@ -1,3 +1,12 @@
 from django.contrib import admin
+from MoonTrekStories.models import MoonTrekStories, MoonTrekChapters
 
-# Register your models here.
+
+class StoryAdmin(admin.ModelAdmin):
+    list_display = ('title', 'series')
+
+class ChapterAdmin(admin.ModelAdmin):
+    list_display = ('title', 'chapter_number', 'story')
+
+admin.site.register(MoonTrekStories, StoryAdmin)
+admin.site.register(MoonTrekChapters, ChapterAdmin)

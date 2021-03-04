@@ -1,11 +1,11 @@
 {% extends 'html/base.html' %}
 {% load static %}
 {% block content %}
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Home</a></li>
-    <li class="breadcrumb-item active">{{ user.username }}'s Profile</li>
-</ol>
 <div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Home</a></li>
+        <li class="breadcrumb-item active">{{ user.username }}'s Profile</li>
+    </ol>
     <div class="row">
         <div class="col-md align-self-center text-center">
             <h3 class="p-2 bowlby">{{ user.first_name }} {{ user.last_name }}</h3>

@@ -1,10 +1,10 @@
 {% extends 'html/base.html' %}
 {% load static %}
 {% block content %}
-<ol class="breadcrumb">
-    <li class="breadcrumb-item active"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
-</ol>
 <div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
+    </ol>
     <h1 class="text-center stattliches">Welcome to the Moon Trek Story Page!</h1>
     <div class="row">
         <div class="col-md p-5">
@@ -44,6 +44,22 @@
             <hr class="mx-5">
 
             <h3 class="bowlby" id="mt">Moon Trek</h3>
+
+            {% for story in stories %}
+                {% if story.series == 1 %}
+            <div class="row border border-primary shadow p-1 mb-2">
+                <div class="col">
+                    <p class="lead anton">{{ story.title }}</p>
+                    <p class="ml-5">
+                        {{ story.description }}
+                    </p>
+                    <div class="text-right mx-5 mb-3">
+                    <a href="{% url 'stories:storyPage' story.slug %}"><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
+                    </div>
+                </div>
+            </div>
+                {% endif %}
+            {% endfor %}
 
             <div class="row border border-primary shadow p-1 mb-2">
                 <div class="col">

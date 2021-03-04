@@ -3,7 +3,7 @@ from django.views.generic import (
     ListView,
     DetailView,
 )
-from .models import BlogPost
+from MoonTrekBlog.models import BlogPost
 
 class BlogPostAll(ListView):
     paginate_by = 3

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import BlogPostAll, BlogPostSingle
+from MoonTrekBlog.views import BlogPostAll, BlogPostSingle
 
 
 app_name = 'blog'
