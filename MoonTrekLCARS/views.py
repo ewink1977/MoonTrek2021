@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
@@ -17,6 +18,10 @@ class LCARSHome(ListView):
         context['pagetitle'] = 'Moon Trek | LCARS Database'
 
         return context
+
+    def randomArticle():
+        fromModel = random.randint(1, 3)
+        print(fromModel)
 
 
 # <app>/<model>_<type>.html

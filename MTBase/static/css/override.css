@@ -18,6 +18,10 @@
     font-family: 'Staatliches', cursive;
 }
 
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
 .chap-indent {
     text-indent: 2rem;
 }
