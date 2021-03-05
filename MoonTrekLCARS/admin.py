@@ -1,3 +1,15 @@
 from django.contrib import admin
+from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
 
-# Register your models here.
+class CharacterAdmin(admin.ModelAdmin):
+    list_display = ('name', 'rank')
+
+class ShipAdmin(admin.ModelAdmin):
+    list_display = ('name', 'faction')
+
+class PlaceAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug')
+
+admin.site.register(Character, CharacterAdmin)
+admin.site.register(Ship, ShipAdmin)
+admin.site.register(PlacesAndItems, PlaceAdmin)

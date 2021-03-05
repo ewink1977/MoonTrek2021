@@ -1,6 +1,8 @@
 from django.urls import path
-from MoonTrekLCARS import views
+from MoonTrekLCARS import views as LCARSView
+
+appname = 'LCARS'
 
 urlpatterns = [
-    path('', views.buffer),
+    path('', LCARSView.LCARSHome.as_view(), name = 'lcarsHome'),
 ]
