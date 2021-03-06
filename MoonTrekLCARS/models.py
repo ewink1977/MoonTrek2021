@@ -5,7 +5,9 @@ from MoonTrekStories.models import MoonTrekStories
 
 class Character(models.Model):
     name = models.CharField(max_length = 255)
+    faction = models.IntegerField(default = 0)
     rank = models.IntegerField(default = 0)
+    department = models.IntegerField(default = 0)
     content = HTMLField()
     slug = models.SlugField()
     created_at =  models.DateTimeField(auto_now_add = True)
@@ -43,5 +45,3 @@ class PlacesAndItems(models.Model):
 
     def __str__(self):
         return f'Place/Item: { self.name }'
-
-
