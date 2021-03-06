@@ -1,6 +1,7 @@
 import random
 from django.db import models
 from django.shortcuts import render, redirect
+from django.template import Template, RequestContext
 from django.views.generic import ListView, DetailView, TemplateView
 from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
 from MoonTrekLCARS.keys import charFaction, charRank, charDepartment
@@ -49,8 +50,10 @@ class CharacterFull(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(CharacterFull, self).get_context_data(**kwargs)
-        context['factionDict'] = charFaction
         context['deptDict'] = charDepartment
+        self.object.urlSafe = Template(
+            self.object.content
+        ).render(RequestContext(self.request, context))
 
         return context
 
