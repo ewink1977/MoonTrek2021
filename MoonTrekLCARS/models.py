@@ -6,7 +6,7 @@ from MoonTrekStories.models import MoonTrekStories
 class Character(models.Model):
     name = models.CharField(max_length = 255)
     faction = models.IntegerField(default = 0)
-    rank = models.IntegerField(default = 0)
+    rank = models.IntegerField(default = 100)
     department = models.IntegerField(default = 0)
     content = HTMLField()
     slug = models.SlugField()

@@ -10,7 +10,6 @@ charFaction = {
 }
 
 charRank = {
-    0: 'No Rank/Not Starfleet',
     1: 'Captain',
     2: 'Commander',
     3: 'Lieutenant Commander',
@@ -21,7 +20,8 @@ charRank = {
     8: 'Admiral',
     9: 'Vice Admiral',
     10: 'Rear-Admiral',
-    11: 'Commodore'
+    11: 'Commodore',
+    100: 'No Rank/Not Starfleet',
 }
 
 charDepartment = {

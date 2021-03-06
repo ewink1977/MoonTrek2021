@@ -1,4 +1,5 @@
 import random
+from django.db import models
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, TemplateView
 from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
@@ -29,5 +30,19 @@ class LCARSHome(TemplateView):
             randIndex = random.randint(1, last)
             randomArticle = PlacesAndItems.objects.get(id = randIndex)
         return randomArticle
+
+class Characters(ListView):
+    model = Character
+    ordering = ['rank']
+
+def CharacterPartialView(request, slug):
+    character = Character.objects.get(slug = slug)
+    context = {
+        'character': character
+    }
+    return render(request, 'MoonTrekLCARS/character_partial_return.html', context)
+
+class CharacterFull(DetailView):
+    model = Character
 
 # <app>/<model>_<type>.html
