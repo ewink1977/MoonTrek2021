@@ -1,0 +1,43 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'LCARS:lcarsHome' %}">LCARS Homepage</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'LCARS:characterHome' %}">Character DB</a></li>
+        <li class="breadcrumb-item active">{{ character.name }}</li>
+    </ol>
+    <div class="row justify-content-center">
+        {% if character.department > 0 %}
+            {% for key, value in deptDict.items %}
+                {% if key == character.department %}
+        <div class="col-md-10 p-3 {{ value }} rounded shadow text-center">
+                {% endif %}
+            {% endfor %}
+        {% else %}
+        <div class="col-md p-3 rounded shadow text-center">
+        {% endif %}
+            <h1 class="special-elite m-0 d-inline">{{ character.name }}</h1>
+            {% if character.rankIMG %}
+            <img src="{{ character.rankIMG.url }}" alt="{{ character.name }}'s Rank Image!" class="d-inline ml-3 mb-3">
+            {% endif %}
+        </div>
+    </div>
+    <div class="row my-4 justify-content-between">
+        <div class="col-md-4 p-4 text-justify border border-secondary rounded shadow">
+            <h3 class="bowlby">Related Stories</h3>
+            <ul>
+            {% for story in character.story.all %}
+                <li><a href="{% url 'stories:storyPage' story.slug %}" class="text-info">{{ story.title }}</a></li>
+            {% endfor %}
+            </ul>
+            <h3 class="bowlby">Blog Posts</h3>
+                <p>Coming Soon.</p>
+        </div>
+        <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow">
+            {{ character.content|safe }}
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

@@ -1,3 +1,4 @@
+from typing import Tuple
 from django.db import models
 from django.db.models.fields import SlugField
 from tinymce.models import HTMLField
@@ -6,7 +7,7 @@ from MoonTrekStories.models import MoonTrekStories
 class Character(models.Model):
     name = models.CharField(max_length = 255)
     faction = models.IntegerField(default = 0)
-    rank = models.IntegerField(default = 100)
+    rankIMG = models.ImageField(upload_to = 'rankIMG/', blank = True)
     department = models.IntegerField(default = 0)
     content = HTMLField()
     slug = models.SlugField()

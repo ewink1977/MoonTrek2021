@@ -10,7 +10,7 @@ charFaction = {
 }
 
 charRank = {
-    1: 'Captain',
+    1: "{% static 'rankIMG/captain.jpg' %}",
     2: 'Commander',
     3: 'Lieutenant Commander',
     4: 'Lieutenant',
@@ -24,13 +24,14 @@ charRank = {
     100: 'No Rank/Not Starfleet',
 }
 
+# DEPARTMENT BACKGROUND COLOR ASSIGMENTS.
 charDepartment = {
     0: 'Not Starfleet/No Department Assigned',
-    1: 'Command (Red)',
-    2: 'Operations/Security (Gold)',
-    3: 'Science/Medical (Blue)',
-    4: 'LDF/Marine (Green)',
-    5: 'Intelligence (Black)',
+    1: 'bg-danger', # COMMAND (RED)
+    2: 'bg-warning', # OPERATIONS (YELLOW/GOLD)
+    3: 'bg-info', # SCIENCE/MEDICAL (BLUE)
+    4: 'bg-success', # LDF/MARINES (GREEN)
+    5: 'bg-dark', # INTEL (BLACK)
 }
 
 # KEYS & VALUES FOR SHIP FACTIONS!

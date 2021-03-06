@@ -2,7 +2,7 @@ from django.contrib import admin
 from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
 
 class CharacterAdmin(admin.ModelAdmin):
-    list_display = ('name', 'rank')
+    list_display = ('name', 'updated_at')
 
 class ShipAdmin(admin.ModelAdmin):
     list_display = ('name', 'faction')

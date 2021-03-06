@@ -1,9 +1,9 @@
+<div class="col text-right">
+    <small><a href="{% url 'LCARS:characterView' character.slug %}" class="text-info">See Full Page.</a></small>
+</div>
 <div class="col">
     <h2 class="special-elite">{{ character.name }}</h2>
 </div>
 <div class="col">
-    {{ character.content|safe }}
-</div>
-<div class="col text-right">
-    <small><a href="" class="text-info">See Full Page.</a></small>
+    {{ character.content|safe|truncatewords_html:150 }}
 </div>

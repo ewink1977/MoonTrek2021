@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if pagetitle %}
-    <title>{{ pagetitle }}</title>
-    {% elif object.title %}
-    <title>Moon Trek | {{ object.title }}</title>
-    {% else %}
-    <title>Moon Trek | A Star Trek/Ranma ½/Sailor Moon Fan Fic</title>
+        <title>{{ pagetitle }}</title>
+        {% elif object.title %}
+        <title>Moon Trek | {{ object.title }}</title>
+        {% elif character.name %}
+        <title>Moon Trek | LCARS Database | {{ character.name }}</title>
+        {% else %}
+        <title>Moon Trek | A Star Trek/Ranma ½/Sailor Moon Fan Fic</title>
     {% endif %}
     <link rel="stylesheet" 
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 

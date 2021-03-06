@@ -3,6 +3,7 @@ from django.db import models
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, TemplateView
 from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
+from MoonTrekLCARS.keys import charFaction, charRank, charDepartment
 
 class LCARSHome(TemplateView):
     template_name = 'MoonTrekLCARS/homepage.html'
@@ -33,7 +34,7 @@ class LCARSHome(TemplateView):
 
 class Characters(ListView):
     model = Character
-    ordering = ['rank']
+    ordering = ['name']
 
 def CharacterPartialView(request, slug):
     character = Character.objects.get(slug = slug)
@@ -44,5 +45,13 @@ def CharacterPartialView(request, slug):
 
 class CharacterFull(DetailView):
     model = Character
+    context_object_name = 'character'
+
+    def get_context_data(self, **kwargs):
+        context = super(CharacterFull, self).get_context_data(**kwargs)
+        context['factionDict'] = charFaction
+        context['deptDict'] = charDepartment
+
+        return context
 
 # <app>/<model>_<type>.html
