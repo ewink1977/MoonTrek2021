@@ -1,3 +1,11 @@
+body {
+    background-color: #212529!important;
+}
+
+.new-dark-bg {
+    background-color: #212529;
+}
+
 .anton {
     font-family: 'Anton', sans-serif;
 }
@@ -25,3 +33,5 @@
 .chap-indent {
     text-indent: 2rem;
 }
+
+/* #212529 for body */

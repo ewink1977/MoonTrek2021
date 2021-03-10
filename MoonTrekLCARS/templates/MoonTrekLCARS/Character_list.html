@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb text-light bg-dark">
         <li class="breadcrumb-item"><a href="{% url 'LCARS:lcarsHome' %}">LCARS Homepage</a></li>
         <li class="breadcrumb-item active">Character DB</li>
     </ol>
@@ -14,7 +14,7 @@
                 <ul>
                 {% for character in object_list %}
                     {% if character.faction == 1 %}
-                    <li><a href="{% url 'LCARS:charPartialView' character.slug %}" id="charLink" class="text-info">{{ character.name }}</a></li>
+                    <li><a href="{% url 'LCARS:charPartialView' character.slug %}" id="charLink">{{ character.name }}</a></li>
                     {% endif %}
                 {% endfor %}
                 </ul>
@@ -27,6 +27,7 @@
         <div class="col-md-6 m-2 p-3 border border-secondary shadow">
             <div id="lcarsReturn" class="col-md">
                 <h3 class="special-elite">Data Display Below...</h3>
+                <p>Click on a character link to preview their information here!</p>
                 <!-- AJAX RETURN GOES HERE. -->
             </div>
         </div>

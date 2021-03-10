@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb text-light bg-dark">
         <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
         <li class="breadcrumb-item"><a href="{% url 'stories:storyPage' object.story.slug %}">{{ object.story.title }}</a></li>
         <li class="breadcrumb-item active">{{ object.title }}</li>

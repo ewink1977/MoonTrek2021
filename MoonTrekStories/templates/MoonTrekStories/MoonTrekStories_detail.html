@@ -2,14 +2,14 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb text-light bg-dark">
         <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Stories</a></li>
         <li class="breadcrumb-item active">{{ object.title }}</li>
     </ol>
     <div class="row p-2 m-2">
         <div class="col text-center">
             <h2 class="special-elite">{{ object.title }}</h2>
-            <img src="{{ object.image.url }}" alt="{{ object.title }}'s Header Image!" class="img-fluid mx-auto d-block shadow">
+            <img src="{{ object.image.url }}" alt="{{ object.title }}'s Header Image!" class="img-fluid rounded mx-auto d-block shadow">
         </div>
     </div>
     <div class="row m-3 p-4 border border-dark shadow">
@@ -24,7 +24,7 @@
                 <p>If you want to read the story in your browser, select from below.</p>
                 <ul>
                 {% for chapter in object.chapters.all %}
-                <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}" class="text-info"><li>
+                <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}"><li>
                     {% if chapter.chapter_number != 0 %}
                         Chapter {{ chapter.chapter_number }} - 
                     {% endif %}

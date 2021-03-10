@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb text-light bg-dark">
         <li class="breadcrumb-item"><a href="{% url 'LCARS:lcarsHome' %}">LCARS Homepage</a></li>
         <li class="breadcrumb-item"><a href="{% url 'LCARS:characterHome' %}">Character DB</a></li>
         <li class="breadcrumb-item active">{{ character.name }}</li>
@@ -28,7 +28,7 @@
             <h3 class="bowlby">Related Stories</h3>
             <ul>
             {% for story in character.story.all %}
-                <li><a href="{% url 'stories:storyPage' story.slug %}" class="text-info">{{ story.title }}</a></li>
+                <li><a href="{% url 'stories:storyPage' story.slug %}">{{ story.title }}</a></li>
             {% endfor %}
             </ul>
             <h3 class="bowlby">Blog Posts</h3>

@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb text-light bg-dark">
         <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Home</a></li>
         <li class="breadcrumb-item active">{{ user.username }}'s Profile</li>
     </ol>
@@ -13,8 +13,7 @@
         </div>
         <div class="col-md-7 p-3">
             <h1 class="ml-3 special-elite">{{ user.username }}</h1>
-            <hr class="my-3 mx-2 border border-info">
-            <div class="col p-4 border border-primary rounded shadow">
+            <div class="col p-4 border border-secondary rounded shadow">
                 <p>{{ user.profile.about|safe }}</p>
             </div>
         </div>
