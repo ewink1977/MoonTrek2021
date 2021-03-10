@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'MoonTrekStories.apps.MoontrekstoriesConfig',
     'MoonTrekLCARS.apps.MoontreklcarsConfig',
     'MoonTrekBlog.apps.MoontrekblogConfig',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

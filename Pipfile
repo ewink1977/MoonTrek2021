@@ -11,6 +11,7 @@ pillow = "*"
 psycopg2 = "*"
 django-crispy-forms = "*"
 fontawesome-free = "*"
+django-jazzmin = "*"
 
 [dev-packages]
 
