@@ -9,21 +9,6 @@ charFaction = {
     5: 'Orion',
 }
 
-charRank = {
-    1: "{% static 'rankIMG/captain.jpg' %}",
-    2: 'Commander',
-    3: 'Lieutenant Commander',
-    4: 'Lieutenant',
-    5: 'Lieutenant, Junior Grade',
-    6: 'Ensign',
-    7: 'Fleet Admiral', 
-    8: 'Admiral',
-    9: 'Vice Admiral',
-    10: 'Rear-Admiral',
-    11: 'Commodore',
-    100: 'No Rank/Not Starfleet',
-}
-
 # DEPARTMENT BACKGROUND COLOR ASSIGMENTS.
 charDepartment = {
     0: 'Not Starfleet/No Department Assigned',
@@ -43,5 +28,14 @@ shipFaction = {
     3: 'Vulcan',
     4: 'Romulan',
     5: 'Orion',
+}
+
+# KEY & VALUE FOR PLACES AND ITEM LIST
+
+miscDict = {
+    0: 'Default',
+    1: 'Place',
+    2: 'Item',
+    3: 'Unlisted'
 }
 

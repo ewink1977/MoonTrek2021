@@ -36,6 +36,7 @@ class Ship(models.Model):
 
 class PlacesAndItems(models.Model):
     name = models.CharField(max_length = 255)
+    type = models.IntegerField(default = 0)
     content = HTMLField()
     slug = SlugField()
     created_at = models.DateTimeField(auto_now_add = True)

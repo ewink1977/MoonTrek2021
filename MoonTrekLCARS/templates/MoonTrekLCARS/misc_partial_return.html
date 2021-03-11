@@ -1,0 +1,9 @@
+<div class="col text-right">
+    <small><a href="{% url 'LCARS:miscView' misc.slug %}">See Full Page.</a></small>
+</div>
+<div class="col">
+    <h2 class="special-elite">{{ misc.name }}</h2>
+</div>
+<div class="col">
+    {{ misc.content|safe|truncatewords_html:150 }}
+</div>

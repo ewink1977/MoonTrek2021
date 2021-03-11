@@ -187,5 +187,5 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     'width': '100%',
-    'height': 600
+    'height': 450
 }

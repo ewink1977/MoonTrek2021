@@ -1,11 +1,8 @@
-import random
-from django.db import models
 from django.shortcuts import render, redirect
 from django.template import Template, RequestContext
 from django.views.generic import ListView, DetailView, TemplateView
 from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
-from MoonTrekLCARS.keys import charFaction, charRank, charDepartment, shipFaction
-
+from MoonTrekLCARS.keys import charDepartment, shipFaction
 
 class LCARSHome(TemplateView):
     template_name = 'MoonTrekLCARS/homepage.html'
@@ -62,6 +59,29 @@ class ShipFull(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ShipFull, self).get_context_data(**kwargs)
         context['factionDict'] = shipFaction
+        self.object.urlSafe = Template(
+            self.object.content
+        ).render(RequestContext(self.request, context))
+
+        return context
+
+class Miscellanious(ListView):
+    model = PlacesAndItems
+    ordering = ['name']
+
+def MiscPartialView(request, slug):
+    misc = PlacesAndItems.objects.get(slug = slug)
+    context = {
+        'misc': misc
+    }
+    return render(request, 'MoonTrekLCARS/misc_partial_return.html', context)
+
+class MiscellaniousFull(DetailView):
+    model = PlacesAndItems
+    context_object_name = 'misc'
+
+    def get_context_data(self, **kwargs):
+        context = super(MiscellaniousFull, self).get_context_data(**kwargs)
         self.object.urlSafe = Template(
             self.object.content
         ).render(RequestContext(self.request, context))

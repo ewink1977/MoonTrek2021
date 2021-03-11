@@ -10,6 +10,10 @@
         <title>Moon Trek | {{ object.title }}</title>
         {% elif character.name %}
         <title>Moon Trek | LCARS Database | {{ character.name }}</title>
+        {% elif ship.name %}
+        <title>Moon Trek | LCARS Database | {{ ship.name }}</title>
+        {% elif misc.name %}
+        <title>Moon Trek | LCARS Database | {{ misc.name }}</title>
         {% else %}
         <title>Moon Trek | A Star Trek/Ranma ½/Sailor Moon Fan Fic</title>
     {% endif %}
