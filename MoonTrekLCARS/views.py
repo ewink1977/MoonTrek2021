@@ -4,24 +4,8 @@ from django.shortcuts import render, redirect
 from django.template import Template, RequestContext
 from django.views.generic import ListView, DetailView, TemplateView
 from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
-from MoonTrekLCARS.keys import charFaction, charRank, charDepartment
+from MoonTrekLCARS.keys import charFaction, charRank, charDepartment, shipFaction
 
-# FUNCTION FOR FINDING A RANDOM ARTICLE TO DISPLAY!
-def randomArticle():
-        fromModel = random.randint(1, 3)
-        if fromModel == 1:
-            last = Character.objects.all().count()
-            randIndex = random.randint(1, last)
-            randomArticle = Character.objects.get(id = randIndex)
-        if fromModel == 2:
-            last = Ship.objects.all().count()
-            randIndex = random.randint(1, last)
-            randomArticle = Ship.objects.get(id = randIndex)
-        if fromModel == 3:
-            last = PlacesAndItems.objects.all().count()
-            randIndex = random.randint(1, last)
-            randomArticle = PlacesAndItems.objects.get(id = randIndex)
-        return randomArticle
 
 class LCARSHome(TemplateView):
     template_name = 'MoonTrekLCARS/homepage.html'
@@ -31,6 +15,8 @@ class LCARSHome(TemplateView):
         context['pagetitle'] = 'Moon Trek | LCARS Database'
 
         return context
+
+# CHARACTERS!
 
 class Characters(ListView):
     model = Character
@@ -50,6 +36,32 @@ class CharacterFull(DetailView):
     def get_context_data(self, **kwargs):
         context = super(CharacterFull, self).get_context_data(**kwargs)
         context['deptDict'] = charDepartment
+        self.object.urlSafe = Template(
+            self.object.content
+        ).render(RequestContext(self.request, context))
+
+        return context
+
+# SHIPS!
+
+class Ships(ListView):
+    model = Ship
+    ordering = ['faction']
+
+def ShipPartialView(request, slug):
+    ship = Ship.objects.get(slug = slug)
+    context = {
+        'ship': ship
+    }
+    return render(request, 'MoonTrekLCARS/ship_partial_return.html', context)
+
+class ShipFull(DetailView):
+    model = Ship
+    context_object_name = 'ship'
+
+    def get_context_data(self, **kwargs):
+        context = super(ShipFull, self).get_context_data(**kwargs)
+        context['factionDict'] = shipFaction
         self.object.urlSafe = Template(
             self.object.content
         ).render(RequestContext(self.request, context))
