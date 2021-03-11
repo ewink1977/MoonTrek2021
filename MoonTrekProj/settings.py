@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'MoonTrekStories.apps.MoontrekstoriesConfig',
     'MoonTrekLCARS.apps.MoontreklcarsConfig',
     'MoonTrekBlog.apps.MoontrekblogConfig',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -186,5 +187,5 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     'width': '100%',
-    'height': 600
+    'height': 450
 }

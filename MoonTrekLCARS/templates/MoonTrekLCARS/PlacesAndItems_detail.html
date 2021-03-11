@@ -1,0 +1,35 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <ol class="breadcrumb text-light bg-dark">
+        <li class="breadcrumb-item"><a href="{% url 'LCARS:lcarsHome' %}">LCARS Homepage</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'LCARS:miscHome' %}">Places & Items DB</a></li>
+        <li class="breadcrumb-item active">{{ misc.name }}</li>
+    </ol>
+    <div class="row justify-content-center">
+        <div class="col-md p-3 rounded shadow text-center">
+            <h1 class="special-elite m-0 d-inline">{{ misc.name }}</h1>
+        </div>
+    </div>
+    <div class="row my-4 justify-content-between">
+        <div class="col-md-4 p-4 text-justify border border-secondary rounded shadow">
+            <h3 class="bowlby">Related Stories</h3>
+            {% if ship.story.all %}
+            <ul>
+            {% for story in ship.story.all %}
+                <li><a href="{% url 'stories:storyPage' story.slug %}">{{ story.title }}</a></li>
+            {% endfor %}
+            </ul>
+            {% else %}
+            <p>No Related Stories Listed.</p>
+            {% endif %}
+            <h3 class="bowlby">Blog Posts</h3>
+                <p>Coming Soon.</p>
+        </div>
+        <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow">
+            {{ misc.urlSafe|safe }}
+        </div>
+    </div>
+</div>
+{% endblock content %}

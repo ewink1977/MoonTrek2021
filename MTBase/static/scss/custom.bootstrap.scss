@@ -1,0 +1,13 @@
+// Variable Overrides.
+// $body-bg: #000;
+
+$colors: (
+    "dark": #212529,
+    "gray": $gray-600,
+    "gray-dark": $gray-800
+) !default;
+
+$enable-gradients: 'true';
+
+@import "node_modules/bootstrap/scss/bootstrap";
+

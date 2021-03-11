@@ -1,0 +1,57 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <ol class="breadcrumb text-light bg-dark">
+        <li class="breadcrumb-item"><a href="{% url 'LCARS:lcarsHome' %}">LCARS Homepage</a></li>
+        <li class="breadcrumb-item active">Places & Items DB</li>
+    </ol>
+    <div class="row justify-content-center">
+        <div class="col-md-3 m-2 p-3 border border-secondary">
+            <h3 class="special-elite">Places & Items...</h3>
+            <div class="col ml-2">
+                <h4 class="m-1 anton">Places</h3>
+                <ul>
+                {% for place in object_list %}
+                    {% if place.type == 1 %}
+                    <li><a href="{% url 'LCARS:miscPartialView' place.slug %}" id="miscLink">{{ place.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="col ml-2">
+                <h4 class="m-2 anton">Items</h4>
+                <ul>
+                {% for item in object_list %}
+                    {% if item.type == 2 %}
+                    <li><a href="{% url 'LCARS:miscPartialView' item.slug %}" id="miscLink">{{ item.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 m-2 p-3 border border-secondary shadow">
+            <div id="lcarsReturn" class="col-md">
+                <h3 class="special-elite">Data Display Below...</h3>
+                <p>Click on a link to preview the information here!</p>
+                <!-- AJAX RETURN GOES HERE. -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).off("click", "#miscLink").on("click", '#miscLink', function (e) {
+        let shipURL = $( this ).attr( "href" );
+        e.preventDefault()
+        $.ajax({
+            url: shipURL,
+            method: 'get',
+            data: $(this).serialize(),
+            success: function(serverResponse) {
+                $( '#lcarsReturn' ).html(serverResponse);
+            }
+        })
+    })
+</script>
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <ol class="breadcrumb text-light bg-dark">
+        <li class="breadcrumb-item"><a href="{% url 'LCARS:lcarsHome' %}">LCARS Homepage</a></li>
+        <li class="breadcrumb-item active">Character DB</li>
+    </ol>
+    <div class="row justify-content-center">
+        <div class="col-md-3 m-2 p-3 border border-secondary">
+            <h3 class="special-elite">Characters...</h3>
+            <div class="col ml-2">
+                <h4 class="m-1 anton">Starfleet</h3>
+                <ul>
+                {% for character in object_list %}
+                    {% if character.faction == 1 %}
+                    <li><a href="{% url 'LCARS:charPartialView' character.slug %}" id="charLink">{{ character.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            <h4 class="m-2 anton">Everyone Else</h4>
+            <ul>
+                <li>Other Characters</li>
+            </ul>
+        </div>
+        <div class="col-md-6 m-2 p-3 border border-secondary shadow">
+            <div id="lcarsReturn" class="col-md">
+                <h3 class="special-elite">Data Display Below...</h3>
+                <p>Click on a character link to preview their information here!</p>
+                <!-- AJAX RETURN GOES HERE. -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).off("click", "#charLink").on("click", '#charLink', function (e) {
+        let charURL = $( this ).attr( "href" );
+        e.preventDefault()
+        $.ajax({
+            url: charURL,
+            method: 'get',
+            data: $(this).serialize(),
+            success: function(serverResponse) {
+                $( '#lcarsReturn' ).html(serverResponse);
+            }
+        })
+    })
+</script>
+{% endblock content %}
