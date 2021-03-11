@@ -13,7 +13,7 @@
             <small class="text-primary">{{ post_obj.date_posted|date:'F j, Y' }}</small>
             <p>{{ post_obj.content|safe|truncatewords:50 }}</p>
             <p class="text-right bowlby"><a href="{% url 'blog:blogPost' post_obj.slug %}">Read More...</a></p>
-            <hr class="my-4 border-info">
+            <hr class="my-4 border-primary">
         </div>
         {% endfor %}
         {% if is_paginated %}

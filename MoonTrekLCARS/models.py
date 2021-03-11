@@ -15,7 +15,7 @@ class Character(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
 
     story = models.ManyToManyField(MoonTrekStories, 
-        related_name = 'characters')
+        related_name = 'characters', blank = True)
 
     def __str__(self):
         return f'Character: { self.name }'
@@ -29,7 +29,7 @@ class Ship(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
 
     story = models.ManyToManyField(MoonTrekStories, 
-        related_name = 'ships')
+        related_name = 'ships', blank = True)
 
     def __str__(self):
         return f'Ship: { self.name }'
@@ -42,7 +42,7 @@ class PlacesAndItems(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
 
     story = models.ManyToManyField(MoonTrekStories, 
-        related_name = 'places')
+        related_name = 'places', blank = True)
 
     def __str__(self):
         return f'Place/Item: { self.name }'
