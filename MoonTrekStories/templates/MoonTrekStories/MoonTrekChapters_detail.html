@@ -11,28 +11,28 @@
         <div class="col-md-1 text-center">
             {% if object.chapter_number >= 1 %}
                 {% for chapter in allChapters %}
-                    {% if chapter.chapter_number == object.chapter_number|add:-1 %}
+                    {% if chapter.story == object.story %}{% if chapter.chapter_number == object.chapter_number|add:-1 %}
                             <a href="{% url 'stories:chapterPage' story_slug=object.story.slug slug=chapter.slug %}">
                                 <span style="font-size: 3.3rem;" class="text-secondary"><i class="fas fa-arrow-circle-left" data-toggle="tooltip" data-placement="top" 
                                     title="Previous Chapter - {{ chapter.title }}"></i></a>
-                    {% endif %}
+                    {% endif %}{% endif %}
                 {% endfor %}
             {% endif %}
         </div>
         <div class="col-md-10 text-center align-self-center pt-3">
             <h3 class="special-elite">
-                {% if object.chapter_number != 0 %}
+                {% if object.chapter_number != 0 and object.epilogue == False %}
                     Chapter {{ object.chapter_number }} | 
                 {% endif %}
                 {{ object.title }}</h3>
         </div>
         <div class="col-md-1 text-center">
             {% for chapter in allChapters %}
-                {% if chapter.chapter_number == object.chapter_number|add:1 %}
+            {% if chapter.story == object.story %}{% if chapter.chapter_number == object.chapter_number|add:1 %}
             <a href="{% url 'stories:chapterPage' story_slug=object.story.slug slug=chapter.slug %}">
                 <span style="font-size: 3.3rem;" class="text-secondary"><i class="fas fa-arrow-circle-right" data-toggle="tooltip" data-placement="top" 
                     title="Next Chapter - {{ chapter.title }}"></i></a>
-                {% endif %}
+                {% endif %}{% endif %}
             {% endfor %}
         </div>
     </div>

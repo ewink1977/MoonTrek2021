@@ -31,8 +31,8 @@
     <link rel="stylesheet" href="{% static 'css/override.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body class="text-light" style="background-color: #212529;">
-    <nav class="navbar navbar-expand-lg navbar-dark">
+<body class="text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #212529!important;">
         <img class="navbar-brand" src="{% static 'img/moontrek_logo.png' %}" alt="The Moon Trek Logo" style="width: 50px;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -44,11 +44,12 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Story Quick Access</a>
-                    <div class="dropdown-menu ">
-                        <a class="dropdown-item" href="#">Moon Trek : The Wrath Of Kuno</a>
-                        <a class="dropdown-item" href="#">Moon Trek II : Section 31</a>
-                        <a class="dropdown-item" href="#">Moon Trek Short : Intruder</a>
-                        <a class="dropdown-item" href="#">Moon Trek III : What Goes Around</a>
+                    <div class="dropdown-menu bg-dark">
+                    {% for story in allStories|dictsort:'position' %}
+                        {% if story.series == 1 %}
+                            <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">{{ story.title }}</a>
+                        {% endif %}
+                    {% endfor %}
                     <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Moon Trek NEO : Time</a>
                         <a class="dropdown-item" href="#">Moon Trek NEO II : Agenda</a>

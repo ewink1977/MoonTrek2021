@@ -25,7 +25,7 @@
                 <ul class="chapter-list">
                 {% for chapter in object.chapters.all %}
                 <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}"><li class="starfleet">
-                    {% if chapter.chapter_number != 0 %}
+                    {% if chapter.chapter_number != 0 and chapter.epilogue == False %}
                         Chapter {{ chapter.chapter_number }} - 
                     {% endif %}
                         {{ chapter.title }}</li></a>
@@ -51,10 +51,12 @@
         <div class="col-md-6">
             <h3 class="bowlby">More Stuff!</h3>
             <div class="col py-3 px-5 border border-dark rounded shadow">
-                <h4 class="stattliches">Related Stories</h4>
-                <p>If there are any.</p>
                 <h4 class="stattliches">Characters</h4>
-                <p>Probably a couple.</p>
+                <ul class="list-inline">
+                    {% for character in object.characters.all|dictsort:'name' %}
+                    <li class="list-inline-item"><a href="{% url 'LCARS:characterView' character.slug %}">{{ character.name }}</a>, </li>
+                    {% endfor %}
+                </ul>
                 <h4 class="stattliches">Ships</h4>
                 <p>One or two.</p>
                 <h4 class="stattliches">Locations.</h4>

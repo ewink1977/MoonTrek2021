@@ -41,7 +41,7 @@
 
             <h3 class="bowlby" id="mt">Moon Trek</h3>
 
-            {% for story in stories %}
+            {% for story in stories|dictsort:'position' %}
                 {% if story.series == 1 %}
             <div class="row border border-primary shadow p-1 mb-2">
                 <div class="col">
@@ -56,54 +56,6 @@
             </div>
                 {% endif %}
             {% endfor %}
-
-            <div class="row border border-primary shadow p-1 mb-2">
-                <div class="col">
-                    <p class="lead anton">Moon Trek : The Wrath of Kuno</p>
-                    <p class="ml-5">
-                        The first installment of the Nerima wrecking crew in space! Ranma Saotome is given command of Starfleet's newest and most powerful battleship, the USS Benjamin Sisko.
-                    </p>
-                    <div class="text-right mx-5 mb-3">
-                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row border border-primary shadow p-1 mb-2">
-                <div class="col">
-                    <p class="lead anton">Intruder</p>
-                    <p class="ml-5">
-                        A Moon Trek short story. The Sisko ends up being boarded and the only one who can save her is... Ryouga?
-                    </p>
-                    <div class="text-right mx-5 mb-3">
-                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row border border-primary shadow p-1 mb-2">
-                <div class="col">
-                    <p class="lead anton">Moon Trek II: Section 31</p>
-                    <p class="ml-5">
-                        The crew of the Sisko find themselves caught up in a web of lies and deceit that finally manifest into a confrontation with the most deadly force in all the Federation. Section 31.
-                    </p>
-                    <div class="text-right mx-5 mb-3">
-                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row border border-primary shadow p-1 mb-2">
-                <div class="col">
-                    <p class="lead anton">Moon Trek III: What Goes Around</p>
-                    <p class="ml-5">
-                        All is going well with the Sisko until a new and improved Kuno collective shows up. And they are out for revenge!
-                    </p>
-                    <div class="text-right mx-5 mb-3">
-                    <a href=""><button type="button" class="btn btn-outline-primary">To The Story!</button></a>
-                    </div>
-                </div>
-            </div>
 
             <h3 class="bowlby" id="neo">Moon Trek NEO</h3>
 

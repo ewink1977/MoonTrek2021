@@ -1,4 +1,3 @@
-from typing import Tuple
 from django.db import models
 from django.db.models.fields import SlugField
 from tinymce.models import HTMLField
