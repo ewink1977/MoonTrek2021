@@ -8,7 +8,7 @@ class ShipAdmin(admin.ModelAdmin):
     list_display = ('name', 'faction')
 
 class PlaceAdmin(admin.ModelAdmin):
-    list_display = ('name', 'slug')
+    list_display = ('name', 'type', 'slug')
 
 admin.site.register(Character, CharacterAdmin)
 admin.site.register(Ship, ShipAdmin)

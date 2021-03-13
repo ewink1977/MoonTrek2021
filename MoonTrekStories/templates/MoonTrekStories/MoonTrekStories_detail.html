@@ -22,9 +22,9 @@
             <h3 class="bowlby">Chapter List</h3>
             <div class="col py-3 px-3 border border-dark rounded shadow">
                 <p>If you want to read the story in your browser, select from below.</p>
-                <ul>
+                <ul class="chapter-list">
                 {% for chapter in object.chapters.all %}
-                <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}"><li>
+                <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}"><li class="starfleet">
                     {% if chapter.chapter_number != 0 %}
                         Chapter {{ chapter.chapter_number }} - 
                     {% endif %}
@@ -35,16 +35,16 @@
             <h3 class="bowlby mt-3">Offline Options</h3>
             <div class="col py-3 px-3 border border-dark rounded shadow">
                 <ul>
-                    <li>Download Text</li>
-                    <li>Download PDF</li>
+                    <li class="starfleet">Download Text</li>
+                    <li class="starfleet">Download PDF</li>
                 </ul>
             </div>
             <h3 class="bowlby mt-3">Blog Posts</h3>
             <div class="col py-3 px-3 border border-dark rounded shadow">
                 <p>Blog posts about this story.</p>
                 <ul>
-                    <li>Why Does It Suck?</li>
-                    <li>No, really, why does it suck?</li>
+                    <li class="starfleet">Why Does It Suck?</li>
+                    <li class="starfleet">No, really, why does it suck?</li>
                 </ul>
             </div>
         </div>

@@ -9,14 +9,13 @@
     <div class="row">
         <div class="col-md p-5">
             <h2 class="special-elite">Blog Posts!</h2>
-            <small>Quick Jump : <a href="{% url 'blog:blogHome' %}" class="text-info">All Posts</a></small>
+            <small>Quick Jump : <a href="{% url 'blog:blogHome' %}">All Posts</a></small>
             <p class="border border-secondary shadow p-2 mx-3 my-2">
                 Are you interested in the thought process behind why I wrote something the way I did, or curious about some other things that might have happened 
                 outside of the main story? No? Well, in case you find someone who is, you can read blog posts here about the stories!
             </p>
             <hr class="my-4 border-primary">
 
-            <!-- Everything in this col is generated via Django. -->
             {% for post_obj in page_obj %}
 
             <h3 class="bowlby">{{ post_obj.title }}</h3>
@@ -32,9 +31,6 @@
         </div>
 
         <div class="col-md p-5">
-
-            <!-- Only URLs are dynamically created in this col. -->
-            
             <h2 class="special-elite">Story List!</h2>
             <small>Quick Jump: <a href="#mt">Moon Trek</a> | <a href="#neo">MT NEO</a> | <a href="#trinity">MT Trinity</a></small>
             <p class="border border-secondary shadow p-2 mx-3 my-2">

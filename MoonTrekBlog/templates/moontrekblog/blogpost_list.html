@@ -22,9 +22,9 @@
                 <div class="btn-group mr-2" role="group" aria-label="Pagination Group">
                     {% if page_obj.has_previous %}
                         {% if page_obj.number == 1 %}
-                        <button type="button" class="btn btn-ouline-primary disabled">&laquo;</button>
+                        <button type="button" class="btn btn-ouline-primary disabled"><i class="fas fa-angle-double-left"></i></button>
                         {% else %}
-                        <a href="?page=1"><button type="button" class="btn btn-outline-primary">&laquo;</button></a>
+                        <a href="?page=1"><button type="button" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i></button></a>
                         {% endif %}
                     {% endif %}
 
@@ -37,7 +37,7 @@
                     {% endfor %}
 
                     {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.paginator.num_pages }}"><button type="button" class="btn btn-outline-primary">&raquo;</button></a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}"><button type="button" class="btn btn-outline-primary"><i class="fas fa-angle-double-right"></i></button></a>
                     {% endif %}
                 </div>
             </div>

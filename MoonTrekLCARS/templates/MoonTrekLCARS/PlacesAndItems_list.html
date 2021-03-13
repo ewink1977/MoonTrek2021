@@ -14,7 +14,7 @@
                 <ul>
                 {% for place in object_list %}
                     {% if place.type == 1 %}
-                    <li><a href="{% url 'LCARS:miscPartialView' place.slug %}" id="miscLink">{{ place.name }}</a></li>
+                    <li class="starfleet"><a href="{% url 'LCARS:miscPartialView' place.slug %}" id="miscLink">{{ place.name }}</a></li>
                     {% endif %}
                 {% endfor %}
                 </ul>
@@ -24,7 +24,7 @@
                 <ul>
                 {% for item in object_list %}
                     {% if item.type == 2 %}
-                    <li><a href="{% url 'LCARS:miscPartialView' item.slug %}" id="miscLink">{{ item.name }}</a></li>
+                    <li class="starfleet"><a href="{% url 'LCARS:miscPartialView' item.slug %}" id="miscLink">{{ item.name }}</a></li>
                     {% endif %}
                 {% endfor %}
                 </ul>

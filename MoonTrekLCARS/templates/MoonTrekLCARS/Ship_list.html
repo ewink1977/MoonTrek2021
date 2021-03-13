@@ -14,7 +14,7 @@
                 <ul>
                 {% for ship in object_list %}
                     {% if ship.faction == 1 %}
-                    <li><a href="{% url 'LCARS:shipPartialView' ship.slug %}" id="shipLink">{{ ship.name }}</a></li>
+                    <li class="starfleet"><a href="{% url 'LCARS:shipPartialView' ship.slug %}" id="shipLink">{{ ship.name }}</a></li>
                     {% endif %}
                 {% endfor %}
                 </ul>
@@ -24,7 +24,7 @@
                 <ul>
                 {% for ship in object_list %}
                     {% if ship.faction != 1 %}
-                    <li><a href="{% url 'LCARS:shipPartialView' ship.slug %}" id="shipLink">{{ ship.name }}</a></li>
+                    <li class="starfleet"><a href="{% url 'LCARS:shipPartialView' ship.slug %}" id="shipLink">{{ ship.name }}</a></li>
                     {% endif %}
                 {% endfor %}
                 </ul>
