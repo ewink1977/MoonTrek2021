@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.views.generic import DetailView
 from django.core.paginator import Paginator
 from MoonTrekBlog.models import BlogPost
-from MoonTrekStories.models import MoonTrekStories, MoonTrekChapters
+from MoonTrekStories.models import MoonTrekStories, MoonTrekChapters, Comment
 from MoonTrekStories.dicts import seriesNames
+from MoonTrekStories.forms import CommentForm
 
 def storyHome(request):
     blogPosts = BlogPost.objects.all().order_by('-date_posted')
@@ -27,6 +28,8 @@ class StoryPage(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['seriesNames'] = seriesNames
+        context['cform'] = CommentForm()
+        context['comments'] = Comment.objects.all()
         return context
 
 class ChapterPage(DetailView):

@@ -33,3 +33,15 @@ class MoonTrekChapters(models.Model):
 
     def get_absolute_url(self):
         return reverse('chapterPage', kwargs={'slug': self.slug, 'story_slug': self.story.slug})
+
+class Comment(models.Model):
+    commentor = models.CharField(max_length = 255)
+    comment = models.TextField(max_length = 200)
+    story = models.ForeignKey(MoonTrekStories,
+        related_name = 'comment', 
+        on_delete = models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
+
+    def __str__(self):
+        return f'Comment for {self.story.title}'
