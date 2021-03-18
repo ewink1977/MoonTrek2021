@@ -44,6 +44,9 @@
             <div class="col py-3 px-3 border border-dark rounded shadow">
                 <p>Blog posts about this story.</p>
                 <ul>
+                    {% for post in object.blog_post.all %}
+                    <a href="{% url 'blog:blogPost' post.slug %}"><li class="starfleet">{{ post.title }}</li></a>
+                    {% endfor %}
                     <li class="starfleet">Why Does It Suck?</li>
                     <li class="starfleet">No, really, why does it suck?</li>
                 </ul>
