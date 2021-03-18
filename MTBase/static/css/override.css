@@ -53,7 +53,12 @@ ul.chapter-list {
 }
 
 .foot-bottom {
-    margin-top: -9px;
+    /* margin-top: -9px; */
+    line-height: 1.0;
+}
+
+.lh-normal {
+    line-height: 1.0;
 }
 
 /* #212529 for body */

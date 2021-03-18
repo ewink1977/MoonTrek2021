@@ -44,11 +44,13 @@
             <div class="col py-3 px-3 border border-dark rounded shadow">
                 <p>Blog posts about this story.</p>
                 <ul>
-                    {% for post in object.blog_post.all %}
-                    <a href="{% url 'blog:blogPost' post.slug %}"><li class="starfleet">{{ post.title }}</li></a>
-                    {% endfor %}
-                    <li class="starfleet">Why Does It Suck?</li>
-                    <li class="starfleet">No, really, why does it suck?</li>
+                    {% if object.blog_post.all %}
+                        {% for post in object.blog_post.all %}
+                        <a href="{% url 'blog:blogPost' post.slug %}"><li class="starfleet">{{ post.title }}</li></a>
+                        {% endfor %}
+                    {% else %}
+                        <li class="starfleet">No related Blog Posts.</li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -70,15 +72,53 @@
     </div>
     <div class="row m-3 p-4 border border-dark justify-content-end shadow">
         <div class="col-md-12">
-            <form action="">
+            <form action="{% url 'stories:addComment' object.pk %}" method="POST" id="newComment">
             {% csrf_token %}
-            {{ cform|crispy }}
+            <div class="row">
+                <div class="col-5">
+                    <label for="commentor" style="text-decoration: underline;">Who You Are*</label>
+                    <input type="text" class="form-control" name="commentor" id="commentor" placeholder="Name/ID/@Whatever" aria-describedby="IDHelp" required>
+                    <small id="IDHelp" class="lh-normal text-muted"><span class="text-danger">Required.</span> Real name, internet name, IDGAF, as long as you identify yourself in some way.</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-9">
+                    <div class="form-group mt-2 py-2">
+                        <label for="comment" style="text-decoration: underline;">Comment Below*</label>
+                        <textarea class="form-control" id="comment" name="comment" rows="3" aria-describedby="CommentHelp" required></textarea>
+                        <small id="CommentHelp" class="text-muted"><span class="text-danger">Required, duh.</span> 200 Characters MAX - No spoilers please.</small>
+                    </div>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        <div class="col-md-9 my-3 p-2 border-dark shadow rounded">
-            <p>Comments Go Here.</p>
+        <div class="col-md-10 my-3 p-2" id="comments">
+            {% for comment in comments %}
+            <div class="row m-2 p-2 border-secondary shadow rounded">
+                <div class="col-md-3">{{ comment.commentor }}</div>
+                <div class="col-md-7">{{ comment.comment }}</div>
+            </div>
+            <div class="row">
+                <small>Posted at {{ comment.created_at|date:"l, N j, Y @ f A" }}</small>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
+
+<script>
+    $('form').submit(function (e) {
+        e.preventDefault()
+        $.ajax({
+            url: '{% url "stories:addComment" object.pk %}',
+            method: 'post',
+            data: $(this).serialize(),
+            success: function(serverResponse) {
+                $( '#comments' ).html(serverResponse);
+                $( 'form' ).trigger("reset");
+            }
+        })
+    })
+</script>
 {% endblock content %}

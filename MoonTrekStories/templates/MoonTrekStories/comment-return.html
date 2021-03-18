@@ -1,0 +1,9 @@
+{% for comment in comments %}
+    <div class="row m-2 p-2 border-secondary shadow rounded">
+        <div class="col-md-3">{{ comment.commentor }}</div>
+        <div class="col-md-7">{{ comment.comment }}</div>
+    </div>
+    <div class="row">
+        <small>Posted at {{ comment.created_at|date:"l, N j, Y @ f A" }}</small>
+    </div>
+{% endfor %}
