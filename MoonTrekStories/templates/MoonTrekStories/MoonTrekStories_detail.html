@@ -71,18 +71,18 @@
         </div>
     </div>
     <div class="row m-3 p-4 border border-dark justify-content-end shadow">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <form action="{% url 'stories:addComment' object.pk %}" method="POST" id="newComment">
             {% csrf_token %}
             <div class="row">
-                <div class="col-5">
+                <div class="col">
                     <label for="commentor" style="text-decoration: underline;">Who You Are*</label>
                     <input type="text" class="form-control" name="commentor" id="commentor" placeholder="Name/ID/@Whatever" aria-describedby="IDHelp" required>
-                    <small id="IDHelp" class="lh-normal text-muted"><span class="text-danger">Required.</span> Real name, internet name, IDGAF, as long as you identify yourself in some way.</small>
+                    <small id="IDHelp" class="lh-normal text-muted"><span class="text-danger">Required.</span> Real name, internet name, IDGAF, as long as you identify yourself somehow.</small>
                 </div>
             </div>
             <div class="row">
-                <div class="col-9">
+                <div class="col">
                     <div class="form-group mt-2 py-2">
                         <label for="comment" style="text-decoration: underline;">Comment Below*</label>
                         <textarea class="form-control" id="comment" name="comment" rows="3" aria-describedby="CommentHelp" required></textarea>
@@ -93,14 +93,14 @@
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        <div class="col-md-10 my-3 p-2" id="comments">
+        <div class="col-md-6 my-3 p-2" id="comments">
             {% for comment in comments %}
-            <div class="row m-2 p-2 border-secondary shadow rounded">
+            <div class="row m-2 p-2 border border-secondary shadow rounded">
                 <div class="col-md-3">{{ comment.commentor }}</div>
-                <div class="col-md-7">{{ comment.comment }}</div>
-            </div>
-            <div class="row">
-                <small>Posted at {{ comment.created_at|date:"l, N j, Y @ f A" }}</small>
+                <div class="col-md">{{ comment.comment }}</div>
+                <div class="col-md-12 mx-2 my-2 text-right text-muted">
+                    <small>Posted at {{ comment.created_at|date:"l, N j, Y @ f A" }}</small>
+                </div>
             </div>
             {% endfor %}
         </div>
