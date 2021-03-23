@@ -27,14 +27,14 @@
         <div class="col-md-4 p-4 text-justify border border-secondary rounded shadow">
             <h3 class="bowlby">Related Stories</h3>
             <ul>
-            {% for story in character.story.all %}
+            {% for story in character.story.all|dictsort:'position'|dictsort:'series' %}
                 <li><a href="{% url 'stories:storyPage' story.slug %}">{{ story.title }}</a></li>
             {% endfor %}
             </ul>
             <h3 class="bowlby">Blog Posts</h3>
                 <p>Coming Soon.</p>
         </div>
-        <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow">
+        <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow character">
             {{ character.urlSafe|safe }}
         </div>
 

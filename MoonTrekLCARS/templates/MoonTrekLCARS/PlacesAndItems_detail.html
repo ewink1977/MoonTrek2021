@@ -15,9 +15,9 @@
     <div class="row my-4 justify-content-between">
         <div class="col-md-4 p-4 text-justify border border-secondary rounded shadow">
             <h3 class="bowlby">Related Stories</h3>
-            {% if ship.story.all %}
+            {% if misc.story.all %}
             <ul>
-            {% for story in ship.story.all %}
+            {% for story in misc.story.all %}
                 <li><a href="{% url 'stories:storyPage' story.slug %}">{{ story.title }}</a></li>
             {% endfor %}
             </ul>
@@ -27,7 +27,7 @@
             <h3 class="bowlby">Blog Posts</h3>
                 <p>Coming Soon.</p>
         </div>
-        <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow">
+        <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow character">
             {{ misc.urlSafe|safe }}
         </div>
     </div>

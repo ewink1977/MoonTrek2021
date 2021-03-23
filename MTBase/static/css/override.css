@@ -61,4 +61,16 @@ ul.chapter-list {
     line-height: 1.0;
 }
 
+.character h2 {
+    background-image: url(/media/icons/subicon.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	text-transform: uppercase;
+	text-align: left;
+	padding-left: 53px;
+	margin-left: 10px;
+	min-width: 75%;
+	font-size: 27px;
+}
+
 /* #212529 for body */
