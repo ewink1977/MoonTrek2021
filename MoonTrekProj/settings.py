@@ -15,9 +15,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('MT_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['143.198.101.249']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -84,6 +84,7 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PASSWORD'),    
         'HOST': os.environ.get('DB_HOST'),
         'PORT': os.environ.get('DB_PORT'),
+        'OPTIONS': {'sslmode': 'require'},
         }
 }
 # OLD DATABASE CODE I'M KEEPING JUST IN CASE...
@@ -166,6 +167,9 @@ MEDIA_URL = 'moontrek/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # TINYMCE CUSTOMIZATION
+
+TINYMCE_JS_URL = 'tinymce/tinymce.min.js'
+
 TINYMCE_DEFAULT_CONFIG = {
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 20,
