@@ -6,3 +6,7 @@ db.sqlite3
 moontreksqllite.json
 # Remove MEDIA for deployment.
 media/*
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

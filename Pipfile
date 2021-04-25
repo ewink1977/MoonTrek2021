@@ -12,6 +12,8 @@ psycopg2 = "*"
 django-crispy-forms = "*"
 fontawesome-free = "*"
 django-jazzmin = "*"
+boto3 = "*"
+django-storages = "*"
 
 [dev-packages]
 
