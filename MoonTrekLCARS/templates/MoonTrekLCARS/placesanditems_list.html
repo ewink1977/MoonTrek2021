@@ -4,36 +4,36 @@
 <div class="container">
     <ol class="breadcrumb text-light bg-dark">
         <li class="breadcrumb-item"><a href="{% url 'LCARS:lcarsHome' %}">LCARS Homepage</a></li>
-        <li class="breadcrumb-item active">Ship Database</li>
+        <li class="breadcrumb-item active">Places & Items DB</li>
     </ol>
     <div class="row justify-content-center">
         <div class="col-md-3 m-2 p-3 border border-secondary">
-            <h3 class="special-elite">Ships...</h3>
+            <h3 class="special-elite">Places & Items...</h3>
             <div class="col ml-2">
-                <h4 class="m-1 anton">Starfleet Ships</h3>
+                <h4 class="m-1 anton">Places</h3>
                 <ul>
-                {% for ship in object_list %}
-                    {% if ship.faction == 1 %}
-                    <li class="starfleet"><a href="{% url 'LCARS:shipPartialView' ship.slug %}" id="shipLink">{{ ship.name }}</a></li>
+                {% for place in object_list %}
+                    {% if place.type == 1 %}
+                    <li class="starfleet"><a href="{% url 'LCARS:miscPartialView' place.slug %}" id="miscLink">{{ place.name }}</a></li>
                     {% endif %}
                 {% endfor %}
                 </ul>
             </div>
             <div class="col ml-2">
-                <h4 class="m-2 anton">Other Factions</h4>
+                <h4 class="m-2 anton">Items</h4>
                 <ul>
-                {% for ship in object_list %}
-                    {% if ship.faction != 1 %}
-                    <li class="starfleet"><a href="{% url 'LCARS:shipPartialView' ship.slug %}" id="shipLink">{{ ship.name }}</a></li>
+                {% for item in object_list %}
+                    {% if item.type == 2 %}
+                    <li class="starfleet"><a href="{% url 'LCARS:miscPartialView' item.slug %}" id="miscLink">{{ item.name }}</a></li>
                     {% endif %}
                 {% endfor %}
                 </ul>
-            </div>  
+            </div>
         </div>
         <div class="col-md-6 m-2 p-3 border border-secondary shadow">
             <div id="lcarsReturn" class="col-md">
                 <h3 class="special-elite">Data Display Below...</h3>
-                <p>Click on a ship link to preview their information here!</p>
+                <p>Click on a link to preview the information here!</p>
                 <!-- AJAX RETURN GOES HERE. -->
             </div>
         </div>
@@ -41,7 +41,7 @@
 </div>
 
 <script>
-    $(document).off("click", "#shipLink").on("click", '#shipLink', function (e) {
+    $(document).off("click", "#miscLink").on("click", '#miscLink', function (e) {
         let shipURL = $( this ).attr( "href" );
         e.preventDefault()
         $.ajax({
@@ -54,6 +54,4 @@
         })
     })
 </script>
-
-
 {% endblock content %}
