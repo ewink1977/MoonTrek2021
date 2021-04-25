@@ -36,8 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tinymce',
     'crispy_forms',
-    'fontawesome-free',
+    'storages'
 ]
+
+# 'fontawesome-free',
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,18 +86,12 @@ DATABASES = {
         'PORT': os.environ.get('DB_PORT'),
         }
 }
-
 # OLD DATABASE CODE I'M KEEPING JUST IN CASE...
 
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # },
-
-
-
-# Password validation
-# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -111,7 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -130,11 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-
-# Media Handling
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# STATIC_URL = '/static/'
 
 # A redirect to redirect the only user of the site that can login... ME!
 LOGIN_REDIRECT_URL = 'stories:storyHome'
@@ -148,6 +139,31 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+
+# BUCKET STORAGE SETTINGS
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_S3_REGION_NAME = 'sfo3'
+AWS_S3_ENDPOINT_URL = 'https://sfo3.digitaloceanspaces.com'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+
+AWS_LOCATION = 'moontrek'
+
+MEDIAFILES_LOCATION = 'moontrek/media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
+STATICFILES_LOCATION = 'moontrek/static'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
+# Media Handling
+MEDIA_URL = 'moontrek/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # TINYMCE CUSTOMIZATION
 TINYMCE_DEFAULT_CONFIG = {
