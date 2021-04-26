@@ -42,3 +42,6 @@ class ContactView(View):
             }
             messages.error(request, 'Something has gone wrong. Can you please try again?', extra_tags = 'danger')
             return render(request, 'html/contact.html', context)
+
+def error_404_view(request, exception):
+    return render(request, 'html/404.html')
