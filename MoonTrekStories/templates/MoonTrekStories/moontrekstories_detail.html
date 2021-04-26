@@ -24,7 +24,7 @@
             <div class="col py-3 px-3 border border-dark rounded shadow">
                 <p>If you want to read the story in your browser, select from below.</p>
                 <ul class="chapter-list">
-                {% for chapter in object.chapters.all %}
+                {% for chapter in object.chapters.all|dictsort:"chapter_number" %}
                 <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}"><li class="starfleet">
                     {% if chapter.chapter_number != 0 and chapter.epilogue == False %}
                         Chapter {{ chapter.chapter_number }} - 
