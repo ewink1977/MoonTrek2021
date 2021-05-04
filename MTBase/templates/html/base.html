@@ -17,6 +17,9 @@
         {% else %}
         <title>Moon Trek | A Star Trek/Ranma ½/Sailor Moon Fan Fic</title>
     {% endif %}
+    <meta name="description" content="Moon Trek is a crossover fan fiction featuring characters from the anime Ranma ½, Sailor Moon, and others, as well as 
+        multiple original characters, placed in a post-Dominion War Star Trek universe! Moon Trek was created by Erin ‘ewink’ Winking and has ten full length 
+        stories!" />
     <link rel="stylesheet" 
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
@@ -29,7 +32,7 @@
         href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
         crossorigin="anonymous"/>
-        <!-- <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css"> -->
+    <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/override.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -95,12 +98,15 @@
     {% endblock content %}
     <footer class="text-muted border-top border-secondary">
         <div class="container">
-            <div class="col m-0 text-center">
+            <div class="col m-0 text-center foot-bottom">
                 <small>©1997-2021 <a href="https://www.douglasavenue.com" target="_blank" rel="noopener noreferrer">Erin M Winking</a> 
                     | Star Trek, Sailor Moon, Ranma ½, and all other used works are property of their respective owners and used under the Fair Use guidelines of U.S. law.
             </div>
             <div class="col text-center foot-bottom">
-                Cookies used on this site are for analytics and the function of the site only. No information is sold or used for any marketing purposes. <a href="https://fontawesome.com/license" target="_blank">FontAwesome fonts used under license.</a></small>
+                    Cookies used on this site are for analytics and the function of the site only. No information is sold or used for any marketing purposes. <a href="https://fontawesome.com/license" target="_blank">FontAwesome fonts used under license.</a>
+                    <br />
+                    Website powered by <a href="https://m.do.co/c/adb184868011" target="_blank">DigitalOcean</a>
+                </small>
             </div>
         </div>
     </footer>

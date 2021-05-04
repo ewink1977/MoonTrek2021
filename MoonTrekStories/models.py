@@ -6,6 +6,8 @@ class MoonTrekStories(models.Model):
     title = models.CharField(max_length = 255)
     image = models.ImageField(default = 'placeholder.jpg',
         upload_to = 'storyIMG')
+    fullStoryPDF = models.FileField(upload_to = 'full_stories/PDF/', null = True)
+    fullStoryEPUB = models.FileField(upload_to = 'full_stories/EPUB/', null = True)
     series = models.IntegerField()
     position = models.IntegerField()
     summary = HTMLField()

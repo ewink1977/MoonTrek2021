@@ -33,11 +33,19 @@
                 {% endfor %}
                 </ul>
             </div>
-            <h3 class="bowlby mt-3">Offline Options</h3>
+            <h3 class="bowlby mt-3">Offline Options | Full Stories</h3>
             <div class="col py-3 px-3 border border-dark rounded shadow">
                 <ul>
-                    <li class="starfleet">Download Text</li>
-                    <li class="starfleet">Download PDF</li>
+                    {% if object.fullStoryEPUB %}
+                    <a href="{{ object.fullStoryEPUB.url }}"><li class="starfleet">Download {{ object.title }}'s EPUB</li></a>
+                    {% else %}
+                    <li class="starfleet">EPUB Version Not Uploaded Yet!</li></a>
+                    {% endif %}
+                    {% if object.fullStoryPDF %}
+                    <a href="{{ object.fullStoryPDF.url }}"><li class="starfleet">Download {{ object.title }}'s PDF</li></a>
+                    {% else %}
+                    <li class="starfleet">PDF Version Not Uploaded Yet!</li></a>
+                    {% endif %}
                 </ul>
             </div>
             <h3 class="bowlby mt-3">Blog Posts</h3>
@@ -64,7 +72,11 @@
                     {% endfor %}
                 </ul>
                 <h4 class="stattliches">Ships</h4>
-                <p>One or two.</p>
+                <ul class="list-inline">
+                    {% for ship in object.ships.all|dictsort:'name' %}
+                    <li class="list-inline-item"><a href="{% url 'LCARS:shipView' ship.slug %}">{{ ship.name }}</a>, </li>
+                    {% endfor %}
+                </ul>
                 <h4 class="stattliches">Locations.</h4>
                 <p>Probably not vertical lists, but inline ones for space.</p>
             </div>
