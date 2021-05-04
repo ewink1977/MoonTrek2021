@@ -21,7 +21,7 @@
             <h3 class="bowlby">{{ post_obj.title }}</h3>
             <h6 class="text-muted stattliches">Posted by <a href="{% url 'base:profilePage' post_obj.author.username %}">{{ post_obj.author }}</a></h6>
             <small class="text-primary">{{ post_obj.date_posted|date:'F j, Y' }}</small>
-            <p>{{ post_obj.content|safe|truncatewords:35 }}</p>
+            <p>{{ post_obj.content|safe|truncatewords_html:35 }}</p>
             <p class="text-right bowlby"><a href="{% url 'blog:blogPost' post_obj.slug %}">Read More...</a></p>
             <hr class="my-4 border-info">
             {% endfor %}
