@@ -23,7 +23,7 @@ def addComment(request, id):
 
 def storyHome(request):
     blogPosts = BlogPost.objects.all().order_by('-date_posted')
-    paginator = Paginator(blogPosts, 5)
+    paginator = Paginator(blogPosts, 8)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
