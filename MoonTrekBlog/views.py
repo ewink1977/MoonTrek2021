@@ -6,7 +6,7 @@ from django.views.generic import (
 from MoonTrekBlog.models import BlogPost
 
 class BlogPostAll(ListView):
-    paginate_by = 3
+    paginate_by = 5
     model = BlogPost
     ordering = ['-date_posted']
 
