@@ -1,76 +1,72 @@
 body {
-    background-color: #212529!important;
-    font-family: 'Roboto', sans-serif;
+	background-color: #212529 !important;
+	font-family: 'Roboto', sans-serif;
 }
 
 .new-dark-bg {
-    background-color: #212529;
+	background-color: #212529 !important;
+}
+
+.nav-logo {
+	width: 50px !important;
 }
 
 .anton {
-    font-family: 'Anton', sans-serif;
+	font-family: 'Anton', sans-serif;
 }
 
 .bowlby {
-    font-family: 'Bowlby One SC', cursive;
+	font-family: 'Bowlby One SC', cursive;
 }
 
 .bebas {
-    font-family: 'Bebas Neue', cursive;
+	font-family: 'Bebas Neue', cursive;
 }
 
 .special-elite {
-    font-family: 'Special Elite', cursive;
+	font-family: 'Special Elite', cursive;
 }
 
 .stattliches {
-    font-family: 'Staatliches', cursive;
+	font-family: 'Staatliches', cursive;
 }
 
 .roboto {
-    font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 .chap-indent {
-    text-indent: 2rem;
+	text-indent: 2rem;
 }
 
 li.starfleet {
-    margin-left: -30px;
-    list-style-type: none;
-    vertical-align: middle;
-    list-style: none;
-    background-image: url(/media/icons/starfleetLIicon.png);
-    background-position: left;
-    background-repeat: no-repeat;
-    line-height: 25px;
-    padding-left: 35px;
+	margin-left: -30px;
+	list-style-type: none;
+	vertical-align: middle;
+	list-style: none;
+	background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png);
+	background-position: left;
+	background-repeat: no-repeat;
+	line-height: 25px;
+	padding-left: 35px;
 }
 
 ul.chapter-list {
-    width: 80%; 
-    margin-left: 1.2rem;
+	width: 80%;
+	margin-left: 1.2rem;
 }
 
 .foot-bottom {
-    /* margin-top: -9px; */
-    line-height: 1.0;
+	/* margin-top: -9px; */
+	line-height: 1;
 }
 
 .lh-normal {
-    line-height: 1.0;
-}
-
-.character h2 {
-    background-image: url(/media/icons/subicon.png);
-	background-repeat: no-repeat;
-	background-position: left;
-	text-transform: uppercase;
-	text-align: left;
-	padding-left: 53px;
-	margin-left: 10px;
-	min-width: 75%;
-	font-size: 27px;
+	line-height: 1;
 }
 
 /* #212529 for body */
+
+/* More Fonts
+font-family: 'Syne Mono', monospace;
+font-family: 'Ubuntu Mono', monospace; */

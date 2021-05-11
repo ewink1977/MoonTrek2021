@@ -1,0 +1,51 @@
+ul li.icon-list {
+  margin-left: -30px;
+  list-style-type: none;
+  vertical-align: middle;
+  list-style: none;
+  background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  line-height: 30px;
+  padding-left: 35px;
+}
+
+.lcars-head {
+  width: 100%;
+  background-color: azure;
+  padding-right: 2em;
+}
+
+.lcars-head a {
+  font-family: 'Roboto', sans-serif;
+  color: darkblue;
+  font-size: 1.1rem;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.lcars-head a:hover {
+  color: blue;
+  text-decoration: dotted;
+}
+
+.lcars-head-text {
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+.lcars-text {
+  font-family: 'Roboto', sans-serif;
+}
+
+.character h2 {
+  background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/subicon.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  text-transform: uppercase;
+  text-align: left;
+  padding-left: 60px;
+  margin-left: 10px;
+  min-width: 75%;
+  font-size: 1.75rem;
+}
+/*# sourceMappingURL=lcars.css.map */

@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('MT_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['143.198.101.249', 'localhost', '127.0.0.1']
 
@@ -140,9 +140,14 @@ AWS_LOCATION = 'moontrek'
 MEDIAFILES_LOCATION = 'moontrek/media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
-STATICFILES_LOCATION = 'moontrek/static'
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+# Trying to seperate DEBUG STATIC from PRODUCTION STATIC
+if DEBUG == False:
+    STATIC_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
+    STATICFILES_LOCATION = 'moontrek/static'
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+else:
+    STATIC_URL = '/static/'
+    STATICFILES_LOCATION = os.path.join(BASE_DIR, 'static')
 
 # Media Handling
 MEDIA_URL = 'moontrek/media/'

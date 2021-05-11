@@ -11,19 +11,25 @@
             <h3 class="special-elite">Characters...</h3>
             <div class="col ml-2">
                 <h4 class="m-1 anton">Starfleet</h3>
-                <ul class="sflist">
-                {% for character in object_list %}
-                    {% if character.faction == 1 %}
-                    <li class="starfleet"><a href="{% url 'LCARS:charPartialView' character.slug %}" id="charLink">{{ character.name }}</a></li>
-                    {% endif %}
-                {% endfor %}
-                </ul>
+                    <ul class="sflist">
+                        {% for character in object_list %}
+                        {% if character.faction == 1 %}
+                        <li class="starfleet"><a href="{% url 'LCARS:charPartialView' character.slug %}"
+                                id="charLink">{{ character.name }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
             </div>
             <div class="col ml-2">
-            <h4 class="m-2 anton">Everyone Else</h4>
-            <ul>
-                <li class="starfleet">Other Characters</li>
-            </ul>
+                <h4 class="m-2 anton">Everyone Else</h4>
+                <ul>
+                    {% for character in object_list %}
+                    {% if character.faction != 1 %}
+                    <li class="starfleet"><a href="{% url 'LCARS:charPartialView' character.slug %}" id="charLink">{{
+                            character.name }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
             </div>
         </div>
         <div class="col-md-6 m-2 p-3 border border-secondary shadow">
@@ -38,14 +44,14 @@
 
 <script>
     $(document).off("click", "#charLink").on("click", '#charLink', function (e) {
-        let charURL = $( this ).attr( "href" );
+        let charURL = $(this).attr("href");
         e.preventDefault()
         $.ajax({
             url: charURL,
             method: 'get',
             data: $(this).serialize(),
-            success: function(serverResponse) {
-                $( '#lcarsReturn' ).html(serverResponse);
+            success: function (serverResponse) {
+                $('#lcarsReturn').html(serverResponse);
             }
         })
     })
