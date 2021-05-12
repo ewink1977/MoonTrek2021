@@ -17,17 +17,17 @@
             <h3 class="bowlby">Related Stories</h3>
             {% if misc.story.all %}
             <ul>
-            {% for story in misc.story.all %}
+                {% for story in misc.story.all %}
                 <li><a href="{% url 'stories:storyPage' story.slug %}">{{ story.title }}</a></li>
-            {% endfor %}
+                {% endfor %}
             </ul>
             {% else %}
             <p>No Related Stories Listed.</p>
             {% endif %}
             <h3 class="bowlby">Blog Posts</h3>
-                <p>Coming Soon.</p>
+            <p>Coming Soon.</p>
         </div>
-        <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow character">
+        <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow character lcars-content">
             {{ misc.urlSafe|safe }}
         </div>
     </div>

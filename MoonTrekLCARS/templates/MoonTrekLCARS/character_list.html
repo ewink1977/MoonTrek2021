@@ -25,8 +25,8 @@
                 <ul>
                     {% for character in object_list %}
                     {% if character.faction != 1 %}
-                    <li class="starfleet"><a href="{% url 'LCARS:charPartialView' character.slug %}" id="charLink">{{
-                            character.name }}</a></li>
+                    <li class="starfleet"><a href="{% url 'LCARS:charPartialView' character.slug %}" id="charLink">
+                            {{ character.name }}</a></li>
                     {% endif %}
                     {% endfor %}
                 </ul>

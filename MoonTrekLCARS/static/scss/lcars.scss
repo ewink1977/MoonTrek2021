@@ -39,7 +39,8 @@ ul {
 	font-family: 'Roboto', sans-serif;
 }
 
-.character {
+.character,
+.lcars-content {
 	h2 {
 		background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/subicon.png);
 		background-repeat: no-repeat;
@@ -51,4 +52,33 @@ ul {
 		min-width: 75%;
 		font-size: 1.75rem;
 	}
+}
+
+.shipname {
+	text-shadow: 1px 1px 5px black;
+}
+
+.Starfleet {
+	background-color: silver; // FOR CRAPPY BROWSERS
+	background-image: linear-gradient(to right, silver, #212529);
+}
+
+.Federation {
+	background-color: darkblue; // FOR CRAPPY BROWSERS
+	background-image: linear-gradient(to right, darkblue, #212529);
+}
+
+.Romulan {
+	background-color: #207468; // FOR CRAPPY BROWSERS
+	background-image: linear-gradient(to right, #207468, #212529);
+}
+
+.Vulcan {
+	background-color: #9f2415; // FOR CRAPPY BROWSERS
+	background-image: linear-gradient(to right, #9f2415, #212529);
+}
+
+.Orion {
+	background-color: #96dcd1; // FOR CRAPPY BROWSERS
+	background-image: linear-gradient(to right, #96dcd1, #212529);
 }

@@ -53,22 +53,22 @@
                     <div class="dropdown-menu bg-dark">
                         {% for story in allStories|dictsort:'position' %}
                         {% if story.series == 1 %}
-                        <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">{{
-                            story.title }}</a>
+                        <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">
+                            {{ story.title }}</a>
                         {% endif %}
                         {% endfor %}
                         <div class="dropdown-divider"></div>
                         {% for story in allStories|dictsort:'position' %}
                         {% if story.series == 2 %}
-                        <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">{{
-                            story.title }}</a>
+                        <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">
+                            {{ story.title }}</a>
                         {% endif %}
                         {% endfor %}
                         <div class="dropdown-divider"></div>
                         {% for story in allStories|dictsort:'position' %}
                         {% if story.series == 3 %}
-                        <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">{{
-                            story.title }}</a>
+                        <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">
+                            {{ story.title }}</a>
                         {% endif %}
                         {% endfor %}
                     </div>

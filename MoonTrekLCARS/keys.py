@@ -24,7 +24,7 @@ charDepartment = {
 shipFaction = {
     0: 'No Faction Assigned/Minor Faction',
     1: 'Starfleet',
-    2: 'Federation (Civilian)',
+    2: 'Federation',
     3: 'Vulcan',
     4: 'Romulan',
     5: 'Orion',

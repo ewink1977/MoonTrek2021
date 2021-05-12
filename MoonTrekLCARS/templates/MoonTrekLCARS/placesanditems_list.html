@@ -11,22 +11,24 @@
             <h3 class="special-elite">Places & Items...</h3>
             <div class="col ml-2">
                 <h4 class="m-1 anton">Places</h3>
-                <ul>
-                {% for place in object_list %}
-                    {% if place.type == 1 %}
-                    <li class="starfleet"><a href="{% url 'LCARS:miscPartialView' place.slug %}" id="miscLink">{{ place.name }}</a></li>
-                    {% endif %}
-                {% endfor %}
-                </ul>
+                    <ul>
+                        {% for place in object_list|dictsort:"name" %}
+                        {% if place.type == 1 %}
+                        <li class="starfleet"><a href="{% url 'LCARS:miscPartialView' place.slug %}" id="miscLink">
+                                {{ place.name }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
             </div>
             <div class="col ml-2">
                 <h4 class="m-2 anton">Items</h4>
                 <ul>
-                {% for item in object_list %}
+                    {% for item in object_list|dictsort:"name" %}
                     {% if item.type == 2 %}
-                    <li class="starfleet"><a href="{% url 'LCARS:miscPartialView' item.slug %}" id="miscLink">{{ item.name }}</a></li>
+                    <li class="starfleet"><a href="{% url 'LCARS:miscPartialView' item.slug %}" id="miscLink">
+                            {{ item.name }}</a></li>
                     {% endif %}
-                {% endfor %}
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -42,14 +44,14 @@
 
 <script>
     $(document).off("click", "#miscLink").on("click", '#miscLink', function (e) {
-        let shipURL = $( this ).attr( "href" );
+        let shipURL = $(this).attr("href");
         e.preventDefault()
         $.ajax({
             url: shipURL,
             method: 'get',
             data: $(this).serialize(),
-            success: function(serverResponse) {
-                $( '#lcarsReturn' ).html(serverResponse);
+            success: function (serverResponse) {
+                $('#lcarsReturn').html(serverResponse);
             }
         })
     })
