@@ -1,13 +1,83 @@
-ul li.icon-list {
-  margin-left: -30px;
+.Starfleet {
+  background-color: silver;
+  background-image: linear-gradient(to right, silver, #212529);
+}
+
+.Federation {
+  background-color: darkblue;
+  background-image: linear-gradient(to right, darkblue, #212529);
+}
+
+.Romulan {
+  background-color: #207468;
+  background-image: linear-gradient(to right, #207468, #212529);
+}
+
+.Vulcan {
+  background-color: #9f2415;
+  background-image: linear-gradient(to right, #9f2415, #212529);
+}
+
+.Orion {
+  background-color: #96dcd1;
+  background-image: linear-gradient(to right, #96dcd1, #212529);
+}
+
+.no-dept {
+  background-color: #7f7f7f;
+  background-image: linear-gradient(to right, #7f7f7f, #212529);
+}
+
+.command {
+  background-color: #b80606;
+  background-image: linear-gradient(to right, #b80606, #212529);
+}
+
+.ops {
+  background-color: #ff9e08;
+  background-image: linear-gradient(to right, #ff9e08, #212529);
+}
+
+.science {
+  background-color: #115a60;
+  background-image: linear-gradient(to right, #115a60, #212529);
+}
+
+.marines {
+  background-color: #09620e;
+  background-image: linear-gradient(to right, #09620e, #212529);
+}
+
+.si-neo-s31 {
+  background-color: #313131;
+  background-image: linear-gradient(to right, #313131, #212529);
+}
+
+.bg-dark {
+  background-image: linear-gradient(to right, #292c30, #212529);
+}
+
+a.icon-list,
+li.icon-list {
+  display: block;
+  margin-bottom: 5px;
   list-style-type: none;
-  vertical-align: middle;
-  list-style: none;
+  align-self: center;
   background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png);
-  background-position: left;
+  background-position: 5% 50%;
   background-repeat: no-repeat;
-  line-height: 30px;
-  padding-left: 35px;
+  padding: 5px 17%;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px black;
+  border-radius: 5%;
+}
+
+a.icon-list:hover,
+li.icon-list:hover {
+  background-color: #31353a;
+  box-shadow: 1px 1px 5px black;
+  color: whitesmoke;
+  text-decoration: none;
 }
 
 .lcars-head {
@@ -50,32 +120,7 @@ ul li.icon-list {
   font-size: 1.75rem;
 }
 
-.shipname {
+.lcars-name-h1 {
   text-shadow: 1px 1px 5px black;
-}
-
-.Starfleet {
-  background-color: silver;
-  background-image: linear-gradient(to right, silver, #212529);
-}
-
-.Federation {
-  background-color: darkblue;
-  background-image: linear-gradient(to right, darkblue, #212529);
-}
-
-.Romulan {
-  background-color: #207468;
-  background-image: linear-gradient(to right, #207468, #212529);
-}
-
-.Vulcan {
-  background-color: #9f2415;
-  background-image: linear-gradient(to right, #9f2415, #212529);
-}
-
-.Orion {
-  background-color: #96dcd1;
-  background-image: linear-gradient(to right, #96dcd1, #212529);
 }
 /*# sourceMappingURL=lcars.css.map */

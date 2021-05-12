@@ -7,29 +7,25 @@
         <li class="breadcrumb-item active">Places & Items DB</li>
     </ol>
     <div class="row justify-content-center">
-        <div class="col-md-3 m-2 p-3 border border-secondary">
+        <div class="col-md-4 m-2 p-3 border border-secondary">
             <h3 class="special-elite">Places & Items...</h3>
             <div class="col ml-2">
-                <h4 class="m-1 anton">Places</h3>
-                    <ul>
-                        {% for place in object_list|dictsort:"name" %}
-                        {% if place.type == 1 %}
-                        <li class="starfleet"><a href="{% url 'LCARS:miscPartialView' place.slug %}" id="miscLink">
-                                {{ place.name }}</a></li>
-                        {% endif %}
-                        {% endfor %}
-                    </ul>
+                <h4 class="mx-2 my-2 anton">Places</h4>
+                {% for place in object_list|dictsort:"name" %}
+                {% if place.type == 1 %}
+                <a href="{% url 'LCARS:miscPartialView' place.slug %}" id="miscLink" class="icon-list">
+                    {{ place.name }}</a>
+                {% endif %}
+                {% endfor %}
             </div>
             <div class="col ml-2">
-                <h4 class="m-2 anton">Items</h4>
-                <ul>
-                    {% for item in object_list|dictsort:"name" %}
-                    {% if item.type == 2 %}
-                    <li class="starfleet"><a href="{% url 'LCARS:miscPartialView' item.slug %}" id="miscLink">
-                            {{ item.name }}</a></li>
-                    {% endif %}
-                    {% endfor %}
-                </ul>
+                <h4 class="mx-2 my-2 anton">Items</h4>
+                {% for item in object_list|dictsort:"name" %}
+                {% if item.type == 2 %}
+                <a href="{% url 'LCARS:miscPartialView' item.slug %}" id="miscLink" class="icon-list">
+                    {{ item.name }}</a>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
         <div class="col-md-6 m-2 p-3 border border-secondary shadow">

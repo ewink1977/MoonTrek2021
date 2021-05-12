@@ -17,7 +17,7 @@
             {% else %}
             <div class="col-md p-3 rounded shadow text-center">
                 {% endif %}
-                <h1 class="special-elite m-0 d-inline">{{ character.name }}</h1>
+                <h1 class="special-elite m-0 d-inline lcars-name-h1">{{ character.name }}</h1>
                 {% if character.rankIMG %}
                 <img src="{{ character.rankIMG.url }}" alt="{{ character.name }}'s Rank!" class="d-inline ml-3 mb-3">
                 {% endif %}
@@ -26,18 +26,14 @@
         <div class="row my-4 justify-content-between">
             <div class="col-md-4 p-4 text-justify border border-secondary rounded shadow">
                 <h3 class="bowlby">Related Stories</h3>
-                <ul>
-                    {% for story in character.story.all|dictsort:'position'|dictsort:'series' %}
-                    <li class="icon-list"><a href="{% url 'stories:storyPage' story.slug %}">{{ story.title }}</a></li>
-                    {% endfor %}
-                </ul>
+                {% for story in character.story.all|dictsort:'position'|dictsort:'series' %}
+                <a href="{% url 'stories:storyPage' story.slug %}" class="icon-list">{{ story.title }}</a>
+                {% endfor %}
                 <h3 class="bowlby">Blog Posts</h3>
                 {% if character.blog_post.all %}
-                <ul>
-                    {% for post in character.blog_post.all %}
-                    <li class="icon-list"><a href="{% url 'blog:blogPost' post.slug %}">{{ post.title }}</a></li>
-                    {% endfor %}
-                </ul>
+                {% for post in character.blog_post.all %}
+                <a href="{% url 'blog:blogPost' post.slug %}" class="icon-list">{{ post.title }}</a>
+                {% endfor %}
                 {% else %}
                 <p>No blog posts registered for this character!</p>
                 {% endif %}

@@ -17,24 +17,20 @@
             {% else %}
             <div class="col-md p-3 rounded shadow text-center">
                 {% endif %}
-                <h1 class="special-elite m-0 d-inline shipname">{{ ship.name }}</h1>
+                <h1 class="special-elite m-0 d-inline lcars-name-h1">{{ ship.name }}</h1>
             </div>
         </div>
         <div class="row my-4 justify-content-between">
             <div class="col-md-4 p-4 text-justify border border-secondary rounded shadow">
                 <h3 class="bowlby">Related Stories</h3>
-                <ul>
-                    {% for story in ship.story.all %}
-                    <li class="icon-list"><a href="{% url 'stories:storyPage' story.slug %}">{{ story.title }}</a></li>
-                    {% endfor %}
-                </ul>
+                {% for story in ship.story.all %}
+                <a href="{% url 'stories:storyPage' story.slug %}" class="icon-list">{{ story.title }}</a>
+                {% endfor %}
                 <h3 class="bowlby">Blog Posts</h3>
                 {% if ship.blog_post.all %}
-                <ul>
-                    {% for post in ship.blog_post.all %}
-                    <li class="icon-list"><a href="{% url 'blog:blogPost' post.slug %}">{{ post.title }}</a></li>
-                    {% endfor %}
-                </ul>
+                {% for post in ship.blog_post.all %}
+                <a href="{% url 'blog:blogPost' post.slug %}" class="icon-list">{{ post.title }}</a>
+                {% endfor %}
                 {% else %}
                 <p>No blog posts registered for this ship!</p>
                 {% endif %}
