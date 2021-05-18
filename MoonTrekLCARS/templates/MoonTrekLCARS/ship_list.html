@@ -7,28 +7,26 @@
         <li class="breadcrumb-item active">Ship Database</li>
     </ol>
     <div class="row justify-content-center">
-        <div class="col-md-3 m-2 p-3 border border-secondary">
+        <div class="col-md-4 m-2 p-3 border border-secondary">
             <h3 class="special-elite">Ships...</h3>
             <div class="col ml-2">
-                <h4 class="m-1 anton">Starfleet Ships</h3>
-                <ul>
+                <h4 class="mx-2 my-2 anton">Starfleet Ships</h4>
                 {% for ship in object_list %}
-                    {% if ship.faction == 1 %}
-                    <li class="starfleet"><a href="{% url 'LCARS:shipPartialView' ship.slug %}" id="shipLink">{{ ship.name }}</a></li>
-                    {% endif %}
+                {% if ship.faction == 1 %}
+                <a href="{% url 'LCARS:shipPartialView' ship.slug %}" id="shipLink" class="icon-list">
+                    {{ ship.name }}</a>
+                {% endif %}
                 {% endfor %}
-                </ul>
             </div>
             <div class="col ml-2">
-                <h4 class="m-2 anton">Other Factions</h4>
-                <ul>
+                <h4 class="mx-2 my-2 anton">Other Factions</h4>
                 {% for ship in object_list %}
-                    {% if ship.faction != 1 %}
-                    <li class="starfleet"><a href="{% url 'LCARS:shipPartialView' ship.slug %}" id="shipLink">{{ ship.name }}</a></li>
-                    {% endif %}
+                {% if ship.faction != 1 %}
+                <a href="{% url 'LCARS:shipPartialView' ship.slug %}" id="shipLink" class="icon-list">
+                    {{ ship.name }}</a>
+                {% endif %}
                 {% endfor %}
-                </ul>
-            </div>  
+            </div>
         </div>
         <div class="col-md-6 m-2 p-3 border border-secondary shadow">
             <div id="lcarsReturn" class="col-md">
@@ -42,14 +40,14 @@
 
 <script>
     $(document).off("click", "#shipLink").on("click", '#shipLink', function (e) {
-        let shipURL = $( this ).attr( "href" );
+        let shipURL = $(this).attr("href");
         e.preventDefault()
         $.ajax({
             url: shipURL,
             method: 'get',
             data: $(this).serialize(),
-            success: function(serverResponse) {
-                $( '#lcarsReturn' ).html(serverResponse);
+            success: function (serverResponse) {
+                $('#lcarsReturn').html(serverResponse);
             }
         })
     })

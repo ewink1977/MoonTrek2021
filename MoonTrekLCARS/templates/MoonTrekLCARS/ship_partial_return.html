@@ -1,9 +1,12 @@
-<div class="col text-right">
-    <small><a href="{% url 'LCARS:shipView' ship.slug %}">See Full Page.</a></small>
+<div class="col lcars-head text-right px-2 my-2">
+    <a href="{% url 'LCARS:shipView' ship.slug %}">See Full Page</a>
 </div>
-<div class="col">
-    <h2 class="special-elite">{{ ship.name }}</h2>
+<div class="col p-2">
+    <h2 class="lcars-head-text">{{ ship.name }}</h2>
 </div>
-<div class="col">
+<div class="col lcars-text">
     {{ ship.content|safe|truncatewords_html:150 }}
+</div>
+<div class="col lcars-head text-right px-2 my-2">
+    <a href="{% url 'LCARS:shipView' ship.slug %}">See Full Page</a>
 </div>

@@ -10,7 +10,8 @@
     <div class="row p-2 m-2">
         <div class="col text-center">
             <h2 class="special-elite">{{ object.title }}</h2>
-            <img src="{{ object.image.url }}" alt="{{ object.title }}'s Header Image!" class="img-fluid rounded mx-auto d-block shadow">
+            <img src="{{ object.image.url }}" alt="{{ object.title }}'s Header Image!"
+                class="img-fluid rounded mx-auto d-block shadow">
         </div>
     </div>
     <div class="row m-3 p-4 border border-dark shadow">
@@ -23,43 +24,31 @@
             <h3 class="bowlby">Chapter List</h3>
             <div class="col py-3 px-3 border border-dark rounded shadow">
                 <p>If you want to read the story in your browser, select from below.</p>
-                <ul class="chapter-list">
                 {% for chapter in object.chapters.all|dictsort:"chapter_number" %}
-                <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}"><li class="starfleet">
+                <a href="{% url 'stories:chapterPage' story_slug=object.slug slug=chapter.slug %}" class="icon-list">
                     {% if chapter.chapter_number != 0 and chapter.epilogue == False %}
-                        Chapter {{ chapter.chapter_number }} - 
+                    Chapter {{ chapter.chapter_number }} -
                     {% endif %}
-                        {{ chapter.title }}</li></a>
+                    {{ chapter.title }}
+                </a>
                 {% endfor %}
-                </ul>
             </div>
             <h3 class="bowlby mt-3">Offline Options | Full Stories</h3>
             <div class="col py-3 px-3 border border-dark rounded shadow">
+                {% if object.fullStoryEPUB %}
+                <a href="{{ object.fullStoryEPUB.url }}" class="icon-list">Download {{ object.title }}'s EPUB</a>
+                {% else %}
                 <ul>
-                    {% if object.fullStoryEPUB %}
-                    <a href="{{ object.fullStoryEPUB.url }}"><li class="starfleet">Download {{ object.title }}'s EPUB</li></a>
-                    {% else %}
-                    <li class="starfleet">EPUB Version Not Uploaded Yet!</li></a>
-                    {% endif %}
-                    {% if object.fullStoryPDF %}
-                    <a href="{{ object.fullStoryPDF.url }}"><li class="starfleet">Download {{ object.title }}'s PDF</li></a>
-                    {% else %}
-                    <li class="starfleet">PDF Version Not Uploaded Yet!</li></a>
-                    {% endif %}
+                    <li class="icon-list">EPUB Version Not Uploaded Yet!</li>
                 </ul>
-            </div>
-            <h3 class="bowlby mt-3">Blog Posts</h3>
-            <div class="col py-3 px-3 border border-dark rounded shadow">
-                <p>Blog posts about this story.</p>
+                {% endif %}
+                {% if object.fullStoryPDF %}
+                <a href="{{ object.fullStoryPDF.url }}" class="icon-list">Download {{ object.title }}'s PDF</a>
+                {% else %}
                 <ul>
-                    {% if object.blog_post.all %}
-                        {% for post in object.blog_post.all %}
-                        <a href="{% url 'blog:blogPost' post.slug %}"><li class="starfleet">{{ post.title }}</li></a>
-                        {% endfor %}
-                    {% else %}
-                        <li class="starfleet">No related Blog Posts.</li>
-                    {% endif %}
+                    <li class="icon-list">PDF Version Not Uploaded Yet!</li></a>
                 </ul>
+                {% endif %}
             </div>
         </div>
         <div class="col-md-6">
@@ -68,69 +57,121 @@
                 <h4 class="stattliches">Characters</h4>
                 <ul class="list-inline">
                     {% for character in object.characters.all|dictsort:'name' %}
-                    <li class="list-inline-item"><a href="{% url 'LCARS:characterView' character.slug %}">{{ character.name }}</a>, </li>
+                    <li class="list-inline-item"><a href="{% url 'LCARS:characterView' character.slug %}">
+                            {{character.name }}</a>, </li>
                     {% endfor %}
                 </ul>
                 <h4 class="stattliches">Ships</h4>
                 <ul class="list-inline">
+                    {% if object.ships.all %}
                     {% for ship in object.ships.all|dictsort:'name' %}
-                    <li class="list-inline-item"><a href="{% url 'LCARS:shipView' ship.slug %}">{{ ship.name }}</a>, </li>
+                    <li class="list-inline-item"><a href="{% url 'LCARS:shipView' ship.slug %}">{{ ship.name }}</a>,
+                    </li>
                     {% endfor %}
+                    {% else %}
+                    <p>No ships registered to this story yet!</p>
+                    {% endif %}
                 </ul>
                 <h4 class="stattliches">Locations.</h4>
-                <p>Probably not vertical lists, but inline ones for space.</p>
+                {% if object.places.all %}
+                {% for location in object.places.all|dictsort:'name' %}
+                <li class="list-inline-item"><a href="{% url 'LCARS:miscView' location.slug %}">{{ location.name }}</a>,
+                </li>
+                {% endfor %}
+                {% else %}
+                <p>No locations have been registered to this story yet!</p>
+                {% endif %}
+            </div>
+            <h3 class="bowlby mt-3">Blog Posts</h3>
+            <div class="col py-3 px-3 border border-dark rounded shadow">
+                <p>Blog posts about this story.</p>
+                {% if object.blog_post.all %}
+                {% for post in object.blog_post.all %}
+                <a href="{% url 'blog:blogPost' post.slug %}">
+                    <li class="icon-list">{{ post.title }}</li>
+                </a>
+                {% endfor %}
+                {% else %}
+                <ul>
+                    <li class="icon-list">No related Blog Posts.</li>
+                </ul>
+                {% endif %}
             </div>
         </div>
     </div>
     <div class="row m-3 p-4 border border-dark justify-content-end shadow">
         <div class="col-md-6">
             <form action="{% url 'stories:addComment' object.pk %}" method="POST" id="newComment">
-            {% csrf_token %}
-            <div class="row">
-                <div class="col">
-                    <label for="commentor" style="text-decoration: underline;">Who You Are*</label>
-                    <input type="text" class="form-control" name="commentor" id="commentor" placeholder="Name/ID/@Whatever" aria-describedby="IDHelp" required>
-                    <small id="IDHelp" class="lh-normal text-muted"><span class="text-danger">Required.</span> Real name, internet name, IDGAF, as long as you identify yourself somehow.</small>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group mt-2 py-2">
-                        <label for="comment" style="text-decoration: underline;">Comment Below*</label>
-                        <textarea class="form-control" id="comment" name="comment" rows="3" aria-describedby="CommentHelp" required></textarea>
-                        <small id="CommentHelp" class="text-muted"><span class="text-danger">Required, duh.</span> 200 Characters MAX - No spoilers please.</small>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        <label for="commentor" style="text-decoration: underline;">Who You Are*</label>
+                        <input type="text" class="form-control" name="commentor" id="commentor"
+                            placeholder="Name/ID/@Whatever" aria-describedby="IDHelp" required>
+                        <small id="IDHelp" class="lh-normal text-muted"><span class="text-danger">Required.</span> Real
+                            name, internet name, IDGAF, as long as you identify yourself somehow.</small>
                     </div>
                 </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group mt-2 py-2">
+                            <label for="comment" style="text-decoration: underline;">Comment Below*</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="3"
+                                aria-describedby="CommentHelp" required></textarea>
+                            <small id="CommentHelp" class="text-muted"><span class="text-danger">Required, duh.</span>
+                                200 Characters MAX - No spoilers please.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="g-recaptcha mb-2" data-sitekey="6Lejs9kaAAAAAEIJNjl6imYMgYcoLbk3HGwTTQ-E"></div>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
         <div class="col-md-6 my-3 p-2" id="comments">
             {% for comment in comments %}
-            <div class="row m-2 p-2 border border-secondary shadow rounded">
-                <div class="col-md-3">{{ comment.commentor }}</div>
-                <div class="col-md">{{ comment.comment }}</div>
-                <div class="col-md-12 mx-2 my-2 text-right text-muted">
-                    <small>Posted at {{ comment.created_at|date:"l, N j, Y @ f A" }}</small>
+            {% if comment.is_admin %}
+            <div class="m-2 p-2 shadow rounded border border-danger">
+                {% else %}
+                <div class="m-2 p-2 shadow rounded border border-secondary">
+                    {% endif %}
+                    <div class="row px-3 py-1">
+                        <div class="col-md-3 p-2">{{ comment.commentor }}
+                            {% if comment.is_admin %}
+                            <img src="https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/comment-ewink.png"
+                                alt="ewink posted comment!" class="comment-img">
+                            {% else %}
+                            <img src="https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/comment-default.png"
+                                alt="A wonderful reader posted comment!" class="comment-img">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8 p-2 comment-text rounded">{{ comment.comment }}</div>
+                    </div>
+                    <div class="text-right">
+                        <small>Posted at {{ comment.created_at|date:"l, N j, Y @ f A" }}</small>
+                        {% if user.is_authenticated %}
+                        <br />
+                        <hr />
+                        <small><a href='{% url "stories:deleteComment" id=comment.pk storySlug=object.slug %}'>DELETE
+                                COMMENT</a></small>
+                        {% endif %}
+                    </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
-    </div>
-</div>
 
-<script>
-    $('form').submit(function (e) {
-        e.preventDefault()
-        $.ajax({
-            url: '{% url "stories:addComment" object.pk %}',
-            method: 'post',
-            data: $(this).serialize(),
-            success: function(serverResponse) {
-                $( '#comments' ).html(serverResponse);
-                $( 'form' ).trigger("reset");
-            }
-        })
-    })
-</script>
-{% endblock content %}
+        <script>
+            $('form').submit(function (e) {
+                e.preventDefault()
+                $.ajax({
+                    url: '{% url "stories:addComment" object.pk %}',
+                    method: 'post',
+                    data: $(this).serialize(),
+                    success: function (serverResponse) {
+                        $('#comments').html(serverResponse);
+                        $('form').trigger("reset");
+                    }
+                })
+            })
+        </script>
+        {% endblock content %}

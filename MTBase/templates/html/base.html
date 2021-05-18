@@ -1,47 +1,49 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if pagetitle %}
-        <title>{{ pagetitle }}</title>
-        {% elif object.title %}
-        <title>Moon Trek | {{ object.title }}</title>
-        {% elif character.name %}
-        <title>Moon Trek | LCARS Database | {{ character.name }}</title>
-        {% elif ship.name %}
-        <title>Moon Trek | LCARS Database | {{ ship.name }}</title>
-        {% elif misc.name %}
-        <title>Moon Trek | LCARS Database | {{ misc.name }}</title>
-        {% else %}
-        <title>Moon Trek | A Star Trek/Ranma ½/Sailor Moon Fan Fic</title>
+    <title>{{ pagetitle }}</title>
+    {% elif object.title %}
+    <title>Moon Trek | {{ object.title }}</title>
+    {% elif character.name %}
+    <title>Moon Trek | LCARS Database | {{ character.name }}</title>
+    {% elif ship.name %}
+    <title>Moon Trek | LCARS Database | {{ ship.name }}</title>
+    {% elif misc.name %}
+    <title>Moon Trek | LCARS Database | {{ misc.name }}</title>
+    {% else %}
+    <title>Moon Trek | A Star Trek/Ranma ½/Sailor Moon Fan Fic</title>
     {% endif %}
     <!-- TODO: Add dynamic descriptions for SEO. -->
     <meta name="description" content="Moon Trek is a crossover fan fiction featuring characters from the anime Ranma ½, Sailor Moon, and others, as well as 
         multiple original characters, placed in a post-Dominion War Star Trek universe! Moon Trek was created by Erin ‘ewink’ Winking and has ten full length 
         stories!" />
-    <link rel="stylesheet" 
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
-        crossorigin="anonymous">
-    <link rel="preconnect" 
-        href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Bowlby+One+SC&family=Special+Elite&family=Staatliches&family=Roboto:wght@400;500;900&display=swap">
-    <link rel="stylesheet" 
-        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
-        crossorigin="anonymous"/>
+        href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Anton&family=Bebas+Neue&family=Bowlby+One+SC&family=Special+Elite&family=Staatliches&family=Roboto:wght@400;500;900&display=swap">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/override.css' %}">
+    <link rel="stylesheet" href="{% static 'css/moontrek.base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/moontrek.lcars.css' %}">
+    <link rel="stylesheet" href="{% static 'css/moontrek.blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/moontrek.stories.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
+
 <body class="text-light">
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #212529!important;">
-        <img class="navbar-brand" src="{% static 'img/moontrek_logo.png' %}" alt="The Moon Trek Logo" style="width: 50px;">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg navbar-dark new-dark-bg">
+        <img class="nav-logo navbar-brand" src="{% static 'img/moontrek_logo.png' %}" alt="The Moon Trek Logo">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+            aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
@@ -49,25 +51,29 @@
                     <a class="nav-link" href="{% url 'stories:storyHome' %}">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Story Quick Access</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">Story Quick Access</a>
                     <div class="dropdown-menu bg-dark">
-                    {% for story in allStories|dictsort:'position' %}
+                        {% for story in allStories|dictsort:'position' %}
                         {% if story.series == 1 %}
-                            <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">{{ story.title }}</a>
+                        <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">
+                            {{ story.title }}</a>
                         {% endif %}
-                    {% endfor %}
-                    <div class="dropdown-divider"></div>
-                    {% for story in allStories|dictsort:'position' %}
+                        {% endfor %}
+                        <div class="dropdown-divider"></div>
+                        {% for story in allStories|dictsort:'position' %}
                         {% if story.series == 2 %}
-                            <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">{{ story.title }}</a>
+                        <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">
+                            {{ story.title }}</a>
                         {% endif %}
-                    {% endfor %}
-                    <div class="dropdown-divider"></div>
-                    {% for story in allStories|dictsort:'position' %}
+                        {% endfor %}
+                        <div class="dropdown-divider"></div>
+                        {% for story in allStories|dictsort:'position' %}
                         {% if story.series == 3 %}
-                            <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">{{ story.title }}</a>
+                        <a class="dropdown-item text-secondary" href="{% url 'stories:storyPage' story.slug %}">
+                            {{ story.title }}</a>
                         {% endif %}
-                    {% endfor %}
+                        {% endfor %}
                     </div>
                 </li>
                 <li class="nav-item">
@@ -84,15 +90,15 @@
         </div>
     </nav>
     {% if messages %}
-        {% for message in messages %}
-        <div class="container-fluid">
-            <div class="row pt-4 justify-content-md-center">
-                    <div class="alert alert-{{ message.tags }} w-50 text-center">
-                        {{ message }}
-                    </div>
+    {% for message in messages %}
+    <div class="container-fluid">
+        <div class="row pt-4 justify-content-md-center">
+            <div class="alert alert-{{ message.tags }} w-50 text-center">
+                {{ message }}
             </div>
         </div>
-        {% endfor %}
+    </div>
+    {% endfor %}
     {% endif %}
     {% block content %}
 
@@ -100,24 +106,27 @@
     <footer class="text-muted border-top border-secondary">
         <div class="container">
             <div class="col m-0 text-center foot-bottom">
-                <small>©1997-2021 <a href="https://www.douglasavenue.com" target="_blank" rel="noopener noreferrer">Erin M Winking</a> 
-                    | Star Trek, Sailor Moon, Ranma ½, and all other used works are property of their respective owners and used under the Fair Use guidelines of U.S. law.
+                <small>©1997-2021 <a href="https://www.douglasavenue.com" target="_blank" rel="noopener noreferrer">Erin
+                        M Winking</a>
+                    | Star Trek, Sailor Moon, Ranma ½, and all other used works are property of their respective owners
+                    and used under the Fair Use guidelines of U.S. law.
             </div>
             <div class="col text-center foot-bottom">
-                    Cookies used on this site are for analytics and the function of the site only. No information is sold or used for any marketing purposes. <a href="https://fontawesome.com/license" target="_blank">FontAwesome fonts used under license.</a>
-                    <br />
-                    Website powered by <a href="https://m.do.co/c/adb184868011" target="_blank">DigitalOcean</a>
+                Cookies used on this site are for analytics and the function of the site only. No information is sold or
+                used for any marketing purposes. <a href="https://fontawesome.com/license" target="_blank">FontAwesome
+                    fonts used under license.</a>
+                <br />
+                Website powered by <a href="https://m.do.co/c/adb184868011" target="_blank">DigitalOcean</a>
                 </small>
             </div>
         </div>
     </footer>
-    <script 
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-    <script 
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
+
 </html>

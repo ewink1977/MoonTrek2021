@@ -1,8 +1,11 @@
+import json
+import urllib
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.views.generic import DetailView
 from django.core.paginator import Paginator
 from django.contrib import messages
+from django.conf import settings
 from MoonTrekBlog.models import BlogPost
 from MoonTrekStories.models import MoonTrekStories, MoonTrekChapters, Comment
 from MoonTrekStories.dicts import seriesNames
@@ -10,16 +13,47 @@ from MoonTrekStories.dicts import seriesNames
 def addComment(request, id):
     if request.method == 'POST':
         currentStory = MoonTrekStories.objects.get(id = id)
-        NewComment = Comment.objects.create(
-            commentor = request.POST['commentor'],
-            comment = request.POST['comment'],
-            story = currentStory,
-            )
-        NewComment.save()
-        messages.success(request, 'Comment successfully added!')
-        return render(request, 'MoonTrekStories/comment-return.html', {'comments': Comment.objects.filter(story = currentStory)})
+        if request.user.is_authenticated:
+            is_admin = True
+        else:
+            is_admin = False
+        # ''' Begin reCAPTCHA validation '''
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        values = {
+            'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+            'response': recaptcha_response
+        }
+        data = urllib.parse.urlencode(values).encode()
+        req =  urllib.request.Request(url, data=data)
+        response = urllib.request.urlopen(req)
+        result = json.loads(response.read().decode())
+        print(result)
+        # ''' End reCAPTCHA validation '''
+        if result['success'] == True:
+            NewComment = Comment.objects.create(
+                commentor = request.POST['commentor'],
+                comment = request.POST['comment'],
+                is_admin = is_admin,
+                story = currentStory,
+                )
+            NewComment.save()
+            messages.success(request, 'Comment successfully added!')
+            return render(request, 'MoonTrekStories/comment-return.html', {'comments': Comment.objects.filter(story = currentStory)})
+        else:
+            messages.error(request, 'Invalid reCAPTCHA. Please try again.', extra_tags = 'danger')
+            return render(request, 'MoonTrekStories/comment-return.html', {'comments': Comment.objects.filter(story = currentStory)})
     else:
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', 'stories:storyHome'))
+
+def deleteComment(request, id, storySlug):
+    commentToDelete = Comment.objects.get(id = id)
+    commentToDelete.delete()
+    print(storySlug)
+    # storySlug = storySlug
+    messages.success(request, 'Comment successfully deleted.')
+    return redirect('stories:storyPage', storySlug)
+
 
 def storyHome(request):
     blogPosts = BlogPost.objects.all().order_by('-date_posted')

@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from tinymce.models import HTMLField
 from MoonTrekStories.models import MoonTrekStories
+from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
 
 class BlogPost(models.Model):
     title = models.CharField(max_length = 100)
@@ -21,6 +22,24 @@ class BlogPost(models.Model):
 
     related_story = models.ManyToManyField(
         MoonTrekStories, 
+        related_name = 'blog_post',
+        blank = True
+    )
+
+    related_character = models.ManyToManyField(
+        Character,
+        related_name = 'blog_post', 
+        blank = True
+    )
+
+    related_ship = models.ManyToManyField(
+        Ship, 
+        related_name = 'blog_post', 
+        blank = True
+    )
+
+    related_place = models.ManyToManyField(
+        PlacesAndItems,
         related_name = 'blog_post',
         blank = True
     )

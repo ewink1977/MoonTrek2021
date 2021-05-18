@@ -1,0 +1,15 @@
+@import 'var';
+
+.related-to {
+	font-size: 0.7rem;
+	line-height: 0.9;
+}
+
+header {
+	background-color: $headerGrey;
+	background-image: linear-gradient(to right, $headerGrey, $site-bg);
+
+	h1 {
+		text-shadow: 1px 1px 5px $site-bg;
+	}
+}

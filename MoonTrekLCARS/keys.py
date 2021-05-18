@@ -11,12 +11,12 @@ charFaction = {
 
 # DEPARTMENT BACKGROUND COLOR ASSIGMENTS.
 charDepartment = {
-    0: 'Not Starfleet/No Department Assigned',
-    1: 'bg-danger', # COMMAND (RED)
-    2: 'bg-warning', # OPERATIONS (YELLOW/GOLD)
-    3: 'bg-info', # SCIENCE/MEDICAL (BLUE)
-    4: 'bg-success', # LDF/MARINES (GREEN)
-    5: 'bg-dark', # INTEL (BLACK)
+    0: 'no-dept',
+    1: 'command',
+    2: 'ops',
+    3: 'science',
+    4: 'marines',
+    5: 'si-neo-s31'
 }
 
 # KEYS & VALUES FOR SHIP FACTIONS!
@@ -24,7 +24,7 @@ charDepartment = {
 shipFaction = {
     0: 'No Faction Assigned/Minor Faction',
     1: 'Starfleet',
-    2: 'Federation (Civilian)',
+    2: 'Federation',
     3: 'Vulcan',
     4: 'Romulan',
     5: 'Orion',

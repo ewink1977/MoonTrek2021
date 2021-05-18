@@ -1,0 +1,60 @@
+// SHIP GRADIENTS
+.Starfleet {
+	background-color: silver; // FOR CRAPPY BROWSERS
+	background-image: linear-gradient(to right, silver, $site-bg);
+}
+
+.Federation {
+	background-color: darkblue; // FOR CRAPPY BROWSERS
+	background-image: linear-gradient(to right, darkblue, $site-bg);
+}
+
+.Romulan {
+	background-color: #207468; // FOR CRAPPY BROWSERS
+	background-image: linear-gradient(to right, #207468, $site-bg);
+}
+
+.Vulcan {
+	background-color: #9f2415; // FOR CRAPPY BROWSERS
+	background-image: linear-gradient(to right, #9f2415, $site-bg);
+}
+
+.Orion {
+	background-color: #96dcd1; // FOR CRAPPY BROWSERS
+	background-image: linear-gradient(to right, #96dcd1, $site-bg);
+}
+
+// CHARACTER-DEPARTMENT GRADIENTS
+.no-dept {
+	background-color: $nobody-grey;
+	background-image: linear-gradient(to right, $nobody-grey, $site-bg);
+}
+
+.command {
+	background-color: $command-red;
+	background-image: linear-gradient(to right, $command-red, $site-bg);
+}
+
+.ops {
+	background-color: $ops-gold;
+	background-image: linear-gradient(to right, $ops-gold, $site-bg);
+}
+
+.science {
+	background-color: $sci-blue;
+	background-image: linear-gradient(to right, $sci-blue, $site-bg);
+}
+
+.marines {
+	background-color: $marine-green;
+	background-image: linear-gradient(to right, $marine-green, $site-bg);
+}
+
+.si-neo-s31 {
+	background-color: $si-black;
+	background-image: linear-gradient(to right, $si-black, $site-bg);
+}
+
+.bg-dark {
+    background-image: linear-gradient(to right, $lighter-bg, $site-bg);
+}

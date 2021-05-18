@@ -1,0 +1,69 @@
+@import 'var', 'gradients';
+
+a.icon-list,
+li.icon-list {
+	display: block;
+	margin-bottom: 5px;
+	list-style-type: none;
+	align-self: center;
+	background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png);
+	background-position: 5% 50%;
+	background-repeat: no-repeat;
+	padding: 5px 17%;
+	cursor: pointer;
+	box-shadow: 1px 1px 5px black;
+	border-radius: 5%;
+
+	&:hover {
+		background-color: #31353a;
+		box-shadow: 1px 1px 5px black;
+		color: whitesmoke;
+		text-decoration: none;
+	}
+}
+
+.lcars-head {
+	width: 100%;
+	background-color: azure;
+	padding-right: 2em;
+
+	a {
+		font-family: 'Roboto', sans-serif;
+		color: darkblue;
+		font-size: 1.1rem;
+		text-decoration: underline;
+		text-transform: uppercase;
+	}
+
+	a:hover {
+		color: blue;
+		text-decoration: dotted;
+	}
+
+	&-text {
+		font-family: 'Ubuntu Mono', monospace;
+	}
+}
+
+.lcars-text {
+	font-family: 'Roboto', sans-serif;
+}
+
+.character,
+.lcars-content {
+	h2 {
+		background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/subicon.png);
+		background-repeat: no-repeat;
+		background-position: left;
+		text-transform: uppercase;
+		text-align: left;
+		padding-left: 60px;
+		margin-left: 10px;
+		min-width: 75%;
+		font-size: 1.75rem;
+	}
+}
+
+.lcars-name-h1 {
+	text-shadow: 1px 1px 5px black;
+}

@@ -1,0 +1,73 @@
+@import 'var';
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: $site-bg !important;
+	font-family: 'Roboto', sans-serif;
+}
+
+.new-dark-bg {
+	background-color: $site-bg !important;
+}
+
+.nav-logo {
+	width: 50px !important;
+}
+
+.anton {
+	font-family: 'Anton', sans-serif;
+}
+
+.bowlby {
+	font-family: 'Bowlby One SC', cursive;
+}
+
+.bebas {
+	font-family: 'Bebas Neue', cursive;
+}
+
+.special-elite {
+	font-family: 'Special Elite', cursive;
+}
+
+.stattliches {
+	font-family: 'Staatliches', cursive;
+}
+
+.roboto {
+	font-family: 'Roboto', sans-serif;
+}
+
+.chap-indent {
+	text-indent: 2rem;
+}
+
+li.starfleet {
+	margin-left: -30px;
+	list-style-type: none;
+	vertical-align: middle;
+	list-style: none;
+	background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png);
+	background-position: left;
+	background-repeat: no-repeat;
+	line-height: 25px;
+	padding-left: 35px;
+}
+
+.foot-bottom {
+	/* margin-top: -9px; */
+	line-height: 1;
+}
+
+.lh-normal {
+	line-height: 1;
+}
+
+/* #212529 for body */
+
+/* More Fonts
+font-family: 'Syne Mono', monospace;
+font-family: 'Ubuntu Mono', monospace; */
