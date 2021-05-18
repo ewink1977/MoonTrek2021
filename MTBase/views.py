@@ -48,7 +48,7 @@ class ContactView(View):
                 send_mail('A Contact From The Moon Trek Contact Form!', 
                 message, 
                 'moontrek@douglasavenue.com', 
-                ['otakuphotog@gmail.com'],
+                ['erin@douglasavenue.com'],
                 fail_silently = False)
                 messages.success(request, 'Thanks! The contact form has been sent via internet magic to Erin! If you gave us your contact info, he will get back with you soon!')
                 return redirect('stories:storyHome')
