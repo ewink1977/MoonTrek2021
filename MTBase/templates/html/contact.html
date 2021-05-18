@@ -9,15 +9,17 @@
     </ol>
     <div class="row my-2 mx-5">
         <h1 class="anton">Contact Erin!</h1>
-    <p>
-        Feel free to contact me for whatever reason you want, but if you're going to use this form, it should probably be about Moon Trek!
-    </p>
+        <p>
+            Feel free to contact me for whatever reason you want, but if you're going to use this form, it should
+            probably be about Moon Trek!
+        </p>
     </div>
     <div class="col-6 m-5">
         <form action="{% url 'base:contactPage' %}" method="POST">
             <fieldset>
                 {% csrf_token %}
                 {{ form|crispy }}
+                <div class="g-recaptcha mb-2 p-1" data-sitekey="6Lejs9kaAAAAAEIJNjl6imYMgYcoLbk3HGwTTQ-E"></div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </fieldset>
         </form>
