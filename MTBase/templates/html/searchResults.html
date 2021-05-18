@@ -1,0 +1,40 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <ol class="breadcrumb text-light bg-dark">
+        <li class="breadcrumb-item"><a href="{% url 'stories:storyHome' %}">Home</a></li>
+        <li class="breadcrumb-item active">Search Results - "{{ query }}"</li>
+    </ol>
+    <div class="row justify-content-center">
+        <div class="col-md p-3 rounded shadow text-center">
+            <h1 class="special-elite m-0 d-inline lcars-name-h1">Search Results</h1>
+        </div>
+    </div>
+    <div class="p-5 border-secondary">
+        <div class="row justify-content-center">
+            <div class="col">{{ count }} results for <b>{{ query }}</b></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col">
+                {% if object_list %}
+                <ul>
+                    {% for object in object_list %}
+                    <li><a href="{{ object.get_absolute_url }}">
+                            {% if object.title %}
+                            {{ object.title }}
+                            {% elif object.name %}
+                            {{ object.name }}
+                            {% endif %}
+                        </a></li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <h3>No Results Found...</h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

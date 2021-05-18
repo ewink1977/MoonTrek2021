@@ -1,6 +1,24 @@
 from django.db import models
 from django.urls import reverse
+from django.db.models import Q
 from tinymce.models import HTMLField
+
+
+class StoryQuerySet(models.QuerySet):
+    def search(self, query=None):
+        qs = self
+        if query is not None:
+            or_lookup = (Q(title__icontains=query) | 
+                        Q(summary__icontains=query)|
+                        Q(description__icontains=query))
+            qs = qs.filter(or_lookup).distinct()
+        return qs
+class StoryManager(models.Manager):
+    def get_queryset(self):
+        return StoryQuerySet(self.model, using=self._db)
+
+    def search(self, query=None):
+        return self.get_queryset().search(query=query)
 
 class MoonTrekStories(models.Model):
     title = models.CharField(max_length = 255)
@@ -14,11 +32,13 @@ class MoonTrekStories(models.Model):
     description = models.CharField(max_length = 255, default = "Please replace me.")
     slug = models.SlugField()
 
+    objects = StoryManager()
+
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('storyPage', kwargs={'slug': self.slug})
+        return reverse('stories:storyPage', kwargs={'slug': self.slug})
 
 class MoonTrekChapters(models.Model):
     chapter_number = models.IntegerField()
@@ -34,7 +54,7 @@ class MoonTrekChapters(models.Model):
         return f"{self.story.title} : Chapter {self.chapter_number} - {self.title}"
 
     def get_absolute_url(self):
-        return reverse('chapterPage', kwargs={'slug': self.slug, 'story_slug': self.story.slug})
+        return reverse('stories:chapterPage', kwargs={'slug': self.slug, 'story_slug': self.story.slug})
 
 class Comment(models.Model):
     commentor = models.CharField(max_length = 255)
