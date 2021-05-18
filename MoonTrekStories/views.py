@@ -10,9 +10,14 @@ from MoonTrekStories.dicts import seriesNames
 def addComment(request, id):
     if request.method == 'POST':
         currentStory = MoonTrekStories.objects.get(id = id)
+        if request.user.is_authenticated:
+            is_admin = True
+        else:
+            is_admin = False
         NewComment = Comment.objects.create(
             commentor = request.POST['commentor'],
             comment = request.POST['comment'],
+            is_admin = is_admin,
             story = currentStory,
             )
         NewComment.save()
@@ -20,6 +25,15 @@ def addComment(request, id):
         return render(request, 'MoonTrekStories/comment-return.html', {'comments': Comment.objects.filter(story = currentStory)})
     else:
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', 'stories:storyHome'))
+
+def deleteComment(request, id, storySlug):
+    commentToDelete = Comment.objects.get(id = id)
+    commentToDelete.delete()
+    print(storySlug)
+    # storySlug = storySlug
+    messages.success(request, 'Comment successfully deleted.')
+    return redirect('stories:storyPage', storySlug)
+
 
 def storyHome(request):
     blogPosts = BlogPost.objects.all().order_by('-date_posted')
