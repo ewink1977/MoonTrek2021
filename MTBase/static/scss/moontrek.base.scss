@@ -66,6 +66,27 @@ li.starfleet {
 	line-height: 1;
 }
 
+.icon-list {
+	display: block;
+	margin-bottom: 5px;
+	list-style-type: none;
+	align-self: center;
+	background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png);
+	background-position: 5% 50%;
+	background-repeat: no-repeat;
+	width: 100%;
+	padding: 5px 17%;
+	box-shadow: 1px 1px 5px black;
+	border-radius: 5%;
+
+	&:hover {
+		background-color: #31353a;
+		box-shadow: 1px 1px 5px black;
+		color: whitesmoke;
+		text-decoration: none;
+	}
+}
+
 /* #212529 for body */
 
 /* More Fonts

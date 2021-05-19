@@ -7,34 +7,38 @@
         <li class="breadcrumb-item active">Search Results - "{{ query }}"</li>
     </ol>
     <div class="row justify-content-center">
-        <div class="col-md p-3 rounded shadow text-center">
+        <div class="col-md my-3 p-3 rounded shadow text-center">
             <h1 class="special-elite m-0 d-inline lcars-name-h1">Search Results</h1>
         </div>
     </div>
-    <div class="p-5 border-secondary">
-        <div class="row justify-content-center">
-            <div class="col">{{ count }} results for <b>{{ query }}</b></div>
+    <div class="p-5 border border-secondary rounded row justify-content-center">
+        <div class="col">
+            <h3 class="bowlby mb-4">{{ count }} results for "{{ query }}"</h3>
         </div>
-        <div class="row justify-content-center">
-            <div class="col">
-                {% if object_list %}
-                <ul>
-                    {% for object in object_list %}
-                    <li><a href="{{ object.get_absolute_url }}">
-                            {% if object.title %}
-                            {{ object.title }}
-                            {% elif object.name %}
-                            {{ object.name }}
-                            {% endif %}
-                        </a></li>
-                    {% endfor %}
-                </ul>
-                {% else %}
-                <h3>No Results Found...</h3>
-                {% endif %}
-            </div>
+        {% if object_list %}
+        {% for object in object_list %}
+        <div class="icon-list">
+            <a href="{{ object.get_absolute_url }}">
+                <h4>
+                    {% if object.title %}
+                    {{ object.title }}
+                    {% elif object.name %}
+                    {{ object.name }}
+                    {% endif %}
+                </h4>
+            </a>
+            {% if object.content %}
+            <p>{{ object.content|safe|truncatewords_html:20 }}</p>
+            {% elif object.description %}
+            <p>{{ object.description|safe|truncatewords_html:20 }}</p>
+            {% endif %}
         </div>
+        {% endfor %}
+        {% else %}
+        <h3>No Results Found...</h3>
+        {% endif %}
     </div>
+</div>
 </div>
 
 {% endblock content %}

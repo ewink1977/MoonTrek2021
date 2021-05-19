@@ -1,5 +1,4 @@
-import json
-import urllib
+import json, urllib
 from itertools import chain
 from django.shortcuts import render, redirect
 from django.views import View
@@ -25,7 +24,7 @@ def profileView(request, user):
 
 class SearchView(ListView):
     template_name = 'html/searchResults.html'
-    paginate_by = 20
+    # paginate_by = 10
     count = 0
 
     def get_context_data(self, *args, **kwargs):
@@ -54,7 +53,7 @@ class SearchView(ListView):
                     places_results
             )        
             qs = sorted(queryset_chain, 
-                        key=lambda instance: instance.pk, 
+                        key=lambda instance: instance.slug, 
                         reverse=False)
             self.count = len(qs) # since qs is actually a list
             return qs
