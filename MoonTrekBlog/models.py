@@ -13,7 +13,6 @@ class BlogQuerySet(models.QuerySet):
         if query is not None:
             or_lookup = (Q(title__icontains=query) | 
                         Q(content__icontains=query)|
-                        Q(tags__icontains=query) |
                         Q(slug__icontains=query))
             qs = qs.filter(or_lookup).distinct()
         return qs
@@ -27,7 +26,7 @@ class BlogManager(models.Manager):
 class BlogPost(models.Model):
     title = models.CharField(max_length = 100)
     content = HTMLField()
-    tags = models.CharField(max_length = 255, default = '', blank = True)
+    seo_desc = models.CharField(max_length = 255, default = '', blank = True)
     date_posted = models.DateTimeField(default = timezone.now)
     slug = models.SlugField(null = False, unique = False)
     created_at = models.DateTimeField(auto_now_add = True)

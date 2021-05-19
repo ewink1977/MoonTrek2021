@@ -27,10 +27,10 @@
                     {% endif %}
                 </h4>
             </a>
-            {% if object.content %}
-            <p>{{ object.content|safe|truncatewords_html:20 }}</p>
+            {% if object.seo_desc %}
+            <p>{{ object.seo_desc|safe }}</p>
             {% elif object.description %}
-            <p>{{ object.description|safe|truncatewords_html:20 }}</p>
+            <p>{{ object.description|safe }}</p>
             {% endif %}
         </div>
         {% endfor %}
