@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tinymce',
     'crispy_forms',
-    'storages'
+    'storages',
+    'addthis'
 ]
 
 MIDDLEWARE = [
@@ -84,6 +85,11 @@ DATABASES = {
 
 # RECAPTCHA GOODIES
 GOOGLE_RECAPTCHA_SECRET_KEY = os.environ.get('GOOGLE_RECAPTCHA_SECRET_KEY')
+
+# ADD THIS SOCIAL MEDIA STUFF
+ADDTHIS_SETTINGS = {
+    'PUB_ID': 'ra-60a5e0bfdaf09324'
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

@@ -1,4 +1,4 @@
-{% extends 'html/base.html' %} {% load static %} {% block content %}
+{% extends 'html/base.html' %} {% load static %} {% load addthis %} {% block content %}
 <div class="container">
     <ol class="breadcrumb text-light bg-dark">
         <li class="breadcrumb-item">
@@ -23,7 +23,14 @@
                 {% endif %}
             </div>
         </header>
-        <div class="row p-5">
+        <div class="text-right w-100">
+            <div class="addthis_inline_share_toolbox mr-4">
+                <small class="text-muted comment-help">Share with someone you love or hate, depending on your
+                    opinion!</small>
+            </div>
+            {% addthis_widget %}
+        </div>
+        <div class="row py-2 px-5">
             <div class="col-md">{{ object.content|safe }}</div>
         </div>
         <hr class="my-4 mx-5 border-primary" />

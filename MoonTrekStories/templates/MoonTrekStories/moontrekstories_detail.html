@@ -1,6 +1,7 @@
 {% extends 'html/base.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load addthis %}
 {% block content %}
 <div class="container">
     <ol class="breadcrumb text-light bg-dark">
@@ -19,7 +20,7 @@
             {{ object.summary|safe }}
         </div>
     </div>
-    <div class="row m-3 p-4 border border-dark justify-content-start">
+    <div class="row m-3 p-4 border border-dark">
         <div class="col-md-6">
             <h3 class="bowlby">Chapter List</h3>
             <div class="col py-3 px-3 border border-dark rounded shadow">
@@ -95,6 +96,13 @@
                 </ul>
                 {% endif %}
             </div>
+        </div>
+        <div class="text-right w-100">
+            <div class="addthis_inline_share_toolbox">
+                <small class="text-muted comment-help">Share with someone you love or hate, depending on your
+                    opinion!</small>
+            </div>
+            {% addthis_widget %}
         </div>
     </div>
     <div class="row m-3 p-4 border border-dark shadow">

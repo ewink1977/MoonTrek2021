@@ -1,5 +1,6 @@
 {% extends 'html/base.html' %}
 {% load static %}
+{% load addthis %}
 {% block content %}
 <div class="container">
     <ol class="breadcrumb text-light bg-dark">
@@ -34,6 +35,12 @@
                 {% else %}
                 <p>No blog posts registered for this ship!</p>
                 {% endif %}
+                <div class="mt-2 w-100">
+                    <div class="addthis_inline_share_toolbox">
+                        <small class="text-muted">Share this information!</small>
+                    </div>
+                    {% addthis_widget %}
+                </div>
             </div>
             <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow lcars-content">
                 {{ ship.urlSafe|safe }}
