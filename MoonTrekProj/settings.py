@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'tinymce',
     'crispy_forms',
     'storages',
-    'addthis'
+    'addthis',
+    'taggit',
 ]
 
 MIDDLEWARE = [

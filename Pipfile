@@ -15,6 +15,7 @@ django-jazzmin = "*"
 boto3 = "*"
 django-storages = "*"
 django-addthis = "*"
+django-taggit = "*"
 
 [dev-packages]
 

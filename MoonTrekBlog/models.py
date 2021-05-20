@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.db.models import Q
 from tinymce.models import HTMLField
+from taggit.managers import TaggableManager
 from MoonTrekStories.models import MoonTrekStories
 from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
 
@@ -12,7 +13,7 @@ class BlogQuerySet(models.QuerySet):
         qs = self
         if query is not None:
             or_lookup = (Q(title__icontains=query) | 
-                        Q(content__icontains=query)|
+                        Q(content__icontains=query) |
                         Q(slug__icontains=query))
             qs = qs.filter(or_lookup).distinct()
         return qs
@@ -28,6 +29,7 @@ class BlogPost(models.Model):
     content = HTMLField()
     seo_desc = models.CharField(max_length = 255, default = '', blank = True)
     date_posted = models.DateTimeField(default = timezone.now)
+    tags = TaggableManager()
     slug = models.SlugField(null = False, unique = False)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)

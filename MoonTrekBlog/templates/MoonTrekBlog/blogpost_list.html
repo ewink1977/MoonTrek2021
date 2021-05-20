@@ -12,6 +12,11 @@
         <h3 class="text-muted stattliches">Posted by <a href="{% url 'base:profilePage' post_obj.author.username %}">
                 {{ post_obj.author }}</a></h3>
         <small class="text-primary">{{ post_obj.date_posted|date:'F j, Y' }}</small>
+        <div style="display:flex">
+            {% for tag in post_obj.tags.all %}
+            <a href="#" class="mr-1 badge badge-danger shadow">#{{ tag }}</a>
+            {% endfor %}
+        </div>
         <p>{{ post_obj.content|safe|truncatewords_html:50 }}</p>
         <p class="text-right bowlby"><a href="{% url 'blog:blogPost' post_obj.slug %}">Read More...</a></p>
         <hr class="my-4 border-primary">

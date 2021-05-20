@@ -27,6 +27,11 @@
                     {% endif %}
                 </h4>
             </a>
+            <div style="display:flex">
+                {% for tag in object.tags.all %}
+                <a href="#" class="mr-1 badge badge-danger shadow">#{{ tag }}</a>
+                {% endfor %}
+            </div>
             {% if object.seo_desc %}
             <p>{{ object.seo_desc|safe }}</p>
             {% elif object.description %}
