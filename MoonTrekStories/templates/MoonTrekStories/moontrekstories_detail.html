@@ -1,6 +1,7 @@
 {% extends 'html/base.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load addthis %}
 {% block content %}
 <div class="container">
     <ol class="breadcrumb text-light bg-dark">
@@ -19,7 +20,7 @@
             {{ object.summary|safe }}
         </div>
     </div>
-    <div class="row m-3 p-4 border border-dark justify-content-start">
+    <div class="row m-3 p-4 border border-dark">
         <div class="col-md-6">
             <h3 class="bowlby">Chapter List</h3>
             <div class="col py-3 px-3 border border-dark rounded shadow">
@@ -87,9 +88,7 @@
                 <p>Blog posts about this story.</p>
                 {% if object.blog_post.all %}
                 {% for post in object.blog_post.all %}
-                <a href="{% url 'blog:blogPost' post.slug %}">
-                    <li class="icon-list">{{ post.title }}</li>
-                </a>
+                <a href="{% url 'blog:blogPost' post.slug %}" class="icon-list">{{ post.title }}</a>
                 {% endfor %}
                 {% else %}
                 <ul>
@@ -98,65 +97,84 @@
                 {% endif %}
             </div>
         </div>
+        <div class="text-right w-100">
+            <div class="addthis_inline_share_toolbox">
+                <small class="text-muted comment-help">Share with someone you love or hate, depending on your
+                    opinion!</small>
+            </div>
+            {% addthis_widget %}
+        </div>
     </div>
-    <div class="row m-3 p-4 border border-dark justify-content-end shadow">
-        <div class="col-md-6">
-            <form action="{% url 'stories:addComment' object.pk %}" method="POST" id="newComment">
-                {% csrf_token %}
-                <div class="row">
-                    <div class="col">
-                        <label for="commentor" style="text-decoration: underline;">Who You Are*</label>
-                        <input type="text" class="form-control" name="commentor" id="commentor"
-                            placeholder="Name/ID/@Whatever" aria-describedby="IDHelp" required>
-                        <small id="IDHelp" class="lh-normal text-muted"><span class="text-danger">Required.</span> Real
-                            name, internet name, IDGAF, as long as you identify yourself somehow.</small>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group mt-2 py-2">
-                            <label for="comment" style="text-decoration: underline;">Comment Below*</label>
-                            <textarea class="form-control" id="comment" name="comment" rows="3"
-                                aria-describedby="CommentHelp" required></textarea>
-                            <small id="CommentHelp" class="text-muted"><span class="text-danger">Required, duh.</span>
-                                200 Characters MAX - No spoilers please.</small>
+    <div class="row m-3 p-4 border border-dark shadow">
+        <div class="col-12 p-2 m-2">
+            <h3 class="bowlby mt-3 block w-100 comment-head">Comment On the story!</h3>
+            <small class="text-muted comment-help">Comments with a <span class="text-danger">red border</span> are
+                verified to be from the author!</small>
+        </div>
+        <div class="row p-3 justify-content-end border border-secondary rounded">
+            <div class="col-md-6">
+                <form action="{% url 'stories:addComment' object.pk %}" method="POST" id="newComment">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col">
+                            <label for="commentor" style="text-decoration: underline;">Who You Are*</label>
+                            <input type="text" class="form-control" name="commentor" id="commentor"
+                                placeholder="Name/ID/@Whatever" aria-describedby="IDHelp" required>
+                            <small id="IDHelp" class="lh-normal text-muted"><span class="text-danger">Required.</span>
+                                Real
+                                name, internet name, IDGAF, as long as you identify yourself somehow.</small>
                         </div>
                     </div>
-                </div>
-                <div class="g-recaptcha mb-2" data-sitekey="6Lejs9kaAAAAAEIJNjl6imYMgYcoLbk3HGwTTQ-E"></div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-        <div class="col-md-6 my-3 p-2" id="comments">
-            {% for comment in comments %}
-            {% if comment.is_admin %}
-            <div class="m-2 p-2 shadow rounded border border-danger">
-                {% else %}
-                <div class="m-2 p-2 shadow rounded border border-secondary">
-                    {% endif %}
-                    <div class="row px-3 py-1">
-                        <div class="col-md-3 p-2">{{ comment.commentor }}
-                            {% if comment.is_admin %}
-                            <img src="https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/comment-ewink.png"
-                                alt="ewink posted comment!" class="comment-img">
-                            {% else %}
-                            <img src="https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/comment-default.png"
-                                alt="A wonderful reader posted comment!" class="comment-img">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group mt-2 py-2">
+                                <label for="comment" style="text-decoration: underline;">Comment Below*</label>
+                                <textarea class="form-control" id="comment" name="comment" rows="3"
+                                    aria-describedby="CommentHelp" required></textarea>
+                                <small id="CommentHelp" class="text-muted"><span class="text-danger">Required,
+                                        duh.</span>
+                                    200 Characters MAX - No spoilers please. I will remove comments that are rude (and I
+                                    don't mean critical), spam,
+                                    unrelated, overly filthy, or otherwise violate the spirit of the site.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-recaptcha mb-2" data-sitekey="6Lejs9kaAAAAAEIJNjl6imYMgYcoLbk3HGwTTQ-E"></div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-6 my-3 p-2" id="comments">
+                {% for comment in comments %}
+                {% if comment.is_admin %}
+                <div class="m-2 p-2 shadow rounded border border-danger">
+                    {% else %}
+                    <div class="m-2 p-2 shadow rounded border border-secondary">
+                        {% endif %}
+                        <div class="row px-3 py-1">
+                            <div class="col-md-3 p-2">{{ comment.commentor }}
+                                {% if comment.is_admin %}
+                                <img src="https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/comment-ewink.png"
+                                    alt="ewink posted comment!" class="comment-img">
+                                {% else %}
+                                <img src="https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/comment-default.png"
+                                    alt="A wonderful reader posted comment!" class="comment-img">
+                                {% endif %}
+                            </div>
+                            <div class="col-md-8 p-2 comment-text rounded">{{ comment.comment }}</div>
+                        </div>
+                        <div class="text-right">
+                            <small>Posted at {{ comment.created_at|date:"l, N j, Y @ f A" }}</small>
+                            {% if user.is_authenticated %}
+                            <br />
+                            <hr />
+                            <small><a
+                                    href='{% url "stories:deleteComment" id=comment.pk storySlug=object.slug %}'>DELETE
+                                    COMMENT</a></small>
                             {% endif %}
                         </div>
-                        <div class="col-md-8 p-2 comment-text rounded">{{ comment.comment }}</div>
                     </div>
-                    <div class="text-right">
-                        <small>Posted at {{ comment.created_at|date:"l, N j, Y @ f A" }}</small>
-                        {% if user.is_authenticated %}
-                        <br />
-                        <hr />
-                        <small><a href='{% url "stories:deleteComment" id=comment.pk storySlug=object.slug %}'>DELETE
-                                COMMENT</a></small>
-                        {% endif %}
-                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
 

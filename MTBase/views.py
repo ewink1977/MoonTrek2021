@@ -1,11 +1,15 @@
-import json
-import urllib
+import json, urllib
+from itertools import chain
 from django.shortcuts import render, redirect
 from django.views import View
+from django.views.generic import ListView
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
+from MoonTrekStories.models import MoonTrekStories
+from MoonTrekBlog.models import BlogPost
+from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
 from MTBase.forms import ContactForm
 
 def IndexView(request):
@@ -17,6 +21,43 @@ def profileView(request, user):
         'user': userProfile
     }
     return render(request, 'html/profile.html', context)
+
+class SearchView(ListView):
+    template_name = 'html/searchResults.html'
+    # paginate_by = 10
+    count = 0
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['count'] = self.count or 0
+        context['query'] = self.request.GET.get('q')
+        return context
+    
+    def get_queryset(self):
+        request = self.request
+        query = request.GET.get('q', None)
+        
+        if query is not None:
+            blog_results        = BlogPost.objects.search(query)
+            stories_results     = MoonTrekStories.objects.search(query)
+            character_results   = Character.objects.search(query)
+            ship_results        = Ship.objects.search(query)
+            places_results      = PlacesAndItems.objects.search(query)
+            
+            # combine querysets 
+            queryset_chain = chain(
+                    blog_results, 
+                    stories_results, 
+                    character_results, 
+                    ship_results, 
+                    places_results
+            )        
+            qs = sorted(queryset_chain, 
+                        key=lambda instance: instance.slug, 
+                        reverse=False)
+            self.count = len(qs) # since qs is actually a list
+            return qs
+        return BlogPost.objects.none() # just an empty queryset as default
 
 class ContactView(View):
     def get(self, request):

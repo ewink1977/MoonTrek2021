@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('MT_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['143.198.101.249', 'localhost', '127.0.0.1']
 
@@ -30,10 +30,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'tinymce',
     'crispy_forms',
-    'storages'
+    'storages',
+    'addthis',
+    'taggit',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,6 +90,11 @@ DATABASES = {
 
 # RECAPTCHA GOODIES
 GOOGLE_RECAPTCHA_SECRET_KEY = os.environ.get('GOOGLE_RECAPTCHA_SECRET_KEY')
+
+# ADD THIS SOCIAL MEDIA STUFF
+ADDTHIS_SETTINGS = {
+    'PUB_ID': 'ra-60a5e0bfdaf09324'
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

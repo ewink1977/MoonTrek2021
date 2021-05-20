@@ -1,4 +1,4 @@
-{% extends 'html/base.html' %} {% load static %} {% block content %}
+{% extends 'html/base.html' %} {% load static %} {% load addthis %} {% block content %}
 <div class="container">
     <ol class="breadcrumb text-light bg-dark">
         <li class="breadcrumb-item">
@@ -23,16 +23,23 @@
                 {% endif %}
             </div>
         </header>
-        <div class="row p-5">
+        <div class="text-right w-100">
+            <div class="addthis_inline_share_toolbox mr-4">
+                <small class="text-muted comment-help">Share with someone you love or hate, depending on your
+                    opinion!</small>
+            </div>
+            {% addthis_widget %}
+        </div>
+        <div class="row py-2 px-5">
             <div class="col-md">{{ object.content|safe }}</div>
         </div>
         <hr class="my-4 mx-5 border-primary" />
         <div class="row justify-content-end align-items-center mb-5">
-            <div class="col-1">
+            <div class="col-md-2">
                 <img src="{{ object.author.profile.image.url }}" alt="{{ object.author }}"
-                    class="rounded shadow img-fluid d-block" />
+                    class="rounded shadow d-block author-img float-right" />
             </div>
-            <div class="col-3">
+            <div class="col-md-3 text-right p-3">
                 <h3>
                     Posted by
                     <a href="{% url 'base:profilePage' object.author.username %}">{{ object.author }}</a>

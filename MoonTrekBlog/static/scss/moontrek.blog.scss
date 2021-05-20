@@ -5,6 +5,10 @@
 	line-height: 0.9;
 }
 
+.author-img {
+	width: 100px;
+}
+
 header {
 	background-color: $headerGrey;
 	background-image: linear-gradient(to right, $headerGrey, $site-bg);
