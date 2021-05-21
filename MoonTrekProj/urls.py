@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 # from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
-from .sitemap import BlogSiteMap, StorySiteMap, LCARSCharSiteMap, LCARSMiscSiteMap, LCARSShipiteMap
+from .sitemap import BlogSiteMap, StorySiteMap, LCARSCharSiteMap, LCARSMiscSiteMap, LCARSShipiteMap, StaticSiteMap, ProfileSiteMap
 
 urlpatterns = [
     path('', include('MTBase.urls')),
@@ -15,7 +15,8 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': { 'blog': BlogSiteMap, 
     'stories': StorySiteMap, 'lcarsChar': LCARSCharSiteMap, 
-    'lcarsShip': LCARSShipiteMap, 'lcarsMisc': LCARSMiscSiteMap} },
+    'lcarsShip': LCARSShipiteMap, 'lcarsMisc': LCARSMiscSiteMap, 
+    'static': StaticSiteMap, 'profile': ProfileSiteMap} },
     name='django.contrib.sitemaps.views.sitemap'),
     ]
 
