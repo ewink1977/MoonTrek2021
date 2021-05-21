@@ -66,22 +66,28 @@
                 <ul class="list-inline">
                     {% if object.ships.all %}
                     {% for ship in object.ships.all|dictsort:'name' %}
-                    <li class="list-inline-item"><a href="{% url 'LCARS:shipView' ship.slug %}">{{ ship.name }}</a>,
-                    </li>
+                    <li class="list-inline-item"><a href="{% url 'LCARS:shipView' ship.slug %}">
+                            {{ ship.name }}</a>, </li>
                     {% endfor %}
                     {% else %}
                     <p>No ships registered to this story yet!</p>
                     {% endif %}
                 </ul>
                 <h4 class="stattliches">Locations.</h4>
-                {% if object.places.all %}
-                {% for location in object.places.all|dictsort:'name' %}
-                <li class="list-inline-item"><a href="{% url 'LCARS:miscView' location.slug %}">{{ location.name }}</a>,
-                </li>
-                {% endfor %}
-                {% else %}
-                <p>No locations have been registered to this story yet!</p>
-                {% endif %}
+                <ul class="list-inline">
+                    {% if object.places.all %}
+                    {% for location in object.places.all|dictsort:'name' %}
+                    {% if location.type == 1 %}
+                    <li class="list-inline-item"><a href="{% url 'LCARS:miscView' location.slug %}">
+                            {{ location.name }}</a>, </li>
+                    {% else %}
+                    <p>No locations have been registered to this story yet!</p>
+                    {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <p>No locations have been registered to this story yet!</p>
+                    {% endif %}
+                </ul>
             </div>
             <h3 class="bowlby mt-3">Blog Posts</h3>
             <div class="col py-3 px-3 border border-dark rounded shadow">

@@ -27,9 +27,9 @@ class BlogManager(models.Manager):
 class BlogPost(models.Model):
     title = models.CharField(max_length = 100)
     content = HTMLField()
-    seo_desc = models.CharField(max_length = 255, default = '', blank = True)
+    seo_desc = models.CharField(max_length = 155, default = '', blank = True)
     date_posted = models.DateTimeField(default = timezone.now)
-    tags = TaggableManager()
+    tags = TaggableManager(blank = True)
     slug = models.SlugField(null = False, unique = False)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
