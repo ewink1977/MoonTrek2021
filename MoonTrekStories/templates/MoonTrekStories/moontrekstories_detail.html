@@ -57,9 +57,9 @@
             <div class="col py-3 px-5 border border-dark rounded shadow">
                 <h4 class="stattliches">Characters</h4>
                 <ul class="list-inline">
-                    {% for character in object.characters.all|dictsort:'name' %}
+                    {% for character in object.characters.all|dictsort:'rank' %}
                     <li class="list-inline-item"><a href="{% url 'LCARS:characterView' character.slug %}">
-                            {{character.name }}</a>, </li>
+                            {{character.name }}</a>,</li>
                     {% endfor %}
                 </ul>
                 <h4 class="stattliches">Ships</h4>
@@ -67,7 +67,7 @@
                     {% if object.ships.all %}
                     {% for ship in object.ships.all|dictsort:'name' %}
                     <li class="list-inline-item"><a href="{% url 'LCARS:shipView' ship.slug %}">
-                            {{ ship.name }}</a>, </li>
+                            {{ ship.name }}</a>,</li>
                     {% endfor %}
                     {% else %}
                     <p>No ships registered to this story yet!</p>
@@ -79,7 +79,7 @@
                     {% for location in object.places.all|dictsort:'name' %}
                     {% if location.type == 1 %}
                     <li class="list-inline-item"><a href="{% url 'LCARS:miscView' location.slug %}">
-                            {{ location.name }}</a>, </li>
+                            {{ location.name }}</a>,</li>
                     {% else %}
                     <p>No locations have been registered to this story yet!</p>
                     {% endif %}

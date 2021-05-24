@@ -11,16 +11,16 @@
             <h3 class="special-elite">Characters...</h3>
             <div class="col ml-2">
                 <h4 class="mx-2 my-2 anton">Starfleet</h4>
-                {% for character in object_list %}
+                {% for character in object_list|dictsort:"rank"|dictsortreversed:"story.count" %}
                 {% if character.faction == 1 %}
                 <a href="{% url 'LCARS:charPartialView' character.slug %}" id="charLink" class="icon-list">
-                    {{ character.name }}</a>
+                    {{ character.rank }} {{ character.name }}</a>
                 {% endif %}
                 {% endfor %}
             </div>
             <div class="col ml-2">
                 <h4 class="mx-2 my-2 anton">Everyone Else</h4>
-                {% for character in object_list %}
+                {% for character in object_list|dictsortreversed:"story.count" %}
                 {% if character.faction != 1 %}
                 <a href="{% url 'LCARS:charPartialView' character.slug %}" id="charLink" class="icon-list">
                     {{ character.name }}</a>

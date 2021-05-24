@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.template import Template, RequestContext
 from django.views.generic import ListView, DetailView, TemplateView
 from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
@@ -17,7 +17,7 @@ class LCARSHome(TemplateView):
 
 class Characters(ListView):
     model = Character
-    ordering = ['name']
+    ordering = ['rank']
 
 def CharacterPartialView(request, slug):
     character = Character.objects.get(slug = slug)

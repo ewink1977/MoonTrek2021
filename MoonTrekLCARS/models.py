@@ -25,6 +25,7 @@ class Character(models.Model):
     name = models.CharField(max_length = 255)
     faction = models.IntegerField(default = 0)
     rankIMG = models.ImageField(upload_to = 'rankIMG/', blank = True)
+    rank = models.CharField(max_length = 50, default = '', blank = True)
     department = models.IntegerField(default = 0)
     content = HTMLField()
     seo_desc = models.CharField(max_length = 155, default = '', blank = True)

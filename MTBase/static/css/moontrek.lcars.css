@@ -26,17 +26,17 @@ a.icon-list, li.icon-list { display: block; margin-bottom: 5px; list-style-type:
 
 a.icon-list:hover, li.icon-list:hover { background-color: #31353a; box-shadow: 1px 1px 5px black; color: whitesmoke; text-decoration: none; }
 
-.lcars-head { width: 100%; background-color: azure; padding-right: 2em; }
+a.lcars-head { width: 100%; background-color: azure; padding-right: 2em; font-family: 'Bowlby One SC', cursive; color: black; font-size: 1.5rem; text-decoration: none; text-transform: uppercase; }
 
-.lcars-head a { font-family: 'Roboto', sans-serif; color: darkblue; font-size: 1.1rem; text-decoration: underline; text-transform: uppercase; }
-
-.lcars-head a:hover { color: blue; text-decoration: dotted; }
-
-.lcars-head-text { font-family: 'Ubuntu Mono', monospace; }
+a.lcars-head:hover { text-decoration: underline; }
 
 .lcars-text { font-family: 'Roboto', sans-serif; }
 
 .character h2, .lcars-content h2 { background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/subicon.png); background-repeat: no-repeat; background-position: left; text-transform: uppercase; text-align: left; padding-left: 60px; margin-left: 10px; min-width: 75%; font-size: 1.75rem; }
 
 .lcars-name-h1 { text-shadow: 1px 1px 5px black; }
+
+.blockquote { width: 85%; margin: 1rem auto; padding: 2rem 1rem; border: 1px dotted #7f7f7f; border-radius: 15px; box-shadow: 1px 1px 5px black; }
+
+a.offsite::before { content: ''; color: darkred; display: inline-block; background: url("https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/lcarsIMG/external-link-square-alt-solid.svg") no-repeat top right; width: 8px; height: 15px; }
 /*# sourceMappingURL=moontrek.lcars.css.map */

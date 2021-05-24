@@ -1,4 +1,4 @@
-@import 'var', 'gradients';
+@import 'lcarsvar', 'gradients';
 
 a.icon-list,
 li.icon-list {
@@ -22,26 +22,18 @@ li.icon-list {
 	}
 }
 
-.lcars-head {
+a.lcars-head {
 	width: 100%;
 	background-color: azure;
 	padding-right: 2em;
+	font-family: 'Bowlby One SC', cursive;
+	color: black;
+	font-size: 1.5rem;
+	text-decoration: none;
+	text-transform: uppercase;
 
-	a {
-		font-family: 'Roboto', sans-serif;
-		color: darkblue;
-		font-size: 1.1rem;
+	&:hover {
 		text-decoration: underline;
-		text-transform: uppercase;
-	}
-
-	a:hover {
-		color: blue;
-		text-decoration: dotted;
-	}
-
-	&-text {
-		font-family: 'Ubuntu Mono', monospace;
 	}
 }
 
@@ -66,4 +58,23 @@ li.icon-list {
 
 .lcars-name-h1 {
 	text-shadow: 1px 1px 5px black;
+}
+
+.blockquote {
+	width: 85%;
+	margin: 1rem auto;
+	padding: 2rem 1rem;
+	border: 1px dotted $nobody-grey;
+	border-radius: 15px;
+	box-shadow: 1px 1px 5px black;
+}
+
+a.offsite::before {
+	content: '';
+	color: darkred;
+	display: inline-block;
+	background: url('https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/lcarsIMG/external-link-square-alt-solid.svg')
+		no-repeat top right;
+	width: 8px;
+	height: 15px;
 }

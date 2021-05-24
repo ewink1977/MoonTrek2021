@@ -6,7 +6,7 @@
     <ol class="breadcrumb text-light bg-dark">
         <li class="breadcrumb-item"><a href="{% url 'LCARS:lcarsHome' %}">LCARS Homepage</a></li>
         <li class="breadcrumb-item"><a href="{% url 'LCARS:characterHome' %}">Character DB</a></li>
-        <li class="breadcrumb-item active">{{ character.name }}</li>
+        <li class="breadcrumb-item active">{{ character.rank }} {{ character.name }}</li>
     </ol>
     <div class="row justify-content-center">
         {% if character.department > 0 %}
@@ -18,7 +18,7 @@
             {% else %}
             <div class="col-md p-3 rounded shadow text-center">
                 {% endif %}
-                <h1 class="special-elite m-0 d-inline lcars-name-h1">{{ character.name }}</h1>
+                <h1 class="special-elite m-0 d-inline lcars-name-h1">{{ character.rank }} {{ character.name }}</h1>
                 {% if character.rankIMG %}
                 <img src="{{ character.rankIMG.url }}" alt="{{ character.name }}'s Rank!" class="d-inline ml-3 mb-3">
                 {% endif %}

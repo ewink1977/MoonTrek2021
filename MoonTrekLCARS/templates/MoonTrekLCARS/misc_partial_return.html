@@ -1,5 +1,7 @@
-<div class="col lcars-head text-right px-2 my-2">
-    <a href="{% url 'LCARS:miscView' misc.slug %}">See Full Page</a>
+<div class="row">
+    <a href="{% url 'LCARS:miscView' misc.slug %}" class="lcars-head col text-right px-2 my-2 w-100">
+        CLICK TO SEE FULL DETAILS...
+    </a>
 </div>
 <div class="col p-2">
     <h2 class="lcars-head-text">{{ misc.name }}</h2>
@@ -7,6 +9,8 @@
 <div class="col lcars-text">
     {{ misc.content|safe|truncatewords_html:150 }}
 </div>
-<div class="col lcars-head text-right px-2 my-2">
-    <a href="{% url 'LCARS:miscView' misc.slug %}">See Full Page</a>
+<div class="row">
+    <a href="{% url 'LCARS:miscView' misc.slug %}" class="lcars-head col text-right px-2 my-2 w-100">
+        CLICK TO SEE FULL DETAILS...
+    </a>
 </div>
