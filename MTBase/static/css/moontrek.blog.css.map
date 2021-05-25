@@ -3,7 +3,7 @@
     "mappings": "AAEA,AAAA,WAAW,CAAC,EACX,SAAS,EAAE,MAAM,EACjB,WAAW,EAAE,GAAG,GAChB;;AAED,AAAA,WAAW,CAAC,EACX,KAAK,EAAE,KAAK,GACZ;;AAED,AAAA,MAAM,CAAC,EACN,gBAAgB,ECTJ,OAAO,EDUnB,gBAAgB,EAAE,2CAAgD,GAKlE;;AAPD,AAIC,MAJK,CAIL,EAAE,CAAC,EACF,WAAW,EAAE,GAAG,CAAC,GAAG,CAAC,GAAG,CCfhB,OAAO,GDgBf",
     "sources": [
         "../../../MoonTrekBlog/static/scss/moontrek.blog.scss",
-        "../../../MoonTrekBlog/static/scss/_var.scss"
+        "../../../MoonTrekBlog/static/scss/_blogvar.scss"
     ],
     "names": [],
     "file": "moontrek.blog.css"
