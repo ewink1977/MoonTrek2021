@@ -148,6 +148,7 @@ AWS_S3_ENDPOINT_URL = 'https://sfo3.digitaloceanspaces.com'
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
+AWS_S3_CUSTOM_DOMAIN = 'cdn.douglasavenue.com'
 
 AWS_LOCATION = 'moontrek'
 
