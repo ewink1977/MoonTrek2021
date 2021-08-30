@@ -41,6 +41,28 @@
             {{ object.content|safe }}
         </div>
     </div>
+    <div class="row p-2 m-2 align_items_center justify-content-around">
+        <div class="col-md-1 text-center">
+            {% if object.chapter_number >= 1 %}
+                {% for chapter in allChapters %}
+                    {% if chapter.story == object.story %}{% if chapter.chapter_number == object.chapter_number|add:-1 %}
+                            <a href="{% url 'stories:chapterPage' story_slug=object.story.slug slug=chapter.slug %}">
+                                <span style="font-size: 3.3rem;" class="text-secondary"><i class="fas fa-arrow-circle-left" data-toggle="tooltip" data-placement="top" 
+                                    title="Previous Chapter - {{ chapter.title }}"></i></a>
+                    {% endif %}{% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="col-md-1 text-center">
+            {% for chapter in allChapters %}
+            {% if chapter.story == object.story %}{% if chapter.chapter_number == object.chapter_number|add:1 %}
+            <a href="{% url 'stories:chapterPage' story_slug=object.story.slug slug=chapter.slug %}">
+                <span style="font-size: 3.3rem;" class="text-secondary"><i class="fas fa-arrow-circle-right" data-toggle="tooltip" data-placement="top" 
+                    title="Next Chapter - {{ chapter.title }}"></i></a>
+                {% endif %}{% endif %}
+            {% endfor %}
+        </div>
+    </div>
 </div>
 <script>
     $(document).ready(function () {
