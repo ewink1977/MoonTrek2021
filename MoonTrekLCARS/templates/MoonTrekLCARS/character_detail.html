@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="row my-4 justify-content-between">
-            <div class="col-md-4 p-4 text-justify border border-secondary rounded shadow">
+            <div class="col order-last p-4 text-justify border border-secondary rounded shadow">
                 <h3 class="bowlby">Related Stories</h3>
                 {% for story in character.story.all|dictsort:'position'|dictsort:'series' %}
                 <a href="{% url 'stories:storyPage' story.slug %}" class="icon-list">{{ story.title }}</a>
@@ -45,7 +45,7 @@
                     {% addthis_widget %}
                 </div>
             </div>
-            <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow character">
+            <div class="col-lg-8 p-4 text-justify border border-secondary rounded shadow character">
                 {{ character.urlSafe|safe }}
             </div>
         </div>

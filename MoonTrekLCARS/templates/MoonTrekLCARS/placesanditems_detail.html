@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="row my-4 justify-content-between">
-        <div class="col-md-4 p-4 text-justify border border-secondary rounded shadow">
+        <div class="col order-last p-4 text-justify border border-secondary rounded shadow">
             <h3 class="bowlby">Related Stories</h3>
             {% if misc.story.all %}
             {% for story in misc.story.all %}
@@ -38,7 +38,7 @@
                 {% addthis_widget %}
             </div>
         </div>
-        <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow character lcars-content">
+        <div class="col-lg-8 p-4 text-justify border border-secondary rounded shadow character lcars-content">
             {{ misc.urlSafe|safe }}
         </div>
     </div>

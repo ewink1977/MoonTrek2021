@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row my-4 justify-content-between">
-            <div class="col-md-4 p-4 text-justify border border-secondary rounded shadow">
+            <div class="col order-last p-4 text-justify border border-secondary rounded shadow">
                 <h3 class="bowlby">Related Stories</h3>
                 {% for story in ship.story.all %}
                 <a href="{% url 'stories:storyPage' story.slug %}" class="icon-list">{{ story.title }}</a>
@@ -42,7 +42,7 @@
                     {% addthis_widget %}
                 </div>
             </div>
-            <div class="col-md-8 p-4 text-justify border border-secondary rounded shadow lcars-content">
+            <div class="col-lg-8 p-4 text-justify border border-secondary rounded shadow lcars-content">
                 {{ ship.urlSafe|safe }}
             </div>
         </div>

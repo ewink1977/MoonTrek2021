@@ -2,111 +2,143 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <ol class="breadcrumb text-light bg-dark">
-        <li class="breadcrumb-item active">Stories</li>
-    </ol>
-    <h1 class="text-center bowlby">Welcome to the Moon Trek Story Page!</h1>
-    <div class="row">
-        <div class="col-md p-5">
-            <h2 class="special-elite">Blog Posts!</h2>
-            <small>Quick Jump : <a href="{% url 'blog:blogHome' %}">All Posts</a></small>
-            <p class="border border-secondary shadow p-2 mx-3 my-2">
-                Are you interested in the thought process behind why I wrote something the way I did, or curious about
-                some other things that might have happened
-                outside of the main story? No? Well, in case you find someone who is, you can read blog posts here about
-                the stories!
-            </p>
-            <hr class="my-4 border-primary">
+	<ol class="breadcrumb text-light bg-dark">
+		<li class="breadcrumb-item active">Stories</li>
+	</ol>
+	<h1 class="text-center bowlby">Welcome to the Moon Trek Story Page!</h1>
+	<div class="row">
+		<div class="col-md p-5">
+			<h2 class="special-elite">Blog Posts!</h2>
+			<small
+				>Quick Jump :
+				<a href="{% url 'blog:blogHome' %}">All Posts</a></small
+			>
+			<p class="border border-secondary shadow p-2 mx-3 my-2">
+				Are you interested in the thought process behind why I wrote
+				something the way I did, or curious about some other things that
+				might have happened outside of the main story? No? Well, in case
+				you find someone who is, you can read blog posts here about the
+				stories!
+			</p>
+			<hr class="my-4 border-primary" />
 
-            {% for post_obj in page_obj %}
+			{% for post_obj in page_obj %}
 
-            <h3 class="bowlby">{{ post_obj.title }}</h3>
-            <h6 class="text-muted stattliches">Posted by <a
-                    href="{% url 'base:profilePage' post_obj.author.username %}">{{ post_obj.author }}</a></h6>
-            <small class="text-primary">{{ post_obj.date_posted|date:'F j, Y' }}</small>
-            <div style="display:flex">
-                {% for tag in post_obj.tags.all %}
-                <a href="#" class="mr-1 badge badge-danger shadow">#{{ tag }}</a>
-                {% endfor %}
-            </div>
-            <p>{{ post_obj.content|safe|truncatewords_html:35 }}</p>
-            <p class="text-right bowlby"><a href="{% url 'blog:blogPost' post_obj.slug %}">Read More...</a></p>
-            <hr class="my-4 border-info">
+			<h3 class="bowlby">{{ post_obj.title }}</h3>
+			<h6 class="text-muted stattliches">
+				Posted by
+				<a href="{% url 'base:profilePage' post_obj.author.username %}"
+					>{{ post_obj.author }}</a
+				>
+			</h6>
+			<small class="text-primary"
+				>{{ post_obj.date_posted|date:'F j, Y' }}</small
+			>
+			<div style="display: flex">
+				{% for tag in post_obj.tags.all %}
+				<a href="#" class="mr-1 badge badge-danger shadow"
+					>#{{ tag }}</a
+				>
+				{% endfor %}
+			</div>
+			<p>{{ post_obj.content|safe|truncatewords_html:35 }}</p>
+			<p class="text-right bowlby">
+				<a href="{% url 'blog:blogPost' post_obj.slug %}"
+					>Read More...</a
+				>
+			</p>
+			<hr class="my-4 border-info" />
+			{% endfor %}
+			<div class="col-5">
+				<a href="{% url 'blog:blogHome' %}" class="text-info"
+					><button
+						type="button"
+						class="btn btn-primary btn-lg bowlby"
+					>
+						All Posts
+					</button></a
+				>
+			</div>
+		</div>
+
+		<div class="col-md p-5 order-first">
+			<h2 class="special-elite">Story List!</h2>
+			<small
+				>Quick Jump: <a href="#mt">Moon Trek</a> |
+				<a href="#neo">MT NEO</a> |
+				<a href="#trinity">MT Trinity</a></small
+			>
+			<p class="border border-secondary shadow p-2 mx-3 my-2">
+				Here you can find links to all of the Moon Trek main stories!
+				There are 10 full length stories and 2 shorts! I hope you enjoy
+				reading them as much as I enjoyed writing them!
+			</p>
+			<hr class="mx-5" />
+
+			<h3 class="bowlby" id="mt">Moon Trek</h3>
+
+			{% for story in stories|dictsort:'position' %} {% if story.series == 1 %}
+			<div class="row border border-primary shadow p-1 mb-2">
+				<div class="col">
+					<p class="lead anton">{{ story.title }}</p>
+					<p class="ml-5">{{ story.description }}</p>
+					<div class="text-right mx-5 mb-3">
+						<a href="{% url 'stories:storyPage' story.slug %}"
+							><button
+								type="button"
+								class="btn btn-outline-primary"
+							>
+								To The Story!
+							</button></a
+						>
+					</div>
+				</div>
+			</div>
+			{% endif %} 
             {% endfor %}
-            <div class="col-5">
-                <a href="{% url 'blog:blogHome' %}" class="text-info"><button type="button"
-                        class="btn btn-primary btn-lg bowlby">All Posts</button></a>
-            </div>
-        </div>
 
-        <div class="col-md p-5">
-            <h2 class="special-elite">Story List!</h2>
-            <small>Quick Jump: <a href="#mt">Moon Trek</a> | <a href="#neo">MT NEO</a> | <a href="#trinity">MT
-                    Trinity</a></small>
-            <p class="border border-secondary shadow p-2 mx-3 my-2">
-                Here you can find links to all of the Moon Trek main stories! There are 10 full length stories and 2
-                shorts! I hope you enjoy
-                reading them as much as I enjoyed writing them!
-            </p>
-            <hr class="mx-5">
+			<h3 class="bowlby" id="neo">Moon Trek NEO</h3>
 
-            <h3 class="bowlby" id="mt">Moon Trek</h3>
+			{% for story in stories|dictsort:'position' %} {% if story.series == 2 %}
+			<div class="row border border-primary shadow p-1 mb-2">
+				<div class="col">
+					<p class="lead anton">{{ story.title }}</p>
+					<p class="ml-5">{{ story.description }}</p>
+					<div class="text-right mx-5 mb-3">
+						<a href="{% url 'stories:storyPage' story.slug %}"
+							><button
+								type="button"
+								class="btn btn-outline-primary"
+							>
+								To The Story!
+							</button></a
+						>
+					</div>
+				</div>
+			</div>
+			{% endif %} {% endfor %}
 
-            {% for story in stories|dictsort:'position' %}
-            {% if story.series == 1 %}
-            <div class="row border border-primary shadow p-1 mb-2">
-                <div class="col">
-                    <p class="lead anton">{{ story.title }}</p>
-                    <p class="ml-5">
-                        {{ story.description }}
-                    </p>
-                    <div class="text-right mx-5 mb-3">
-                        <a href="{% url 'stories:storyPage' story.slug %}"><button type="button"
-                                class="btn btn-outline-primary">To The Story!</button></a>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
+			<h3 class="bowlby" id="trinity">Moon Trek Trinity</h3>
 
-            <h3 class="bowlby" id="neo">Moon Trek NEO</h3>
-
-            {% for story in stories|dictsort:'position' %}
-            {% if story.series == 2 %}
-            <div class="row border border-primary shadow p-1 mb-2">
-                <div class="col">
-                    <p class="lead anton">{{ story.title }}</p>
-                    <p class="ml-5">
-                        {{ story.description }}
-                    </p>
-                    <div class="text-right mx-5 mb-3">
-                        <a href="{% url 'stories:storyPage' story.slug %}"><button type="button"
-                                class="btn btn-outline-primary">To The Story!</button></a>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-
-            <h3 class="bowlby" id="trinity">Moon Trek Trinity</h3>
-
-            {% for story in stories|dictsort:'position' %}
-            {% if story.series == 3 %}
-            <div class="row border border-primary shadow p-1 mb-2">
-                <div class="col">
-                    <p class="lead anton">{{ story.title }}</p>
-                    <p class="ml-5">
-                        {{ story.description }}
-                    </p>
-                    <div class="text-right mx-5 mb-3">
-                        <a href="{% url 'stories:storyPage' story.slug %}"><button type="button"
-                                class="btn btn-outline-primary">To The Story!</button></a>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-        </div>
-    </div>
+			{% for story in stories|dictsort:'position' %} {% if story.series == 3 %}
+			<div class="row border border-primary shadow p-1 mb-2">
+				<div class="col">
+					<p class="lead anton">{{ story.title }}</p>
+					<p class="ml-5">{{ story.description }}</p>
+					<div class="text-right mx-5 mb-3">
+						<a href="{% url 'stories:storyPage' story.slug %}"
+							><button
+								type="button"
+								class="btn btn-outline-primary"
+							>
+								To The Story!
+							</button></a
+						>
+					</div>
+				</div>
+			</div>
+			{% endif %} {% endfor %}
+		</div>
+	</div>
 </div>
 {% endblock %}
