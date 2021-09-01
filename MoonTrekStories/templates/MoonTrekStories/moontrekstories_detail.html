@@ -58,34 +58,32 @@
                 <h4 class="stattliches">Characters</h4>
                 <ul class="list-inline">
                     {% for character in object.characters.all|dictsort:'rank' %}
-                    <li class="list-inline-item"><a href="{% url 'LCARS:characterView' character.slug %}">
-                            {{character.name }}</a>,</li>
+                    <li class="list-inline-item p-1 my-1 border border-dark rounded shadow"><a href="{% url 'LCARS:characterView' character.slug %}">
+                            {{character.name }}</a></li>
                     {% endfor %}
                 </ul>
                 <h4 class="stattliches">Ships</h4>
                 <ul class="list-inline">
                     {% if object.ships.all %}
                     {% for ship in object.ships.all|dictsort:'name' %}
-                    <li class="list-inline-item"><a href="{% url 'LCARS:shipView' ship.slug %}">
-                            {{ ship.name }}</a>,</li>
+                    <li class="list-inline-item p-1 my-1 border border-dark rounded shadow"><a href="{% url 'LCARS:shipView' ship.slug %}">
+                            {{ ship.name }}</a></li>
                     {% endfor %}
                     {% else %}
                     <p>No ships registered to this story yet!</p>
                     {% endif %}
                 </ul>
-                <h4 class="stattliches">Locations.</h4>
+                <h4 class="stattliches">Locations</h4>
                 <ul class="list-inline">
                     {% if object.places.all %}
-                    {% for location in object.places.all|dictsort:'name' %}
-                    {% if location.type == 1 %}
-                    <li class="list-inline-item"><a href="{% url 'LCARS:miscView' location.slug %}">
-                            {{ location.name }}</a>,</li>
-                    {% else %}
-                    <p>No locations have been registered to this story yet!</p>
-                    {% endif %}
-                    {% endfor %}
-                    {% else %}
-                    <p>No locations have been registered to this story yet!</p>
+                        {% for location in object.places.all|dictsort:'name' %}
+                            {% if location.type == 1 %}
+                                <li class="list-inline-item p-1 my-1 border border-dark rounded shadow"><a href="{% url 'LCARS:miscView' location.slug %}">
+                                    {{ location.name }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% else %}
+                            <p>No locations have been registered to this story yet!</p>
                     {% endif %}
                 </ul>
             </div>
@@ -159,10 +157,10 @@
                         <div class="row px-3 py-1">
                             <div class="col-md-3 p-2">{{ comment.commentor }}
                                 {% if comment.is_admin %}
-                                <img src="https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/comment-ewink.png"
+                                <img src="https://cdn.douglasavenue.com/moontrek/media/icons/comment-ewink.png"
                                     alt="ewink posted comment!" class="comment-img">
                                 {% else %}
-                                <img src="https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/comment-default.png"
+                                <img src="https://cdn.douglasavenue.com/moontrek/media/icons/comment-default.png"
                                     alt="A wonderful reader posted comment!" class="comment-img">
                                 {% endif %}
                             </div>
