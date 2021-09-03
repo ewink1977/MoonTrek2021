@@ -55,7 +55,8 @@
         <div class="col-md-6">
             <h3 class="bowlby">More Stuff!</h3>
             <div class="col py-3 px-5 border border-dark rounded shadow">
-                <h4 class="stattliches">Characters</h4>
+            <small class="text-muted">The links below contain <span class="text-danger">SPOILERS</span>! You've been warned!</small>
+                <h4 class="stattliches mt-2">Characters</h4>
                 <ul class="list-inline">
                     {% for character in object.characters.all|dictsort:'rank' %}
                     <li class="list-inline-item p-1 my-1 border border-dark rounded shadow"><a href="{% url 'LCARS:characterView' character.slug %}">

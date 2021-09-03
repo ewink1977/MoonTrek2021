@@ -45,8 +45,14 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-.chap-indent {
+.chapter-content {
 	text-indent: 2rem;
+
+	hr {
+		width: 35%;
+		border-top: double;
+		border-color: darkgrey;
+	}
 }
 
 li.starfleet {
@@ -54,7 +60,7 @@ li.starfleet {
 	list-style-type: none;
 	vertical-align: middle;
 	list-style: none;
-	background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png);
+	background-image: url(https://cdn.douglasavenue.com/moontrek/media/icons/starfleetLIicon.png);
 	background-position: left;
 	background-repeat: no-repeat;
 	line-height: 25px;
@@ -75,7 +81,7 @@ li.starfleet {
 	margin-bottom: 5px;
 	list-style-type: none;
 	align-self: center;
-	background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png);
+	background-image: url(https://cdn.douglasavenue.com/moontrek/media/icons/starfleetLIicon.png);
 	background-position: 5% 50%;
 	background-repeat: no-repeat;
 	width: 100%;
@@ -111,4 +117,9 @@ font-family: 'Ubuntu Mono', monospace; */
 		width: 9px;
 		height: 12px;
 	}
+}
+
+.spoiler-warning-stories {
+	margin-left: 60px;
+	margin-top: -15px;
 }

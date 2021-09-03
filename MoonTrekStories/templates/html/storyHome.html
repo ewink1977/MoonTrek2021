@@ -75,10 +75,10 @@
 			</p>
 			<hr class="mx-5" />
 
-			<h3 class="bowlby" id="mt">Moon Trek</h3>
+			<h3 class="bowlby border-bottom border-dark" id="mt">Moon Trek</h3>
 
 			{% for story in stories|dictsort:'position' %} {% if story.series == 1 %}
-			<div class="row border border-primary shadow p-1 mb-2">
+			<div class="row shadow p-1 mb-2">
 				<div class="col">
 					<p class="lead anton">{{ story.title }}</p>
 					<p class="ml-5">{{ story.description }}</p>
@@ -97,10 +97,10 @@
 			{% endif %} 
             {% endfor %}
 
-			<h3 class="bowlby" id="neo">Moon Trek NEO</h3>
+			<h3 class="bowlby border-bottom border-dark" id="neo">Moon Trek NEO</h3>
 
 			{% for story in stories|dictsort:'position' %} {% if story.series == 2 %}
-			<div class="row border border-primary shadow p-1 mb-2">
+			<div class="row shadow p-1 mb-2">
 				<div class="col">
 					<p class="lead anton">{{ story.title }}</p>
 					<p class="ml-5">{{ story.description }}</p>
@@ -118,10 +118,10 @@
 			</div>
 			{% endif %} {% endfor %}
 
-			<h3 class="bowlby" id="trinity">Moon Trek Trinity</h3>
+			<h3 class="bowlby border-bottom border-dark" id="trinity">Moon Trek Trinity</h3>
 
 			{% for story in stories|dictsort:'position' %} {% if story.series == 3 %}
-			<div class="row border border-primary shadow p-1 mb-2">
+			<div class="row shadow p-1 mb-2">
 				<div class="col">
 					<p class="lead anton">{{ story.title }}</p>
 					<p class="ml-5">{{ story.description }}</p>

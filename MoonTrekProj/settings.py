@@ -11,9 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('MT_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['143.198.101.249', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['moontrek.douglasavenue.com', '143.198.101.249', 'localhost', '127.0.0.1']
 
 
 # Application definition
