@@ -1,91 +1,136 @@
-{% extends 'html/base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'html/base.html' %} {% load static %} {% block content %}
 <div class="row align-items-start justify-content-around mx-5 p-3">
-    <div class="col-sm-4 align-self-center">
-        <img src="{% static 'img/mt_title.jpg' %}" alt="Moon Trek title image." class="img-fluid rounded shadow">
-    </div>
-    <div class="col-sm-8">
-        <h1 class="display-3 bowlby">Moon Trek</h1>
-        <p class="lead">
-            Welcome to the new and improved Moon Trek website! I appreciate you stopping by!
-        </p>
-        <hr class="my-4">
-        <p>Please feel free to browse around the site. If you're new to my 'universe', you can start off with the first
-            Moon Trek series and go from there.</p>
-        <p>The stories are a serialization, so they won't make much sense if you start with the last novel (though it
-            will be better written, relatively speaking).</p>
-        <p>Via the nav menu, you can access:</p>
-        <ul>
-            <li>Home: All the stories listed and blog posts of me talking about the stories, or something story related.
-            </li>
-            <li>Quick Access: Ignore my thoughts and go right to the stories!</li>
-            <li>LCARS Database: The Moon Trek universe's version of Wikipedia. <strong>There will be spoilers. Be
-                    careful.</strong></li>
-            <li>Contact: Send me praise, or more likely, tell me how much you died inside from my poor literary skills.
-            </li>
-        </ul>
-    </div>
+	<div class="col-md-4 align-self-center">
+		<img
+			src="{% static 'img/mt_title.jpg' %}"
+			alt="Moon Trek title image."
+			class="img-fluid rounded shadow"
+		/>
+	</div>
+	<div class="col-md-8">
+		<h1 class="display-3 bowlby">Moon Trek</h1>
+		<p class="lead">
+			Welcome to the new and improved Moon Trek website! I appreciate you
+			stopping by!
+		</p>
+        {% if landingAlerts %}
+        <div class='col-md-10 text-center'>
+            {% for alert in landingAlerts %}
+		        <div class="alert alert-{{ alert.alertType }}" role="alert">
+			        {{ alert.alertText|safe }}
+		        </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <hr class="my-4" />
+		<p>
+			Please feel free to browse around the site. If you're new to my
+			'universe', you can start off with the first Moon Trek series and go
+			from there.
+		</p>
+		<p>
+			The stories are a serialization, so they won't make much sense if
+			you start with the last novel (though it will be better written,
+			relatively speaking).
+		</p>
+		<p>Via the nav menu, you can access:</p>
+		<ul>
+			<li>
+				Home: All the stories listed and blog posts of me talking about
+				the stories, or something story related.
+			</li>
+			<li>
+				Quick Access: Ignore my thoughts and go right to the stories!
+			</li>
+			<li>
+				LCARS Database: The Moon Trek universe's version of Wikipedia.
+				<strong>There will be spoilers. Be careful.</strong>
+			</li>
+			<li>
+				Contact: Send me praise, or more likely, tell me how much you
+				died inside from my poor literary skills.
+			</li>
+		</ul>
+	</div>
 </div>
 <div class="row align-items-start justify-content-around mx-5 mb-5">
-    <div class="col-sm border border-secondary p-4">
-        <h2 class="bebas">What Is Moon Trek?</h2>
-        <p>
-            Moon Trek is a crossover fan fiction that takes characters from the Ranma ½ world, the Sailor Moon world,
-            and original characters that I created and
-            places them in the post-Dominion War Star Trek universe. I started the series long before the new movies and
-            series, so my universe is just my mind-canon of things
-            that take place after Deep Space Nine.
-        </p>
-        <p>
-            Over the past two plus decades, the characters and story have evolved from a simple 'LOL WOULDN'T IT BE
-            FUNNY IF RANMA WAS CAPTAIN OF A SPACESHIP TROLOLOLOL'
-            concept into something I tried to turn into a serious writing exercise as I developed both a love for
-            writing and a love for the story and characters that
-            I created and developed.
-        </p>
-        <p>
-            The series is a serial; you can't just start with NEO4. Each story feeds off the previous in one way or
-            another, especially throughout the series;
-            whether it's Moon Trek, NEO or Trinity.
-        </p>
-        <p>
-            With the tenth full length story complete, the series is now finished. With that said, I have three side
-            stories that take place in (more or less) the same universe
-            that I plan to publish soon, so there is more content coming... For some reason.
-        </p>
-        <a href="{% url 'stories:storyHome' %}"><button type="button" class="btn btn-dark">Check Out The
-                Stories!</button></a>
-    </div>
-    <div class="col-sm border border-secondary p-4">
-        <h2 class="bebas">What is the LCARS Database?</h2>
-        <p>
-            The LCARS Database is a character, ship, and story background and information site. It contains information
-            that will provide you with information that comes from the
-            stories and various other sources (by which I mean my - the author's - arse). This information will give
-            away plot points and pretty much tell you the end of the
-            stories if you have not read them.
-        </p>
-        <p>
-            If you have not read the stories, I highly recommend that you do not read these pages. If you are simply a
-            'Star Trek' fan and you want to get basic information on the anime
-            characters, you really don't need to as the characters really evolve out of their anime roles by the second
-            or so story. (I'm that terrible, or that good. Both could be true,
-            from a certain point of view.)
-        </p>
-        <p>
-            However if you do want to learn about the canon characters before reading the stories, you can check out my
-            <a href="https://funkdafied.douglasavenue.com" target="_blank" class="text-danger">Ranma 1/2</a> site, and
-            Google a million or so Sailor Moon sites.
-        </p>
-        <p>
-            The database is still a work in progress, so there may be some issues or missing data. There's also a lot of
-            stuff that's hidden inside of the database (e.g. stuff that doesn't
-            have links from any of the main pages), so if you've got nothing better to do with your life, or you're
-            trapped on a snow-stuck train, you should snoop around!
-        </p>
-        <a href="{% url 'LCARS:lcarsHome' %}"><button type="button" class="btn btn-dark">Check Out The
-                Database!</button></a>
-    </div>
+	<div class="col-md-6 border border-secondary p-4">
+		<h2 class="bebas">What Is Moon Trek?</h2>
+		<p>
+			Moon Trek is a crossover fan fiction that takes characters from the
+			Ranma ½ world, the Sailor Moon world, and original characters that I
+			created and places them in the post-Dominion War Star Trek universe.
+			I started the series long before the new movies and series, so my
+			universe is just my mind-canon of things that take place after Deep
+			Space Nine.
+		</p>
+		<p>
+			Over the past two plus decades, the characters and story have
+			evolved from a simple 'LOL WOULDN'T IT BE FUNNY IF RANMA WAS CAPTAIN
+			OF A SPACESHIP TROLOLOLOL' concept into something I tried to turn
+			into a serious writing exercise as I developed both a love for
+			writing and a love for the story and characters that I created and
+			developed.
+		</p>
+		<p>
+			The series is a serial; you can't just start with NEO4. Each story
+			feeds off the previous in one way or another, especially throughout
+			the series; whether it's Moon Trek, NEO or Trinity.
+		</p>
+		<p>
+			With the tenth full length story complete, the series is now
+			finished. With that said, I have three side stories that take place
+			in (more or less) the same universe that I plan to publish soon, so
+			there is more content coming... For some reason.
+		</p>
+		<a href="{% url 'stories:storyHome' %}"
+			><button type="button" class="btn btn-dark">
+				Check Out The Stories!
+			</button></a
+		>
+	</div>
+	<div class="col-md-6 border border-secondary p-4">
+		<h2 class="bebas">What is the LCARS Database?</h2>
+		<p>
+			The LCARS Database is a character, ship, and story background and
+			information site. It contains information that will provide you with
+			information that comes from the stories and various other sources
+			(by which I mean my - the author's - arse). This information will
+			give away plot points and pretty much tell you the end of the
+			stories if you have not read them.
+		</p>
+		<p>
+			If you have not read the stories, I highly recommend that you do not
+			read these pages. If you are simply a 'Star Trek' fan and you want
+			to get basic information on the anime characters, you really don't
+			need to as the characters really evolve out of their anime roles by
+			the second or so story. (I'm that terrible, or that good. Both could
+			be true, from a certain point of view.)
+		</p>
+		<p>
+			However if you do want to learn about the canon characters before
+			reading the stories, you can check out my
+			<a
+				href="https://funkdafied.douglasavenue.com"
+				target="_blank"
+				class="external_link"
+				>Ranma 1/2</a
+			>
+			site, and Google a million or so Sailor Moon sites.
+		</p>
+		<p>
+			The database is still a work in progress, so there may be some
+			issues or missing data. There's also a lot of stuff that's hidden
+			inside of the database (e.g. stuff that doesn't have links from any
+			of the main pages), so if you've got nothing better to do with your
+			life, or you're trapped on a snow-stuck train, you should snoop
+			around!
+		</p>
+		<a href="{% url 'LCARS:lcarsHome' %}"
+			><button type="button" class="btn btn-dark">
+				Check Out The Database!
+			</button></a
+		>
+	</div>
 </div>
 {% endblock content %}

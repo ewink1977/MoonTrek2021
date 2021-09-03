@@ -9,6 +9,10 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+.alert p {
+	margin-top: 1rem!important;
+}
+
 .new-dark-bg {
 	background-color: $site-bg !important;
 }
@@ -92,3 +96,19 @@ li.starfleet {
 /* More Fonts
 font-family: 'Syne Mono', monospace;
 font-family: 'Ubuntu Mono', monospace; */
+
+.external_link {
+		text-decoration: dashed;
+		color: red;
+	&:hover {
+		color: lightcoral;
+	}
+	&::after {
+		content: "";
+		display: inline-block;
+		background: url("https://cdn.douglasavenue.com/moontrek/media/lcarsIMG/external-link-alt-solid.svg") no-repeat top right;
+		background-size: 8px 8px;
+		width: 9px;
+		height: 12px;
+	}
+}

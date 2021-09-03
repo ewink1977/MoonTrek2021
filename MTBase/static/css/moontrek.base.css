@@ -1,37 +1,113 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-body { background-color: #212529 !important; font-family: 'Roboto', sans-serif; }
+body {
+  background-color: #212529 !important;
+  font-family: 'Roboto', sans-serif;
+}
 
-.new-dark-bg { background-color: #212529 !important; }
+.alert p {
+  margin-top: 1rem !important;
+}
 
-.nav-logo { width: 50px !important; }
+.new-dark-bg {
+  background-color: #212529 !important;
+}
 
-.anton { font-family: 'Anton', sans-serif; }
+.nav-logo {
+  width: 50px !important;
+}
 
-.bowlby { font-family: 'Bowlby One SC', cursive; }
+.anton {
+  font-family: 'Anton', sans-serif;
+}
 
-.bebas { font-family: 'Bebas Neue', cursive; }
+.bowlby {
+  font-family: 'Bowlby One SC', cursive;
+}
 
-.special-elite { font-family: 'Special Elite', cursive; }
+.bebas {
+  font-family: 'Bebas Neue', cursive;
+}
 
-.stattliches { font-family: 'Staatliches', cursive; }
+.special-elite {
+  font-family: 'Special Elite', cursive;
+}
 
-.roboto { font-family: 'Roboto', sans-serif; }
+.stattliches {
+  font-family: 'Staatliches', cursive;
+}
 
-.chap-indent { text-indent: 2rem; }
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
 
-li.starfleet { margin-left: -30px; list-style-type: none; vertical-align: middle; list-style: none; background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png); background-position: left; background-repeat: no-repeat; line-height: 25px; padding-left: 35px; }
+.chap-indent {
+  text-indent: 2rem;
+}
 
-.foot-bottom { /* margin-top: -9px; */ line-height: 1; }
+li.starfleet {
+  margin-left: -30px;
+  list-style-type: none;
+  vertical-align: middle;
+  list-style: none;
+  background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  line-height: 25px;
+  padding-left: 35px;
+}
 
-.lh-normal { line-height: 1; }
+.foot-bottom {
+  /* margin-top: -9px; */
+  line-height: 1;
+}
 
-.icon-list { display: block; margin-bottom: 5px; list-style-type: none; align-self: center; background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png); background-position: 5% 50%; background-repeat: no-repeat; width: 100%; padding: 5px 17%; box-shadow: 1px 1px 5px black; border-radius: 5%; }
+.lh-normal {
+  line-height: 1;
+}
 
-.icon-list:hover { background-color: #31353a; box-shadow: 1px 1px 5px black; color: whitesmoke; text-decoration: none; }
+.icon-list {
+  display: block;
+  margin-bottom: 5px;
+  list-style-type: none;
+  align-self: center;
+  background-image: url(https://douglasave-static.sfo3.digitaloceanspaces.com/moontrek/media/icons/starfleetLIicon.png);
+  background-position: 5% 50%;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 5px 17%;
+  box-shadow: 1px 1px 5px black;
+  border-radius: 5%;
+}
+
+.icon-list:hover {
+  background-color: #31353a;
+  box-shadow: 1px 1px 5px black;
+  color: whitesmoke;
+  text-decoration: none;
+}
 
 /* #212529 for body */
 /* More Fonts
 font-family: 'Syne Mono', monospace;
 font-family: 'Ubuntu Mono', monospace; */
+.external_link {
+  text-decoration: dashed;
+  color: red;
+}
+
+.external_link:hover {
+  color: lightcoral;
+}
+
+.external_link::after {
+  content: "";
+  display: inline-block;
+  background: url("https://cdn.douglasavenue.com/moontrek/media/lcarsIMG/external-link-alt-solid.svg") no-repeat top right;
+  background-size: 8px 8px;
+  width: 9px;
+  height: 12px;
+}
 /*# sourceMappingURL=moontrek.base.css.map */

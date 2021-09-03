@@ -1,8 +1,18 @@
-.related-to { font-size: 0.7rem; line-height: 0.9; }
+.related-to {
+  font-size: 0.7rem;
+  line-height: 0.9;
+}
 
-.author-img { width: 100px; }
+.author-img {
+  width: 100px;
+}
 
-header { background-color: #7f7f7f; background-image: linear-gradient(to right, #7f7f7f, #212529); }
+header {
+  background-color: #7f7f7f;
+  background-image: linear-gradient(to right, #7f7f7f, #212529);
+}
 
-header h1 { text-shadow: 1px 1px 5px #212529; }
+header h1 {
+  text-shadow: 1px 1px 5px #212529;
+}
 /*# sourceMappingURL=moontrek.blog.css.map */

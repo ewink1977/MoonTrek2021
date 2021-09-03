@@ -10,10 +10,15 @@ from django.conf import settings
 from MoonTrekStories.models import MoonTrekStories
 from MoonTrekBlog.models import BlogPost
 from MoonTrekLCARS.models import Character, Ship, PlacesAndItems
+from MTBase.models import LandingAlert
 from MTBase.forms import ContactForm
 
 def IndexView(request):
-    return render(request, 'html/baseIndex.html')
+    landingAlerts = LandingAlert.objects.all()
+    context = {
+        'landingAlerts': landingAlerts
+    }
+    return render(request, 'html/baseIndex.html', context)
 
 def profileView(request, user):
     userProfile = User.objects.get(username = user)

@@ -1,8 +1,16 @@
-.comment-text { border: 1px dotted #292c30; }
+.comment-text {
+  border: 1px dotted #292c30;
+}
 
-.comment-img { width: 75px; }
+.comment-img {
+  width: 75px;
+}
 
-.comment-help { margin-left: 60px; }
+.comment-help {
+  margin-left: 60px;
+}
 
-.comment-head { margin-bottom: -7px; }
+.comment-head {
+  margin-bottom: -7px;
+}
 /*# sourceMappingURL=moontrek.stories.css.map */
