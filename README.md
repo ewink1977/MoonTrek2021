@@ -1,16 +1,18 @@
 <h1>Moon Trek: The Website 2021</h1>
 <h4><em>"Never has so much effort been put in to things no one will ever care about..."</em></h4>
 <h6>-Erin Michael Winking</h6>
-<img src = "http://moontrek.douglasavenue.com/img/titlebg.jpg" alt = "The Moon Trek Logo">
+<img src = "https://cdn.douglasavenue.com/moontrek/static/img/mt_title.jpg" alt = "The Moon Trek Logo">
+<h3>UPDATE! The project is more or less complete! (At least the webdev part...)</h3>
 <h2>What The Hell Is Moon Trek?</h2>
 <p>Moon Trek is a fan fiction setting I created back in the late '90s that puts some of the characters from the anime Ranma ½ and 
 Sailor Moon in the post Dominion War Star Trek universe.</p>
 <p>As of right now, there are 10 full 'novels' (I use that word quite liberally) and two published short stories.</p>
 <h2>So... What Is This?</h2>
-<p>So, at <a href="https://moontrek.douglasavenue.com" target="_blank">moontrek.douglasavenue.com</a> I currently have a static website
+<p>So, at <a href="https://moontrek.douglasavenue.com" target="_blank">moontrek.douglasavenue.com</a> I used to have a static website
 that allows you to view or download the stories. There is also an incomplete 'Wannabe-Wiki' static site that allows you to get some
 information on the characters, settings, and whatnot.</p>
-<p>This project is an attempt to rebuild the site using Django ORM to place everything in a database, make pages searchable, connect characters, ships, etc., to the stories with O2M and M2M relationships, and in general turn the site from your average, everyday static site to a web application.
+<p>This project has rebuilt the site using Django ORM to place everything in a database, make pages searchable, connect characters, ships, etc., to the stories with O2M and M2M relationships, and in general turn the site from your average, everyday static site to a web application.</p> 
+<p>As of September 2021, the project is essentially complete. Asides from some content in the database that still needs to be added (or changed from lorem ipsum), all of the web development goals have been met. There's room for improvement, but the new webapp site is now live at the above address!</p>
 <h2>Okay... But Why?</h2>
 <p>The primary reason is to use the project as a proof of concept that I can build this kind of web app, even if the content is worthless junk.</p>
 <p>Plus I do, occasionally, still work on the stories and have been working on rewriting them in general to fix my early 2000's bad writing and 
@@ -26,6 +28,3 @@ cause me issues down the line. Smooches!</p>
 <hr>
 <a href="https://www.python.org/" target="_blank"><img src="http://ForTheBadge.com/images/badges/made-with-python.svg"></a>
 <br />
-<a href="http://ForTheBadge.com"><img src="http://ForTheBadge.com/images/badges/uses-html.svg">
-<img src="http://ForTheBadge.com/images/badges/uses-css.svg">
-<img src="http://ForTheBadge.com/images/badges/uses-js.svg"></a>
